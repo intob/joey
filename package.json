@@ -1,0 +1,11 @@
+{
+  "name": "joeyinnes",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start": "web-dev-server --open --watch --app-index index.html"
+  },
+  "devDependencies": {
+    "@web/dev-server": "latest"
+  }
+}
