@@ -13,6 +13,7 @@
         margin: 0;
         background: linear-gradient(327.21deg, rgba(33, 0, 75, 0.24) 3.65%, rgba(60, 0, 136, 0) 40.32%), linear-gradient(245.93deg, rgba(209, 21, 111, 0.16) 0%, rgba(209, 25, 80, 0) 36.63%), linear-gradient(147.6deg, rgba(58, 19, 255, 0) 29.79%, rgba(98, 19, 255, 0.01) 85.72%), #13111C;
         color: #fff;
+        min-height: 100vh;
       }
 
       body {
@@ -29,6 +30,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       a {
@@ -67,24 +74,19 @@
   </head>
   <body>
     <main>
-      <img src="img/joey-500px.webp"
-        srcset="img/joey-300px.webp 300w, img/joey-500px.webp 500w"
-        width="300"
-        height="300"
-        alt="Self portrait"
-        class="photo" />
+      <img src="img/joey-500px.webp" srcset="img/joey-300px.webp 300w, img/joey-500px.webp 500w" width="300" height="300" alt="Self portrait" class="photo"/>
       <h1>Hi, my name is<br>Joey Innes</h1>
       <p>I'm a speedflyer, software engineer & I produce music.</p>
-      <h2>Links</h2>
-      <a href="https://youtube.com/@joeyinnes" rel="noreferrer noopener nofollow">YouTube</a>
-      <a href="https://standardresume.co/r/joeyinnes" rel="noreferrer noopener nofollow">CV</a>
-      <a href="pgp.txt">PGP</a>
-      <h2>BTC address</h2>
+      <div class="links">
+        <a href="https://youtube.com/@joeyinnes" rel="noreferrer noopener nofollow">YouTube</a>
+        <a href="https://standardresume.co/r/joeyinnes" rel="noreferrer noopener nofollow">CV</a>
+        <a href="pgp.txt">PGP</a>
+        <a href="https://telegram.me/joeyinnes" rel="noreferrer noopener nofollow">Telegram</a>
+        <a href="https://iris.to/joeyinnes" rel="noreferrer noopener nofollow">Nostr</a>
+      </div>
+      <h2>Bitcoin address</h2>
       <span class="mono">bc1qva0vvx79y2przhty6zwsze96ksn7eahcv4xjj6</span>
       <img src="img/btc-address.svg" alt="BTC address QR code" width="150" height="150" class="btc-qr"/>
-      <h2>Contact</h2>
-      <a href="https://telegram.me/joeyinnes" rel="noreferrer noopener nofollow">Telegram</a>
-      <a href="https://iris.to/joeyinnes" rel="noreferrer noopener nofollow">Nostr</a>
     </main>
   </body>
 </html>
