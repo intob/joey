@@ -30,12 +30,25 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 40px;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      h2 {
+        margin: 0;
       }
 
       .links {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 20px;
       }
 
       a {
@@ -43,7 +56,6 @@
         text-decoration: none;
         display: block;
         padding: 15px;
-        margin: 10px;
         border: 1px solid #fff;
         border-radius: 10px;
         transition: all 300ms;
@@ -54,21 +66,19 @@
         color: #000;
       }
 
+      img {
+        max-width: 100%;
+      }
+
       .photo {
         border-radius: 50%;
-        max-width: 100%;
         height: auto;
       }
 
       .mono {
         user-select: all;
         font-family: monospace;
-        margin: 10px 0;
         word-break: break-all;
-      }
-
-      .btc-qr {
-        max-width: 100%;
       }
     </style>
   </head>
@@ -84,14 +94,19 @@
         <a href="https://telegram.me/joeyinnes" rel="noreferrer noopener nofollow">Telegram</a>
         <a href="https://iris.to/joeyinnes" rel="noreferrer noopener nofollow">Nostr</a>
       </div>
-      <h2>WhatsApp</h2>
-      <img src="img/whatsapp.webp" width="150" height="150" class="whatsapp-qr"/>
-      <h2>Donations</h2>
-      <h3>Bitcoin address</h3>
-      <span class="mono">bc1qva0vvx79y2przhty6zwsze96ksn7eahcv4xjj6</span>
-      <img src="img/btc-address.svg" alt="BTC address QR code" width="150" height="150" class="btc-qr"/>
-      <h3>LNURL</h3>
-      <span class="mono">lnurl1dp68gurn8ghj7ampd3kx2ar0veekzar0wd5xjtnrdakj7tnhv4kxctttdehhwm30d3h82unvwqhhgunpwd5x2ersv4e82vehhjcgnj</span>
+      <section>
+        <h2>WhatsApp</h2>
+        <img src="img/whatsapp.webp" width="150" height="150" class="whatsapp-qr"/>
+      </section>
+      <section>
+        <h2>Bitcoin address</h2>
+        <span class="mono">bc1qva0vvx79y2przhty6zwsze96ksn7eahcv4xjj6</span>
+        <img src="img/btc-address.svg" alt="BTC address QR code" width="150" height="150" class="btc-qr"/>
+      </section>
+      <section>
+        <h2>LNURL</h2>
+        <span class="mono">lnurl1dp68gurn8ghj7ampd3kx2ar0veekzar0wd5xjtnrdakj7tnhv4kxctttdehhwm30d3h82unvwqhhgunpwd5x2ersv4e82vehhjcgnj</span>
+      </section>
     </main>
   </body>
 </html>
