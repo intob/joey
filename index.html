@@ -7,8 +7,14 @@
     <title>Joey Innes</title>
     <link rel="icon" href="img/joey-300px.webp">
     <style>
+      :root {
+        --signal-color-1: #801ae6;
+        --signal-color-2: #a21ae6;
+        --lighten-color: rgba(255,255,255,.075);
+      }
+      
       html {
-        font-size: 16px;
+        font-size: 17px;
         font-family: sans-serif;
         margin: 0;
         background: linear-gradient(327.21deg, rgba(33, 0, 75, 0.24) 3.65%, rgba(60, 0, 136, 0) 40.32%), linear-gradient(245.93deg, rgba(209, 21, 111, 0.16) 0%, rgba(209, 25, 80, 0) 36.63%), linear-gradient(147.6deg, rgba(58, 19, 255, 0) 29.79%, rgba(98, 19, 255, 0.01) 85.72%), #13111C;
@@ -30,7 +36,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 60px;
       }
 
       section {
@@ -40,8 +46,14 @@
         align-items: center;
       }
 
-      h2 {
+      h1, h2, p {
         margin: 0;
+      }
+
+      p {
+        background-color: var(--lighten-color);
+        padding: 20px;
+        border-radius: 10px;
       }
 
       .links {
@@ -61,9 +73,9 @@
         transition: all 300ms;
       }
 
-      a:hover {
-        background-color: #fff;
-        color: #000;
+      a:hover, .mono:hover {
+        background-color: var(--lighten-color);
+        border-color: var(--signal-color-1);
       }
 
       img {
@@ -79,6 +91,8 @@
         user-select: all;
         font-family: monospace;
         word-break: break-all;
+        padding: 10px;
+        transition: background-color 300ms;
       }
     </style>
   </head>
