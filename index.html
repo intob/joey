@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-theme="dark" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +10,12 @@
       :root {
         --dark-color-1: #070707;
         --dark-color-2: #28283a;
-        --lighten-color-1: rgba(255,255,255,.05);
-        --lighten-color-2: rgba(255,255,255,.075);
-        --lighten-color-3: rgba(255,255,255,.9);
-        --darken-color-1: rgba(0,0,0,.1);
-        --darken-color-2: rgba(0,0,0,.9);
+        --lighten-color-1: #ffffff0d;
+        --lighten-color-2: #ffffff13;
+        --darken-color-1: #0000001a;
+        --darken-color-2: #000000e6;
         --signal-color-1: #2fbf7077;
         --signal-color-2: #0075f277;
-        --status-done-color: #2fbf7177;
-        --status-error-color: #a4060677;
       }
       
       html {
@@ -79,10 +76,11 @@
         border: 1px solid var(--lighten-color-2);
         border-radius: 10px;
         transition: all 300ms;
+        background-color: var(--darken-color-1);
       }
 
       a:hover, .mono:hover {
-        background-color: var(--lighten-color-2);
+        background-color: var(--darken-color-2);
         border-color: var(--lighten-color-4);
       }
 
