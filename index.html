@@ -8,14 +8,12 @@
     <link rel="icon" href="img/joey-300px-round.webp">
     <style>
       :root {
-        --dark-color-1: #070707;
-        --dark-color-2: #28283a;
+        --dark-color-1: #004225;
+        --dark-color-2: #003342;
         --lighten-color-1: #ffffff0d;
         --lighten-color-2: #ffffff13;
         --darken-color-1: #0000001a;
         --darken-color-2: #000000e6;
-        --signal-color-1: #2fbf7077;
-        --signal-color-2: #0075f277;
       }
       
       html {
@@ -45,10 +43,11 @@
       }
 
       section {
+        width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         gap: 10px;
-        align-items: center;
       }
 
       h1, h2, p {
@@ -61,11 +60,16 @@
         border-radius: 10px;
       }
 
+      .meditations {
+        text-align: left;
+      }
+
+      .meditations span {
+        font-size: .8em;
+      }
+
       .links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+        flex-direction: row;
       }
 
       a, .mono {
@@ -98,21 +102,25 @@
         font-family: monospace;
         word-break: break-all;
         padding: 10px;
+        text-align: left;
       }
     </style>
   </head>
   <body>
     <main>
       <img src="img/joey-500px.webp" srcset="img/joey-300px.webp 300w, img/joey-500px.webp 500w" width="300" height="300" alt="Self portrait" class="photo"/>
-      <h1>Hi, my name is<br>Joey Innes</h1>
+      <h1>Hey, my name is<br>Joey Innes</h1>
       <p>I'm a speedflyer, software engineer & I produce music.</p>
-      <div class="links">
+      <section class="meditations">
+        <p><span>Meditation 2023-12-31 23:00</span><br/>I realised that the question & answer that defines the universe is the head of an infinite linked list of questions & answers.</p>
+      </section>
+      <section class="links">
         <a href="https://youtube.com/@joeyinnes" rel="noreferrer noopener nofollow">YouTube</a>
         <a href="https://github.com/intob" rel="noreferrer noopener nofollow">GitHub</a>
         <a href="pgp.txt">PGP</a>
         <a href="https://telegram.me/joeyinnes" rel="noreferrer noopener nofollow">Telegram</a>
         <a href="https://iris.to/joeyinnes" rel="noreferrer noopener nofollow">Nostr</a>
-      </div>
+      </section>
       <section>
         <h2>WhatsApp</h2>
         <img src="img/whatsapp.webp" width="150" height="150" alt="WhatsApp QR"/>
