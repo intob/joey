@@ -8,20 +8,19 @@
     <link rel="icon" href="img/joey-300px-round.webp">
     <style>
       :root {
-        --dark-color-1: #004225;
-        --dark-color-2: #003342;
-        --lighten-color-1: #ffffff0d;
-        --lighten-color-2: #ffffff13;
-        --darken-color-1: #0000001a;
-        --darken-color-2: #000000e6;
+        --dark-1: hsl(154, 100%, 1%);
+        --dark-2: hsl(194, 100%, 3%);
+        --lighten-1: #ffffff05;
+        --lighten-2: #ffffff20;
+        --lighten-3: #fffffff0;
       }
       
       html {
         font-size: 17px;
         font-family: sans-serif;
         margin: 0;
-        background: linear-gradient(-0.0625turn, var(--dark-color-1), var(--dark-color-2));
-        color: #fff;
+        background: linear-gradient(-0.0625turn, var(--dark-1), var(--dark-2));
+        color: #f0f0f0f0;
         min-height: 100vh;
       }
 
@@ -29,11 +28,10 @@
         display: flex;
         justify-content: center;
         margin: 0;
-        text-align: center;
       }
 
       main {
-        margin: 20px;
+        margin: 10px;
         max-width: 500px;
         width: 100%;
         display: flex;
@@ -46,22 +44,13 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: left;
         align-items: flex-start;
         gap: 10px;
       }
 
-      h1, h2, p {
+      h1, h2, p, div {
         margin: 0;
-      }
-
-      p {
-        background-color: var(--lighten-color-1);
-        padding: 20px;
-        border-radius: 10px;
-      }
-
-      .meditations {
-        text-align: left;
       }
 
       .meditations span {
@@ -70,6 +59,13 @@
 
       .links {
         flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .questions > div {
+        border: 1px solid var(--lighten-2);
+        border-radius: 10px;
+        padding: 15px;
       }
 
       a, .mono {
@@ -77,15 +73,13 @@
         text-decoration: none;
         display: block;
         padding: 15px;
-        border: 1px solid var(--lighten-color-2);
+        border: 1px solid var(--lighten-2);
         border-radius: 10px;
         transition: all 300ms;
-        background-color: var(--darken-color-1);
       }
 
       a:hover, .mono:hover {
-        background-color: var(--darken-color-2);
-        border-color: var(--lighten-color-4);
+        border-color: var(--lighten-3);
       }
 
       img {
@@ -109,24 +103,30 @@
   <body>
     <main>
       <img src="img/joey-500px.webp" srcset="img/joey-300px.webp 300w, img/joey-500px.webp 500w" width="300" height="300" alt="Self portrait" class="photo"/>
-      <h1>Hey, my name is<br>Joey Innes</h1>
-      <p>I'm a speedflyer, software engineer & I produce music.</p>
+      <section>
+        <h1>Hey, my name is Joey Innes</h1>
+        <p>I'm a software engineer, speedflyer & I produce music.</p>
+      </section>
       <section class="meditations">
-        <p><span>Meditation 2023-12-31 23:00</span><br/>I realised that the question & answer that defines the universe is the head of an infinite linked list of questions & answers.</p>
+        <div>
+          <span>Meditation 2024-01-01 01:00</span>
+          <p>I realised that the question & answer that defines the universe is the head of an infinite linked list of questions & answers.</p>
+        </div>
+      </section>
+      <section class="questions">
+        <div>
+          <div>What is energy?</div>
+          <div>Energy is the potential to induce change.</div>
+        </div>
       </section>
       <section class="links">
         <a href="https://youtube.com/@joeyinnes" rel="noreferrer noopener nofollow">YouTube</a>
         <a href="https://github.com/intob" rel="noreferrer noopener nofollow">GitHub</a>
         <a href="pgp.txt">PGP</a>
-        <a href="https://telegram.me/joeyinnes" rel="noreferrer noopener nofollow">Telegram</a>
         <a href="https://iris.to/joeyinnes" rel="noreferrer noopener nofollow">Nostr</a>
+        <a href="https://telegram.me/joeyinnes" rel="noreferrer noopener nofollow">Telegram</a>
       </section>
       <section>
-        <h2>WhatsApp</h2>
-        <img src="img/whatsapp.webp" width="150" height="150" alt="WhatsApp QR"/>
-      </section>
-      <section>
-        <h2>Bitcoin address</h2>
         <span class="mono">bc1qqzm4qlgqmcgudn7lsrdydhcjnvem8h53np2jnyp0mqh4pd0lh20s6lwhdg</span>
       </section>
     </main>
