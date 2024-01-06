@@ -14,6 +14,15 @@
         --lighten-2: #ffffff20;
         --lighten-3: #fffffff0;
       }
+
+      h1, h2, p, div {
+        margin: 0;
+      }
+
+      .intro {
+        font-size: 1.4em;
+        font-weight: 200;
+      }
       
       html {
         font-size: 17px;
@@ -46,11 +55,7 @@
         flex-direction: column;
         justify-content: left;
         align-items: flex-start;
-        gap: 10px;
-      }
-
-      h1, h2, p, div {
-        margin: 0;
+        gap: 20px;
       }
 
       .meditations span {
@@ -66,6 +71,14 @@
         border: 1px solid var(--lighten-2);
         border-radius: 10px;
         padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .questions > div > *:first-child {
+        border-bottom: 1px solid var(--lighten-2);
+        padding-bottom: 10px;
       }
 
       a, .mono {
@@ -105,7 +118,7 @@
       <img src="img/joey-500px.webp" srcset="img/joey-300px.webp 300w, img/joey-500px.webp 500w" width="300" height="300" alt="Self portrait" class="photo"/>
       <section>
         <h1>Hey, my name is Joey</h1>
-        <p>I'm a software engineer, speedflyer & I produce music.</p>
+        <p class="intro">I write low-latency network apps, fly superfast down big mountains, and a few other things.</p>
       </section>
       <section class="meditations">
         <div>
@@ -123,12 +136,14 @@
       </section>
       <section class="questions">
         <div>
-          <div>What is energy?</div>
-          <div>Energy is the potential for change.</div>
+          <p>What is energy?</p>
+          <p>Energy is the potential for change.</p>
         </div>
         <div>
-          <div>As cost of energy goes to zero, what happens to the value of 1 bitcoin?</div>
-          <div>As cost of energy approaches zero, bitcoin's hash rate will increase to infinity.<br/>This is sure because Bitcoin's hashrate depends on the availability of energy.</div>
+          <p>As cost of energy goes to zero, what happens to the value of 1 bitcoin?</p>
+          <p>As cost of energy approaches zero, bitcoin's hash rate will increase to infinity.</p>
+          <p>This is sure because Bitcoin's hashrate depends on the availability of energy.</p>
+          <p>Therefore, as bitcoin's hashrate grows, the energetic equivilant also increases proportionally.</p>
         </div>
       </section>
       <section class="links">
