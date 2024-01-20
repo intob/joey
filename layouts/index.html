@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ .Site.Title }}</title>
+  <style>
+    .photo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo img {
+      height: auto;
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    .intro h1 {
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+
+    .intro h2 {
+      font-size: 1.4em;
+      font-weight: 200;
+    }
+  </style>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+
+  <main>
+    <article>
+      <section class="intro">
+        <h1>Hey, my name is Joey</h1>
+        <h2>I write low-latency network apps, fly superfast down big mountains, and a few other things.</h2>
+        <div class="photo">
+          <img src="img/madeira-500.webp"
+              srcset="img/madeira-500.webp 300w, img/madeira-1200.webp 500w"
+              width="500"
+              height="250"
+              alt="Self portrait"
+          />
+        </div>
+      </section>
+      {{ $categories := .Site.Taxonomies.categories }}
+      {{ range $categoryName, $category := $categories }}
+      <section>
+        {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
+        <h2>{{ $title }}</h2>
+        {{ range first 3 $category.Pages }}
+        <a href="{{ .Permalink }}">
+          <article>
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Summary }}</p>
+          </article>
+        </a>
+        {{ end }}
+      </section>
+      {{ end }}
+
+      <section>
+        <span class="btcaddr">bc1qqzm4qlgqmcgudn7lsrdydhcjnvem8h53np2jnyp0mqh4pd0lh20s6lwhdg</span>
+      </section>
+    </article>
+  </main>
+</body>
+
+</html>

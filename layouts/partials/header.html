@@ -1,0 +1,11 @@
+<nav>
+  <a href="/">{{ .Site.Title }}</a>
+  {{ range .Site.Taxonomies.categories }}
+  <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+  {{ end }}
+  {{ range .Site.Menus.main }}
+  <a href="{{ .URL }}" {{ if eq .URL $.Page.RelPermalink }}class="active" {{ end }}>
+    {{ .Name }}
+  </a>
+  {{ end }}
+</nav>

@@ -1,0 +1,36 @@
+baseURL = "https://joeyinnes.com"
+languageCode = "en-us"
+title = "Joey Innes"
+
+[params]
+  author = "Joey Innes"
+  description = "A log of my meditations and ideas."
+
+  [params.categories]
+    bitcoin = "Thoughts on bitcoin"
+    meditations = "Meditations"
+
+[permalinks]
+  categories = "/:slug/"
+
+[menu]
+  [[menu.main]]
+    name = "PGP"
+    url = "/pgp.txt"
+    weight = 1
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/intob"
+    weight = 2
+  [[menu.main]]
+    name = "YouTube"
+    url = "https://youtube.com/@joeyinnes"
+    weight = 3
+  [[menu.main]]
+    name = "Nostr"
+    url = "https://iris.to/joeyinnes"
+    weight = 4
+  [[menu.main]]
+    name = "Telegram"
+    url = "https://telegram.me/joeyinnes"
+    weight = 5
