@@ -3,5 +3,10 @@ title: "Bitcoin's hashrate & value"
 date: 2024-01-06
 categories: ["Bitcoin"]
 summary: "Bitcoin's value is tied to the hashrate."
+img: "/img/art/visualisation/1024.avif"
 ---
-Bitcoin's value is tied to the hashrate. Bitcoin's hashrate depends on availability of energy to manufacture & power computers. As we channel more energy, the value will increase indefinitely.
+Bitcoin's value is tied to the hashrate. Bitcoin's hashrate depends on availability of energy to manufacture & power computers.
+
+As we channel more energy, the value will increase indefinitely.
+
+![rather unrelated illustration](/img/art/visualisation/1024.avif)

@@ -21,23 +21,34 @@
     {{ partialCached "header.html" . }}
   </header>
   <main>
-    <section>
-      <h1>{{ $title }}</h1>
-      <ul>
-        {{ range .Paginator.Pages }}
-        <li>
-          <a href="{{ .Permalink }}">
-            <h2>{{ .Title }}</h2>
-            <p>{{ .Summary }}</p>
-            <small>{{ .Date.Format "2006-01-02" }}</small>
-          </a>
-        </li>
-        {{ end }}
-      </ul>
+    <article>
+      <header>
+        <h1>{{ $title }}</h1>
+      </header>
+      <section>
+        <ul>
+          {{ range .Paginator.Pages }}
+          <li>
+            <a href="{{ .Permalink }}">
+              <article class="teaser">
+                {{ if .Params.img }}
+                  <img src="{{ .Params.img }}"/>
+                {{ end }}
+                <section>
+                  <h2>{{ .Title }}</h2>
+                  <p>{{ .Summary }}</p>
+                  <small>{{ .Date.Format "2006-01-02" }}</small>
+                </section>
+              </article>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
 
-      <!-- Pagination -->
-      {{ template "_internal/pagination.html" . }}
-    </section>
+        <!-- Pagination -->
+        {{ template "_internal/pagination.html" . }}
+      </section>
+    </article>
   </main>
 </body>
 
