@@ -3,19 +3,19 @@
 
 <head>
   <title>{{ .Title }} - {{ .Site.Title }}</title>
-  {{ partialCached "head.html" . }}
+  {{ partial "head.html" . }}
 </head>
 
 <body>
   <header>
-    {{ partialCached "header.html" . }}
+    {{ partial "header.html" . }}
   </header>
   <main>
     <article>
       <header>
         <h1>{{ .Title }}</h1>
         {{ if not .Date.IsZero }}
-        <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
         {{ end }}
       </header>
       <section>
