@@ -1,7 +1,7 @@
 ---
 title: "Don't be dreamed, be the dreamer"
 date: 2024-01-21
-categories: ["Meditations"]
+categories: ["Reflections"]
 summary: "The earth is a seed, flying with the wind of the universe."
 img: "/img/art/earth-seed/1024.avif"
 ---

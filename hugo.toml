@@ -1,16 +1,15 @@
 baseURL = "https://joeyinnes.com"
 languageCode = "en-us"
 title = "Joey Innes"
-description = "Don't be dreamed, be the dreamer."
 pluralizelisttitles = false
 
 [params]
   author = "Joey Innes"
-  description = "A log of my meditations and ideas."
+  description = "A record of reflections, going fast, and musings over bitcoin."
 
   [params.categories]
     bitcoin = "Thoughts on bitcoin"
-    meditations = "Meditations"
+    reflections = "Reflections"
     going-fast = "Going fast"
 
 [permalinks]
