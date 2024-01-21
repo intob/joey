@@ -2,3 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/img/self/joey_300_round.webp">
 <link rel="stylesheet" href="/styles.css">
+<!-- Open Graph tags -->
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+{{ if .Params.img }}<meta property="og:image" content="{{ .Params.img | absURL }}" />{{ end }}
