@@ -44,7 +44,7 @@ main {
 }
 
 article {
-  max-width: 500px;
+  max-width: 580px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -87,8 +87,8 @@ a:hover, .btcaddr:hover {
   border-color: var(--lighten-3);
 }
 
-@media(max-width:520px) {
+@media(max-width:616px) {
   article {
-    max-width: 95%;
+    max-width: 94%;
   }
 }

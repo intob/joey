@@ -8,4 +8,8 @@
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-{{ if .Params.img }}<meta property="og:image" content="{{ .Params.img | absURL }}" />{{ end }}
+{{ if .IsHome }}
+  <meta property="og:image" content="https://joeyinnes.com/img/art/crypto-swamp/2400.avif" />
+{{ else }}
+  {{ if .Params.img }}<meta property="og:image" content="{{ .Params.img | absURL }}" />{{ end }}
+{{ end }}
