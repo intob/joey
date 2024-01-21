@@ -13,29 +13,31 @@
       margin: 0;
     }
   </style>
-  {{ partial "head.html" . }}
+  {{ partialCached "head.html" . }}
 </head>
 
 <body>
   <header>
-    {{ partial "header.html" . }}
+    {{ partialCached "header.html" . }}
   </header>
   <main>
-    <h1>{{ $title }}</h1>
-    <ul>
-      {{ range .Paginator.Pages }}
-      <li>
-        <a href="{{ .Permalink }}">
-          <h2>{{ .Title }}</h2>
-          <p>{{ .Summary }}</p>
-          <small>{{ .Date.Format "2006-01-02" }}</small>
-        </a>
-      </li>
-      {{ end }}
-    </ul>
+    <section>
+      <h1>{{ $title }}</h1>
+      <ul>
+        {{ range .Paginator.Pages }}
+        <li>
+          <a href="{{ .Permalink }}">
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Summary }}</p>
+            <small>{{ .Date.Format "2006-01-02" }}</small>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
 
-    <!-- Pagination -->
-    {{ template "_internal/pagination.html" . }}
+      <!-- Pagination -->
+      {{ template "_internal/pagination.html" . }}
+    </section>
   </main>
 </body>
 

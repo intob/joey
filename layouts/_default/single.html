@@ -3,12 +3,12 @@
 
 <head>
   <title>{{ .Title }} - {{ .Site.Title }}</title>
-  {{ partial "head.html" . }}
+  {{ partialCached "head.html" . }}
 </head>
 
 <body>
   <header>
-    {{ partial "header.html" . }}
+    {{ partialCached "header.html" . }}
   </header>
   <main>
     <article>

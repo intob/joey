@@ -26,12 +26,12 @@
       font-weight: 200;
     }
   </style>
-  {{ partial "head.html" . }}
+  {{ partialCached "head.html" . }}
 </head>
 
 <body>
   <header>
-    {{ partial "header.html" . }}
+    {{ partialCached "header.html" . }}
   </header>
 
   <main>
@@ -53,7 +53,7 @@
       <section>
         {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
         <h2>{{ $title }}</h2>
-        {{ range first 3 $category.Pages }}
+        {{ range first 2 $category.Pages }}
         <a href="{{ .Permalink }}">
           <article>
             <h3>{{ .Title }}</h3>
@@ -65,7 +65,9 @@
       {{ end }}
 
       <section>
-        <span class="btcaddr">bc1qqzm4qlgqmcgudn7lsrdydhcjnvem8h53np2jnyp0mqh4pd0lh20s6lwhdg</span>
+        <a href="bitcoin:bc1qqzm4qlgqmcgudn7lsrdydhcjnvem8h53np2jnyp0mqh4pd0lh20s6lwhdg?label=joey_innes%27s%20tipjar" class="btcaddr">
+          bc1qqzm4qlgqmcgudn7lsrdydhcjnvem8h53np2jnyp0mqh4pd0lh20s6lwhdg
+        </a>
       </section>
     </article>
   </main>

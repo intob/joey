@@ -1,6 +1,7 @@
 baseURL = "https://joeyinnes.com"
 languageCode = "en-us"
 title = "Joey Innes"
+pluralizelisttitles = false
 
 [params]
   author = "Joey Innes"
@@ -9,6 +10,7 @@ title = "Joey Innes"
   [params.categories]
     bitcoin = "Thoughts on bitcoin"
     meditations = "Meditations"
+    going-fast = "Going fast"
 
 [permalinks]
   categories = "/:slug/"
