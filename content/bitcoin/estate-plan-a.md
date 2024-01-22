@@ -32,8 +32,11 @@ A protocol that does not compromise my funds while I am alive, but also ensures 
 The following (I hope) is precisely that protocol.
 
 ## Pre-requisites
-- A multi-sig wallet of at least 2-of-3
-- A list of at least 3 trusted individuals (members)
+### 1. A multi-sig wallet of at least 2-of-3
+This protocol depends on a multi-sig configuration. I will write another protocol for single-sig.
+
+### 2.List of protocol members
+A list of trusted individuals (members). This list must be equal in length to the total number of keys of the wallet. For example, in a 2-of-3 configuration, you should choose 3 members.
 
 ## Create a file that identifies each member
 Create a file with a list of members who will receive your bitcoin.
