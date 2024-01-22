@@ -1,0 +1,13 @@
+{{ $context := . }}
+<picture>
+  <source type="image/avif" 
+    srcset="{{ $sizes := dict "800" "" "1600" "" "2400" "" "2912" "" }}
+            {{ range $key, $value := $sizes }}
+              {{ $context.Params.img }}{{ $key }}.avif {{ $key }}w{{ if not (eq $key "2912") }},{{ end }}
+            {{ end }}" 
+    sizes="100vw">
+  <img src="/img/art/crypto-swamp/fallback.webp"
+       width="2912" height="1632"
+       style="width: 100vw; height: auto"
+       alt="somewhat useless illustration {{ .Params.img }}">
+</picture>

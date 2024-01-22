@@ -30,16 +30,7 @@
           {{ range .Paginator.Pages }}
           <li>
             <a href="{{ .Permalink }}">
-              <article class="teaser">
-                {{ if .Params.img }}
-                  <img src="{{ .Params.img }}" alt="teaser image"/>
-                {{ end }}
-                <section>
-                  <h2>{{ .Title }}</h2>
-                  <p>{{ .Description }}</p>
-                  <small>{{ .Date.Format "2006-01-02" }}</small>
-                </section>
-              </article>
+              {{ partial "teaser.html" . }}
             </a>
           </li>
           {{ end }}

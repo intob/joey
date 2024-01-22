@@ -3,7 +3,7 @@ title: "First time in Madeira"
 date: 2023-12-19
 categories: ["Going fast"]
 description: "Considering the Maritime alps, I looked further afield, to warmer climes. I almost went to Corsica..."
-img: "/img/nature/madeira-canyon/900.avif"
+img: "/img/nature/madeira-canyon/"
 ---
 https://youtu.be/8CO--11bj_E
 
@@ -26,5 +26,3 @@ Almost every day, we swam in the sea.
 We ate only one meal per day. Each meal was incredible.
 
 Enjoy the video of my flying with this interesting wing.
-
-![canyon](/img/nature/madeira-canyon/900.avif)

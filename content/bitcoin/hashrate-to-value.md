@@ -3,8 +3,9 @@ title: "Bitcoin's hashrate and bitcoin's value"
 date: 2024-01-06
 categories: ["Bitcoin"]
 description: "Bitcoin's value is in part tied to it's hashrate."
-img: "/img/art/visualisation/1024.avif"
+img: "/img/art/visualisation/"
 needToKnow: ["halving", "hashrate", "total-supply"]
+teaches: "value"
 ---
 
 Every 210,000 blocks (approximately every 4 years), there is a block-reward halving. From that moment,  miners receive half the reward of bitcoin for mining a block.

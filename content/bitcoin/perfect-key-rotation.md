@@ -3,16 +3,18 @@ title: "Perfect key rotation"
 date: 2024-01-20
 categories: ["Bitcoin"]
 tags: ["keys", "key-rotation"]
-description: "With a multi-sig setup, what is the best way to rotate your keys?"
-img: "/img/art/iceage-computer/1024.avif"
+description: "With a multi-sig setup, what is the best way to safely rotate your keys?"
+img: "/img/art/iceage-computer/"
+needToKnow: ["key", "wallet", "multi-sig"]
+teaches: "rotation"
 ---
 Be forewarned, GPT-4 helped me write this, as I wanted to write a rotation protocol for myself. After a couple of tweaks, I now think it's not a bad start.
 
+
 ---
 
-Designing a "perfect" key rotation protocol for a 2-of-3 multi-sig Bitcoin wallet involves balancing security, redundancy, and operational practicality.
 
-![somewhat useless illustration](/img/art/iceage-computer/1024.avif)
+Designing a "perfect" key rotation protocol for a 2-of-3 multi-sig Bitcoin wallet involves balancing security, redundancy, and operational practicality.
 
 Key rotation in a multi-sig context means updating one or more of the keys involved in the signature process.
 

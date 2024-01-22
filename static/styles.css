@@ -52,6 +52,7 @@ article {
 
 article img {
   max-width: 100%;
+  background-color: #fff;
 }
 
 article.teaser {
@@ -61,8 +62,8 @@ article.teaser {
 }
 
 article.teaser img {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
 }
 
@@ -85,6 +86,14 @@ a, .btcaddr {
 
 a:hover, .btcaddr:hover {
   border-color: var(--lighten-3);
+}
+
+code[data-lang=yaml] {
+  text-wrap: wrap;
+  word-break: break-all;
+  display: block;
+  padding: 10px;
+  background: linear-gradient(-0.0625turn, var(--dark-1), var(--dark-2));
 }
 
 @media(max-width:616px) {

@@ -3,13 +3,13 @@ title: "Don't be dreamed, be the dreamer"
 date: 2024-01-21
 categories: ["Reflections"]
 description: "The earth is a seed, flying with the wind of the universe."
-img: "/img/art/earth-seed/1024.avif"
+img: "/img/art/earth-seed/"
 ---
 The world's money is inflating into nothing, as water evaporates from stones heated by the sun.
 
 We are living through the collapse of our money.
 
-![image](/img/art/future-home-1/inside-2048.avif)
+![image](/img/art/future-home-1/structure-2048.avif)
 
 I find it interesting that at the same time, we are witnessing an ever-increasing rate of progress. Our species is rapidly becoming more powerful at channelling energy.
 
@@ -17,8 +17,6 @@ I find it interesting that at the same time, we are witnessing an ever-increasin
 Possibly in my lifetime, we will have machines that build machines, that build machines, that build machines, that build machines, that build machines, that build machines, that build machines, that build machines.
 
 ## Your dreams, constantly manifesting physically...
-
-![image](/img/art/earth-seed/1024.avif)
 
 Imagine an ever-growing non-organic life-form. It would accelerate across galaxies.
 
@@ -32,4 +30,4 @@ What a time to be alive. What a time to dream.
 
 ## Don't be dreamed, be the dreamer.
 
-![image](/img/art/future-home-1/structure-2048.avif)
+![image](/img/art/future-home-1/inside-2048.avif)
