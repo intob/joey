@@ -4,13 +4,18 @@
 <head>
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   {{ if .Params.img }}
-    <meta property="og:image" content="{{ .Params.img | absURL }}" />
-    <meta name="twitter:image" content="{{ .Params.img | absURL }}">
+    {{ $imgUrl := .Params.img | absURL }}
+    <meta property="og:image" content="{{ $imgUrl }}" />
+    <meta name="twitter:image" content="{{ $imgUrl }}">
+  {{ end }}
+  {{ $description := .Site.Params.description }}
+  {{ if .Description }}
+    {{ $description := .Description }}
   {{ end }}
   <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="og:description" content="{{ $description }}" />
   <meta property="twitter:title" content="{{ .Title }}" />
-  <meta property="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="twitter:description" content="{{ $description }}" />
 
   {{ partial "head.html" . }}
 </head>

@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
-  <title>{{ .Site.Title }}</title>
-  <meta property="og:title" content="{{ .Site.Title }}" />
-  <meta property="og:description" content="{{ .Site.Params.description }}" />
+  {{ $title := .Site.Params.description }}
+  {{ $description := .Site.Params.description }}
+  <title>{{ $title }}</title>
+  <meta property="og:title" content="{{ $title }}" />
+  <meta property="og:description" content="{{ $description }}" />
+  <meta property="twitter:title" content="{{ $title }}" />
+  <meta property="twitter:description" content="{{ $description }}" />
   {{ $homePoster := "https://joeyinnes.com/img/art/crypto-swamp/2400.avif" }}
   <meta property="og:image" content="{{ $homePoster }}" />
-  <meta name="twitter:image" content="{{ $homePoster }}">
+  <meta property="twitter:image" content="{{ $homePoster }}">
   <style>
     .portrait {
       border-radius: 10px;
