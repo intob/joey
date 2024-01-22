@@ -5,6 +5,7 @@
   {{ $description := .Site.Params.description }}
   <title>{{ $title }}</title>
   <meta property="og:title" content="{{ $title }}" />
+  <meta property="description" content="{{ $description }}" />
   <meta property="og:description" content="{{ $description }}" />
   <meta property="twitter:title" content="{{ $title }}" />
   <meta property="twitter:description" content="{{ $description }}" />
@@ -55,7 +56,7 @@
         <a href="{{ .Permalink }}">
           <article class="teaser">
             {{ if .Params.img }}
-              <img src="{{ .Params.img }}"/>
+              <img src="{{ .Params.img }}" alt="teaser image"/>
             {{ end }}
             <section>
               <h3>{{ .Title }}</h3>

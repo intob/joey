@@ -7,7 +7,8 @@
     {{ $imgUrl := .Params.img | absURL }}
     <meta property="og:image" content="{{ $imgUrl }}" />
     <meta name="twitter:image" content="{{ $imgUrl }}">
-  {{ end }}
+    {{ end }}
+  <meta property="description" content="{{ .Description }}" />
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:description" content="{{ .Description }}" />
   <meta property="twitter:title" content="{{ .Title }}" />
