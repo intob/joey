@@ -5,14 +5,14 @@
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   {{ if .Params.img }}
     {{ $imgUrl := .Params.img | absURL }}
-    <meta property="og:image" content="{{ $imgUrl }}" />
+    <meta name="og:image" content="{{ $imgUrl }}" />
     <meta name="twitter:image" content="{{ $imgUrl }}">
     {{ end }}
-  <meta property="description" content="{{ .Description }}" />
-  <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:description" content="{{ .Description }}" />
-  <meta property="twitter:title" content="{{ .Title }}" />
-  <meta property="twitter:description" content="{{ .Description }}" />
+  <meta name="description" content="{{ .Description }}" />
+  <meta name="og:title" content="{{ .Title }}" />
+  <meta name="og:description" content="{{ .Description }}" />
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:description" content="{{ .Description }}" />
 
   {{ partial "head.html" . }}
 </head>

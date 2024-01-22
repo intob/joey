@@ -4,14 +4,14 @@
   {{ $title := .Site.Title }}
   {{ $description := .Site.Params.description }}
   <title>{{ $title }}</title>
-  <meta property="og:title" content="{{ $title }}" />
-  <meta property="description" content="{{ $description }}" />
-  <meta property="og:description" content="{{ $description }}" />
-  <meta property="twitter:title" content="{{ $title }}" />
-  <meta property="twitter:description" content="{{ $description }}" />
+  <meta name="description" content="{{ $description }}" />
+  <meta name="og:title" content="{{ $title }}" />
+  <meta name="og:description" content="{{ $description }}" />
+  <meta name="twitter:title" content="{{ $title }}" />
+  <meta name="twitter:description" content="{{ $description }}" />
   {{ $homePoster := "https://joeyinnes.com/img/art/crypto-swamp/2400.avif" }}
-  <meta property="og:image" content="{{ $homePoster }}" />
-  <meta property="twitter:image" content="{{ $homePoster }}">
+  <meta name="og:image" content="{{ $homePoster }}" />
+  <meta name="twitter:image" content="{{ $homePoster }}">
   <style>
     .intro h1 {
       font-size: 1.5em;
