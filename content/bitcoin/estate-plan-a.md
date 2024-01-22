@@ -58,7 +58,9 @@ The transaction distributes your funds as you wish. For example:
 Include a locktime, such that the transaction is not valid until a specific date. As long as you are alive, you must issue new PSBTs. This can be integrated into your key rotation protocol. This completely removes the possibility for any 2 of the members to execute the transaction prematurely.
 
 ### Partially sign each transaction
-Using one of your 3 keys, partially sign each transaction. Each member will be unable to broadcast the transaction alone.
+Partially sign each transaction with one key.Each key must be used to sign exactly one transaction.
+
+Each member will be unable to broadcast the transaction alone.
 
 In order to broadcast the transaction, in a 2-of-3 configuration, 2 of the members must collaborate.
 
@@ -92,3 +94,10 @@ Ensure that they store it in multiple places. They could possibly also print a Q
 
 ### 4. Securely hand each member their password
 Now, you must securely give each member the password to decrypt the file. This is obviously best done in person.
+
+### Optional: Increase redundancy
+You may wish to have more redundancy to ensure successful execution of the protocol. There are a couple of approaches that you could take.
+
+The first would be to choose a quorum that is inherently more redundant (such as 3-of-5 rather than 2-of-3).
+
+Another approach could be to distribute an encrypted file + password to more people, not necessarily limited to those listed as members. For example, in a 2-of-3 setup, each PSBT is given to 2 people (6 in total).
