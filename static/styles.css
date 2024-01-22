@@ -50,7 +50,7 @@ article {
   gap: 40px;
 }
 
-article img {
+article img, article code {
   max-width: 100%;
   background-color: #fff;
 }
