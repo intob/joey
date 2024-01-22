@@ -24,7 +24,7 @@ I've spent quite some time wondering how to implement a protocol that is sure to
 
 A protocol that does not compromise my funds while I am alive, but also ensures that the funds are distributed to the intended holders.
 
-The following is precisely that protocol.
+The following (I hope) is precisely that protocol.
 
 ## Pre-requisites
 - A multi-sig wallet of at least 2-of-3

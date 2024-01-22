@@ -61,6 +61,10 @@ article.teaser {
   gap: 10px;
 }
 
+article.teaser h3 {
+  margin-top: 0;
+}
+
 article.teaser img {
   width: 160px;
   height: 160px;
