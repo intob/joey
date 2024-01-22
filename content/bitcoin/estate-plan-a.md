@@ -37,28 +37,7 @@ Include their name, bitcoin address, physical address, family physical address, 
 Include as much information about each of them as you wish. The more information you include, the more likely it is that some of these people can collaborate to execute the protocol.
 
 For example:
-```yaml
-- name: "Larry"
-  bitcoin_address: "bc1qw2af3e6r84rxku3hxqr5audq3sxfzrt683t0q6"
-  email_address: "your-mate-larry@fink.com"
-  physical_address: "123 Maple Street, Toronto, Ontario, Canada"
-  family_physical_address: "456 Birch Road, Vancouver, British Columbia, Canada"
-  phone_number: "(416) 123-4567"
-
-- name: "Billy"
-  bitcoin_address: "bc1q89263463ns06r4sjuarqmngx4zqtc3lwjs2jeq"
-  email_address: "billy@heavenlygates.com"
-  physical_address: "789 High Street, London, England, UK"
-  family_physical_address: "321 Oak Lane, Edinburgh, Scotland, UK"
-  phone_number: "+44 20 7946 0857"
-
-- name: "Tony"
-  bitcoin_address: "bc1qxstlh4shye6p2y82vk2qh30tmvfgc0wc7c4yph"
-  email_address: "slim-tony@fauci.com"
-  physical_address: "111 Pine Street, Sydney, New South Wales, Australia"
-  family_physical_address: "222 Kangaroo Court, Melbourne, Victoria, Australia"
-  phone_number: "+61 2 9876 5432"
-```
+/estate-plan-a-example.yml
 
 ## Create PSBTs
 Each member will receive the list of members, plus a partially signed bitcoin transaction (PSBT).
