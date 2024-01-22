@@ -52,7 +52,7 @@ Include a locktime, such that the transaction is not valid until a specific date
 ### Partially sign each transaction
 Using one of your 3 keys, partially sign each transaction. Each member will be unable to broadcast the transaction alone.
 
-In order to broadcast the transaction, in a 2-of-3 configuration, 2 of the members must collaborate to broadcast the trasaction.
+In order to broadcast the transaction, in a 2-of-3 configuration, 2 of the members must collaborate.
 
 Note that the trasaction cannot be modified. This eliminates the possibility of any member deviating from the protocol.
 
