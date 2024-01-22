@@ -9,9 +9,7 @@
     <meta name="twitter:image" content="{{ $imgUrl }}">
   {{ end }}
   {{ $description := .Site.Params.description }}
-  {{ if .Description }}
-    {{ $description := .Description }}
-  {{ end }}
+  {{ with $description := .Description }}
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:description" content="{{ $description }}" />
   <meta property="twitter:title" content="{{ .Title }}" />
