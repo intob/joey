@@ -3,7 +3,7 @@ title: "Perfect key rotation"
 date: 2024-01-20
 categories: ["Bitcoin"]
 tags: ["keys", "key-rotation"]
-summary: "With a multi-sig setup, what is the best way to rotate your keys?"
+description: "With a multi-sig setup, what is the best way to rotate your keys?"
 img: "/img/art/iceage-computer/1024.avif"
 ---
 Be forewarned, GPT-4 helped me write this, as I wanted to write a rotation protocol for myself. After a couple of tweaks, I now think it's not a bad start.

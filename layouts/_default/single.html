@@ -8,12 +8,10 @@
     <meta property="og:image" content="{{ $imgUrl }}" />
     <meta name="twitter:image" content="{{ $imgUrl }}">
   {{ end }}
-  {{ $description := .Site.Params.description }}
-  {{ with $description := .Description }}
   <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:description" content="{{ $description }}" />
+  <meta property="og:description" content="{{ .Description }}" />
   <meta property="twitter:title" content="{{ .Title }}" />
-  <meta property="twitter:description" content="{{ $description }}" />
+  <meta property="twitter:description" content="{{ .Description }}" />
 
   {{ partial "head.html" . }}
 </head>
