@@ -9,7 +9,7 @@ teaches: "estate-planning"
 ---
 # Important: This is a work in progress
 # Suggestions
-If you know something that I don't, please [submit a PR](https://github.com/intob/joeyinnes). I am always thankful to learn. 😊
+If you know something that I don't, please [submit a PR](https://github.com/intob/joeyinnes), or create an issue. I am always thankful to learn. 😊
 ---
 
 We holders of bitcoin must consider what we would like to happen to our bitcoin after our death.
