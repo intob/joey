@@ -36,7 +36,6 @@ Include their name, bitcoin address, physical address, family physical address, 
 
 Include as much information about each of them as you wish. The more information you include, the more likely it is that some of these people can collaborate to execute the protocol.
 
-For example:
 [Example member list](/estate-plan-a-example.yml)
 
 ## Create PSBTs
