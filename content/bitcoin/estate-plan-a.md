@@ -34,7 +34,7 @@ The following is precisely that protocol.
 Create a file with a list of members who will receive your bitcoin.
 Include their name, bitcoin address, physical address, family physical address, phone number, email address, etc.
 
-Include as much information about each of them as you wish. The more information you include, the more likely it is that these people can find eachother. You will later see why this is good for two reasons.
+Include as much information about each of them as you wish. The more information you include, the more likely it is that some of these people can collaborate to execute the protocol.
 
 For example:
 ```yaml
