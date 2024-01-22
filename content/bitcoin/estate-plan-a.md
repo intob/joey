@@ -69,7 +69,7 @@ The transaction distributes your funds as you wish. For example:
 ![example tx](/img/tech/psbt/original.png)
 
 ### Optional: Locktime (added security)
-Include a locktime, such that the transaction is not valid until a specific date. As long as you are alive, you must issue new PSBTs. This can be integrated into your key rotation protocol. This completely removes the possibility for any 2 of the members to broadcast the transaction prematurely.
+Include a locktime, such that the transaction is not valid until a specific date. As long as you are alive, you must issue new PSBTs. This can be integrated into your key rotation protocol. This completely removes the possibility for any 2 of the members to execute the transaction prematurely.
 
 ### Partially sign each transaction
 Using one of your 3 keys, partially sign each transaction. Each member will be unable to broadcast the transaction alone.
