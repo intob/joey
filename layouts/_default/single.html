@@ -3,6 +3,15 @@
 
 <head>
   <title>{{ .Title }} - {{ .Site.Title }}</title>
+  {{ if .Params.img }}
+    <meta property="og:image" content="{{ .Params.img | absURL }}" />
+    <meta name="twitter:image" content="{{ .Params.img | absURL }}">
+  {{ end }}
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="twitter:title" content="{{ .Title }}" />
+  <meta property="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+
   {{ partial "head.html" . }}
 </head>
 
