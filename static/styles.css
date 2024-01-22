@@ -50,7 +50,7 @@ article {
   gap: 40px;
 }
 
-article img, article code {
+article img {
   max-width: 100%;
   background-color: #fff;
 }
@@ -89,6 +89,7 @@ a:hover, .btcaddr:hover {
 }
 
 code[data-lang=yaml] {
+  max-width: 100%;
   text-wrap: wrap;
   word-break: break-all;
   display: block;
