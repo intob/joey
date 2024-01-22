@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   {{ $title := .Site.Title }}
   {{ $description := .Site.Params.description }}
@@ -13,16 +12,10 @@
   <meta property="og:image" content="{{ $homePoster }}" />
   <meta property="twitter:image" content="{{ $homePoster }}">
   <style>
-    .portrait {
-      border-radius: 10px;
-      max-width: 100%;
-    }
-
     .intro h1 {
       font-size: 1.5em;
       font-weight: 600;
     }
-
     .intro h2 {
       font-size: 1.5em;
       font-weight: 200;
@@ -30,7 +23,6 @@
   </style>
   {{ partial "head.html" . }}
 </head>
-
 <body>
   <header>
     {{ partial "header.html" . }}
@@ -67,7 +59,7 @@
             {{ end }}
             <section>
               <h3>{{ .Title }}</h3>
-              <p>{{ .Summary }}</p>
+              <p>{{ .Description }}</p>
             </section>
           </article>
         </a>
@@ -77,5 +69,4 @@
     </article>
   </main>
 </body>
-
 </html>
