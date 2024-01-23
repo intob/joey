@@ -5,10 +5,10 @@ pluralizelisttitles = false
 
 [params]
   author = "Joey Innes"
-  description = "A record of reflections, going fast, and musings over bitcoin."
+  description = "A record of reflections, going fast, and musings over our bitcoin, AI and other tech."
 
   [params.categories]
-    bitcoin = "Thoughts on bitcoin"
+    tech = "Thoughts on tech"
     reflections = "Reflections"
     going-fast = "Going fast"
 
