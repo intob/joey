@@ -71,6 +71,15 @@ article.teaser img {
   object-fit: cover;
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: .7em;
+  padding: 0 5px;
+}
+
 a, .btcaddr {
   color: inherit;
   text-decoration: none;

@@ -31,12 +31,13 @@
   <main>
     <picture>
       <source type="image/avif" 
-              srcset="/img/art/crypto-swamp/800.avif 800w,
-                      /img/art/crypto-swamp/1600.avif 1600w,
-                      /img/art/crypto-swamp/2400.avif 2400w,
-                      /img/art/crypto-swamp/2912.avif 2912w"
+              srcset="/img/life/torrent-creusaz/800.avif 800w,
+                      /img/life/torrent-creusaz/1600.avif 1600w,
+                      /img/life/torrent-creusaz/2400.avif 2400w,
+                      /img/life/torrent-creusaz/2912.avif 2912w
+                      /img/life/torrent-creusaz/3840.avif 3840w"
               sizes="100vw">
-      <img src="/img/art/crypto-swamp/400.avif"
+      <img src="/img/life/torrent-creusaz/400.avif"
           width="2912" height="1632"
           style="width: 100vw; height: auto"
           alt="computing swamp">
@@ -44,7 +45,8 @@
     <article>
       <section class="intro">
         <h1>Hey, my name is Joey</h1>
-        <h2>I write low-latency, high-throughput network apps, fly superfast down big mountains, and a few other things.</h2>
+        <h2>I write low-latency, high-throughput network apps,
+          fly superfast down big mountains, and a few other things.</h2>
         <img src="/img/self/madeira/nuns/1600.avif" alt="Self portrait" class="portrait"/>
       </section>
       {{ $categories := .Site.Taxonomies.categories }}
@@ -53,9 +55,7 @@
         {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
         <h2>{{ $title }}</h2>
         {{ range first 2 $category.Pages }}
-        <a href="{{ .Permalink }}">
-          {{ partial "teaser.html" . }}
-        </a>
+          <a href="{{ .Permalink }}">{{ partial "teaser.html" . }}</a>
         {{ end }}
       </section>
       {{ end }}

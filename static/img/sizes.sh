@@ -19,7 +19,7 @@ if ! command -v ffmpeg &> /dev/null; then
 fi
 
 # Define an array of desired widths
-widths=(400 800 1600 2400 2912)
+widths=(400 800 1600 2400 2912 3840)
 
 # Loop through the widths array
 for width in "${widths[@]}"; do

@@ -4,7 +4,7 @@ date: 2024-01-20
 categories: ["Bitcoin"]
 tags: ["keys", "key-rotation"]
 description: "With a multi-sig setup, what is the best way to safely rotate your keys?"
-img: "/img/art/iceage-computer/"
+img: "/img/art/cryptic-wall/"
 needToKnow: ["key", "wallet", "multi-sig"]
 teaches: "rotation"
 ---
