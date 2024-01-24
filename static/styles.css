@@ -41,13 +41,20 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 60px;
 }
 
 article {
   max-width: 580px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 article img {
@@ -104,15 +111,6 @@ a, .btcaddr {
 
 a:hover, .btcaddr:hover {
   border-color: var(--lighten-3);
-}
-
-code[data-lang=yaml] {
-  max-width: 100%;
-  text-wrap: wrap;
-  word-break: break-all;
-  display: block;
-  padding: 10px;
-  background: linear-gradient(-0.0625turn, var(--dark-1), var(--dark-2));
 }
 
 @media(max-width:616px) {

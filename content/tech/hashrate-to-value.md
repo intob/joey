@@ -7,7 +7,6 @@ img: "/img/art/visualisation/"
 needToKnow: ["halving", "hashrate", "total-supply"]
 teaches: "value"
 ---
-
 Every 210,000 blocks (approximately every 4 years), there is a block-reward halving. From that moment,  miners receive half the reward of bitcoin for mining a block.
 
 The halving process will continue until the maximum supply of 21 million bitcoin is mined. Afterwards, miners earn only transaction fees for processing transactions.
@@ -17,8 +16,6 @@ Due to the fixed supply, 1 bitcoin is worth 1/21 million of all that bitcoin is 
 # What is the worth of all earthly land, housing, rare earth minerals, and acient obsidian spear heads?
 
 # 21 million bitcoin.
-
-![rather unrelated illustration](/img/art/visualisation/1024.avif)
 
 Bitcoin's value is also tied to the hashrate. As hashrate increases, the energy required to mine blocks increases proportionally.
 
