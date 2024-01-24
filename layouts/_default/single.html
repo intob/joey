@@ -22,7 +22,11 @@
     {{ partial "header.html" . }}
   </header>
   <main>
-    {{ partial "hero.html" . }}
+    {{ if .Params.video }}
+      {{ partial "video.html" . }}
+    {{ else }}
+      {{ partial "hero.html" . }}
+    {{ end }}
     <article>
       <header>
         <h1>{{ .Title }}</h1>

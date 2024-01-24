@@ -1,0 +1,5 @@
+{{ if .Params.video }}
+  <video controls autoplay="false" poster="{{ .Params.img }}3840.avif">
+    <source src="{{ .Params.video }}" type="video/mp4">
+  </video>
+{{ end }}

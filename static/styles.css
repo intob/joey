@@ -80,6 +80,11 @@ figcaption {
   padding: 0 5px;
 }
 
+video {
+  width: 100vw;
+  max-width: 3840px;
+}
+
 a, .btcaddr {
   color: inherit;
   text-decoration: none;
