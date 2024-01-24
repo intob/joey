@@ -1,5 +1,18 @@
-{{ if .Params.video }}
-  <video controls autoplay="false" poster="{{ .Params.img }}3840.avif">
-    <source src="{{ .Params.video }}" type="video/mp4">
-  </video>
-{{ end }}
+<style>
+  .buttons {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+  }
+</style>
+<video controls autoplay="false" poster="{{ .Params.img }}3840.avif">
+  <source src="https://arweave.net/{{ .Params.videoTxId }}" type="video/mp4">
+</video>
+<section class="buttons">
+  <a href="https://arweave.net/{{ .Params.videoTxId }}">
+    Download H.265 master
+  </a>
+  <a href="https://viewblock.io/arweave/tx/{{ .Params.videoTxId }}">View tx</a>
+</section>

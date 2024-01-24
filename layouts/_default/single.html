@@ -19,7 +19,7 @@
     {{ partial "header.html" . }}
   </header>
   <main>
-    {{ if .Params.video }}
+    {{ if .Params.videoTxId }}
       {{ partial "video.html" . }}
     {{ else }}
       {{ partial "hero.html" . }}
