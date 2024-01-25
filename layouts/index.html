@@ -54,7 +54,7 @@
         {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
         <h2>{{ $title }}</h2>
         {{ range first 2 $category.Pages }}
-          <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
+          <a href="{{ .Permalink }}">{{ partial "teaser.html" . }}</a>
         {{ end }}
       </section>
       {{ end }}
