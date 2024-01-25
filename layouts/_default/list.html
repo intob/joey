@@ -29,7 +29,7 @@
         <ul>
           {{ range .Paginator.Pages }}
           <li>
-            <a href="{{ .Permalink }}">
+            <a href="{{ .RelPermalink }}">
               {{ partial "teaser.html" . }}
             </a>
           </li>
