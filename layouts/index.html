@@ -40,7 +40,7 @@
       <img src="/img/life/torrent-creusaz/400.avif"
           width="3840" height="2160"
           style="width: 100vw; height: auto"
-          alt="computing swamp">
+          alt="a rebirth">
     </picture>
     <article>
       <section class="intro">
@@ -54,7 +54,7 @@
         {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
         <h2>{{ $title }}</h2>
         {{ range first 2 $category.Pages }}
-          <a href="{{ .Permalink }}">{{ partial "teaser.html" . }}</a>
+          <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
         {{ end }}
       </section>
       {{ end }}
