@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "Joey Innes"
 pluralizelisttitles = false
 
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', "HIDDEN_SERVICE_HOSTNAME"]
+
 [params]
   author = "Joey Innes"
   description = "A record of reflections, going fast, and musings over our bitcoin, AI and other tech."
