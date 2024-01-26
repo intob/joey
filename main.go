@@ -9,9 +9,7 @@ import (
 // We need a http server to serve our Tor requests
 func main() {
 	flag.Parse()
-	dir := flag.Arg(0)
-	fs := http.FileServer(http.Dir(dir))
-	log.Printf("serving dir: %s", dir)
+	fs := http.FileServer(http.Dir("./public"))
 	http.Handle("/", fs)
 	log.Print("starting server on http://localhost:80\n")
 	err := http.ListenAndServe(":80", nil)
