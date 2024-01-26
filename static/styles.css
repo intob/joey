@@ -51,6 +51,10 @@ article {
   gap: 60px;
 }
 
+main > article > header > h1 {
+  margin: 60px 0;
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -76,15 +80,6 @@ article.teaser img {
   width: 160px;
   height: 160px;
   object-fit: cover;
-}
-
-figure {
-  margin: 0;
-}
-
-figcaption {
-  font-size: .7em;
-  padding: 0 5px;
 }
 
 video {
