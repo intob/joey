@@ -11,8 +11,8 @@ func main() {
 	flag.Parse()
 	fs := http.FileServer(http.Dir("./public"))
 	http.Handle("/", fs)
-	log.Print("starting server on http://localhost:80\n")
-	err := http.ListenAndServe(":80", nil)
+	log.Print("starting server on http://localhost:8080\n")
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
