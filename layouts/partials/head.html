@@ -1,7 +1,8 @@
 <meta charset="UTF-8">
 {{ $hostname := getenv "HIDDEN_SERVICE_HOSTNAME" }}
-{{ if ne .Site.BaseURL $hostname }}
-<meta http-equiv="onion-location" content="http://{{ getenv "HIDDEN_SERVICE_HOSTNAME" }}" />
+{{ $baseurl := printf "http://%s" $hostname }}
+{{ if ne .Site.BaseURL $baseurl }}
+<meta http-equiv="onion-location" content="{{ $baseurl }}" />
 {{ end }}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/img/self/madeira/nuns/18x18.webp">
