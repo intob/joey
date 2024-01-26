@@ -23,6 +23,6 @@ Bitcoin's hashrate depends on availability of energy to manufacture & power comp
 
 As we channel more energy, the energetic equivalent of 1 bitcoin will continue to increase.
 
-It a blazing fire of computing power. As long as someone is adding fuel, it will burn.
+It's a blazing fire of computing power. As long as someone is adding fuel, it will burn.
 
 # It's fire
