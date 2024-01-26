@@ -1,5 +1,14 @@
 {{ $hostname := getenv "HIDDEN_SERVICE_HOSTNAME" }}
-{{ $onionurl := printf "http://%s" $hostname }}
+{{ if $hostname }}
+  {{ $onionurl := printf "http://%s" $hostname }}
+  <style>
+    .onionurl {
+      font-family: monospace;
+      font-size: .7em;
+    }
+  </style>
+  <div class="onionurl">{{ $onionurl }}</div>
+{{ end }}
 <nav>
   <a href="/" class="home"><img src="/img/self/madeira/nuns/18x18.webp" width="18" height="18" style="border-radius: 50%" alt="icon">{{ .Site.Title }}</a>
   {{ range .Site.Taxonomies.categories }}
