@@ -24,6 +24,21 @@ body {
   gap: 20px;
 }
 
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
 nav {
   display: flex;
   gap: 5px;
@@ -89,7 +104,8 @@ video {
   max-width: 3840px;
 }
 
-a, .addr {
+a,
+.addr {
   color: inherit;
   text-decoration: none;
   display: flex;
@@ -105,9 +121,12 @@ a, .addr {
   font-family: monospace;
   word-break: break-all;
   padding: 10px;
+  margin: 0 5px;
+  font-size: .7em;
 }
 
-a:hover, .addr:hover {
+a:hover,
+.addr:hover {
   border-color: var(--lighten-3);
 }
 

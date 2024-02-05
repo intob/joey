@@ -12,16 +12,6 @@
   {{ $homePoster := "https://joeyinnes.com/img/art/crypto-swamp/2400.avif" }}
   <meta name="og:image" content="{{ $homePoster }}" />
   <meta name="twitter:image" content="{{ $homePoster }}">
-  <style>
-    .intro h1 {
-      font-size: 1.5em;
-      font-weight: 600;
-    }
-    .intro h2 {
-      font-size: 1.5em;
-      font-weight: 200;
-    }
-  </style>
   {{ partial "head.html" . }}
 </head>
 <body>
@@ -43,9 +33,10 @@
           alt="a rebirth">
     </picture>
     <article>
-      <section class="intro">
+      <section>
         <h1>Hey, my name is Joey</h1>
         <h2>I write software, cook good healthy food, and ponder about the future of earthly life.</h2>
+        <h3>Rather than building the thing wrong, we tend to build the wrong thing. Question everything all the time.</h3>
       </section>
       {{ $categories := .Site.Taxonomies.categories }}
       {{ range $categoryName, $category := $categories }}
