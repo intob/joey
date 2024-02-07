@@ -6,6 +6,25 @@
   --lighten-3: #fffffff0;
 }
 
+/* Typography */
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+/* Layout */
+
 html {
   font-size: 17px;
   font-family: sans-serif;
@@ -22,21 +41,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-}
-
-h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 200;
-}
-
-h3 {
-  font-size: 1.2rem;
-  font-weight: 200;
 }
 
 nav {
@@ -59,13 +63,6 @@ main {
   padding-bottom: 60px;
 }
 
-article {
-  max-width: 580px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
 header {
   display: flex;
   flex-direction: column;
@@ -77,6 +74,20 @@ footer {
   flex-direction: column;
   gap: 10px;
 }
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+section {
+  max-width: 580px;
+  padding: 0 10px;
+}
+
+/* Everything else */
 
 article img {
   max-width: 100%;
@@ -128,10 +139,4 @@ a,
 a:hover,
 .addr:hover {
   border-color: var(--lighten-3);
-}
-
-@media(max-width:616px) {
-  article {
-    max-width: 94%;
-  }
 }

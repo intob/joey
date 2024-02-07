@@ -15,11 +15,8 @@
   </style>
   {{ partial "head.html" . }}
 </head>
-
 <body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
+  <header>{{ partial "header.html" . }}</header>
   <main>
     <article>
       <header>
@@ -35,12 +32,9 @@
           </li>
           {{ end }}
         </ul>
-
-        <!-- Pagination -->
         {{ template "_internal/pagination.html" . }}
       </section>
     </article>
   </main>
 </body>
-
 </html>

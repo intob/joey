@@ -30,15 +30,13 @@
     <article>
       <header>
         <h1>{{ .Title }}</h1>
+        {{ if not .Date.IsZero }}
+        <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{ end }}
       </header>
       <section>{{ .Content }}</section>
-      {{ if not .Date.IsZero }}
-      <section>
-        <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-      </section>
-      {{ end }}
-      {{ partial "footer.html" . }}
     </article>
   </main>
+  {{ partial "footer.html" . }}
 </body>
 </html>

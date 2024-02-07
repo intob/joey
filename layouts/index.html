@@ -15,24 +15,22 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
+  <header>{{ partial "header.html" . }}</header>
   <main>
-    <picture>
-      <source type="image/avif" 
-              srcset="/img/life/torrent-creusaz/800.avif 800w,
-                      /img/life/torrent-creusaz/1600.avif 1600w,
-                      /img/life/torrent-creusaz/2400.avif 2400w,
-                      /img/life/torrent-creusaz/2912.avif 2912w,
-                      /img/life/torrent-creusaz/3840.avif 3840w"
-              sizes="100vw">
-      <img src="/img/life/torrent-creusaz/400.avif"
-          width="3840" height="2160"
-          style="width: 100vw; height: auto"
-          alt="a rebirth">
-    </picture>
     <article>
+      <picture>
+        <source type="image/avif" 
+                srcset="/img/life/torrent-creusaz/800.avif 800w,
+                        /img/life/torrent-creusaz/1600.avif 1600w,
+                        /img/life/torrent-creusaz/2400.avif 2400w,
+                        /img/life/torrent-creusaz/2912.avif 2912w,
+                        /img/life/torrent-creusaz/3840.avif 3840w"
+                sizes="100vw">
+        <img src="/img/life/torrent-creusaz/400.avif"
+            width="3840" height="2160"
+            style="width: 100vw; height: auto"
+            alt="a rebirth">
+      </picture>
       <section>
         <h1>Hey, my name is Joey</h1>
         <h2>I write software, cook good healthy food, and ponder about the future of earthly life.</h2>
