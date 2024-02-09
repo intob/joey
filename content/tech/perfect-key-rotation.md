@@ -42,7 +42,7 @@ Step 1: Generate a new key (Key D)
 
 Step 2: Create a new 2-of-3 multi-sig wallet using Key B, Key C, and Key D (assuming you're rotating out Key A).
 
-Step 3: Sign a transaction with all 3 keys as a test to test the keys.
+Step 3: Sign a transaction with all 3 keys as a test.
 
 Step 4: Transfer a small amount of Bitcoin to the new wallet as a test.
 
@@ -55,7 +55,6 @@ Step 6: Retire Key A securely. Ensure it is no longer used.
 Update all relevant documentation and access protocols to reflect the new key setup.
 
 Schedule the next rotation.
-
 
 ## Redundancy and recovery
 
