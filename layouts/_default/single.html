@@ -25,7 +25,9 @@
     {{ if .Params.videoTxId }}
       {{ partial "video.html" . }}
     {{ else }}
-      {{ partial "hero.html" . }}
+      {{ if .Params.img }}
+        {{ partial "hero.html" . }}
+      {{ end }}
     {{ end }}
     <article>
       <header>
