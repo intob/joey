@@ -43,6 +43,10 @@ body {
   gap: 20px;
 }
 
+body > header {
+  align-items: center;
+}
+
 nav {
   display: flex;
   gap: 5px;
@@ -137,7 +141,6 @@ a,
   word-break: break-all;
   padding: 10px;
   margin: 0 5px;
-  font-size: 1rem;
 }
 
 a:hover,
