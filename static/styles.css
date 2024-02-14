@@ -67,6 +67,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 100%;
 }
 
 footer {
@@ -82,9 +83,12 @@ article {
   gap: 60px;
 }
 
-section {
+section,
+main > article > header,
+footer {
   max-width: 580px;
-  padding: 0 10px;
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 
 /* Everything else */
