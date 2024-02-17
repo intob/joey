@@ -47,6 +47,15 @@ body > header {
   align-items: center;
 }
 
+header > .banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+  font-size: .8em;
+}
+
 nav {
   display: flex;
   gap: 5px;

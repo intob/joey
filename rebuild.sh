@@ -2,6 +2,9 @@
 
 git pull
 
+# get commit hash
+export COMMIT_HASH=$(git rev-parse HEAD)
+
 # get hostname
 export HIDDEN_SERVICE_HOSTNAME=$(cat /var/lib/tor/hidden_service/hostname)
 

@@ -5,7 +5,7 @@ pluralizelisttitles = false
 
 [security]
   [security.funcs]
-    getenv = ['^HUGO_', '^CI$', "HIDDEN_SERVICE_HOSTNAME"]
+    getenv = ['^HUGO_', '^CI$', "HIDDEN_SERVICE_HOSTNAME", "COMMIT_HASH"]
 
 [params]
   author = "Joey Innes"
