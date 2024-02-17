@@ -1,14 +1,18 @@
-{{ $hostname := getenv "HIDDEN_SERVICE_HOSTNAME" }}
-{{ $onionurl := "my.onion" }}
-{{ if $hostname }}
-  {{ $onionurl := printf "http://%s" $hostname }}
-{{ end }}
 <div class="banner">
-  <div class="addr">{{ $onionurl }}</div>
-  {{ $commitHash := getenv "COMMIT_HASH" }}
-  {{ if $commitHash }}
-  <div class="addr">commit {{ $commitHash }}</div>
-  {{ end }}
+  <div class="addr">
+    {{- $hostname := getenv "HIDDEN_SERVICE_HOSTNAME" -}}
+    {{- if $hostname -}}
+      http://{{ $hostname }}
+    {{- else -}}
+      my.onion
+    {{- end -}}
+  </div>
+  <div class="addr">
+    {{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
+    {{- if $commitHash -}}
+      commit {{ $commitHash }}
+    {{- end -}}
+  </div>
 </div>
 <nav>
   <a href="/" class="home"><img src="/img/self/madeira/nuns/18x18.webp" width="18" height="18" style="border-radius: 50%" alt="icon">{{ .Site.Title }}</a>
