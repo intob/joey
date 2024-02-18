@@ -13,7 +13,7 @@ The halving process will continue until the maximum supply of 21 million bitcoin
 
 Due to the fixed supply, 1 bitcoin is worth 1/21 million of all that bitcoin is worth.
 
-# What is the worth of all earthly land, housing, rare earth minerals, and acient obsidian spear heads?
+# What is the worth of all earthly land, housing, rare earth minerals, and ancient obsidian spearheads?
 
 # 21 million bitcoin.
 
