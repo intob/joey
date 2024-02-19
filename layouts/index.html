@@ -38,10 +38,13 @@
       </section>
       <section>
         <h2>Thoughts on computing</h2>
-        <h3>Protobuf is good.</h3>
-        <h3>Complexity does not scale linearly.</h3>
-        <h3>Stacks such as AWS DirectorLego are morbidly obese due to over-abstraction.</h3>
-        <h3>If I really must build web things, I write buildless native web components on an import map.</h3>
+        <ul>
+          <li><h3>Self-reference is beautiful.</h3></li>
+          <li><h3>Complexity does not scale linearly.</h3></li>
+          <li><h3>Stacks such as AWS DirectorLego are morbidly obese due to over-abstraction.</h3></li>
+          <li><h3>Protobuf is good.</h3></li>
+          <li><h3>If I really must build web things, I write buildless modules of native web components.</h3></li>
+        </ul>
       </section>
       {{ $categories := .Site.Taxonomies.categories }}
       {{ range $categoryName, $category := $categories }}
