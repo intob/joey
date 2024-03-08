@@ -1,5 +1,6 @@
 ---
 title: "Joey Innes - Resume"
+description: "Highly-motivated, curious & honest senior software engineer."
 date: 2024-03-08
 img: "/img/art/crypto-swamp/"
 ---
@@ -9,7 +10,8 @@ img: "/img/art/crypto-swamp/"
 
 My career in computing has been inconsistent and far from conventional.
 
-I'm now late. I must grow. Fast. I focus on maximising my rate of learning, and I'm beyond happy with this strategy.
+## I'm now late. I must grow. Fast.
+I focus on maximising my rate of learning, and I'm beyond happy with this strategy.
 
 # Recent Projects
 ## logd
