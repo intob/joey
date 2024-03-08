@@ -1,5 +1,5 @@
 ---
-title: "Joey Innes - Resume"
+title: "Resume"
 description: "Highly-motivated, curious & honest senior software engineer."
 date: 2024-03-08
 img: "/img/art/crypto-swamp/"
