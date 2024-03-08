@@ -1,7 +1,7 @@
 ---
 title: "Bitcoin's hashrate and bitcoin's value"
 date: 2024-01-06
-categories: ["Tech"]
+categories: ["cs"]
 description: "Bitcoin's value is in part tied to it's hashrate."
 img: "/img/art/visualisation/"
 needToKnow: ["halving", "hashrate", "total-supply"]

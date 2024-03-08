@@ -1,7 +1,7 @@
 ---
 title: "Perfect bitcoin key rotation"
 date: 2024-01-20
-categories: ["Tech"]
+categories: ["cs"]
 description: "With a multi-sig bitcoin wallet, what is the best way to safely rotate your keys?"
 img: "/img/art/cryptic-wall/"
 needToKnow: ["key", "wallet", "multi-sig"]

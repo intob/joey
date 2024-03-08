@@ -18,7 +18,7 @@ pluralizelisttitles = false
   description = "A record of reflections, going fast, and musings over our bitcoin, AI and other tech."
 
   [params.categories]
-    tech = "Thoughts on tech"
+    cs = "Computer Broscience"
     reflections = "Reflections"
     going-fast = "Going fast"
 
