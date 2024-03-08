@@ -46,3 +46,7 @@ pluralizelisttitles = false
     name = "Telegram"
     url = "https://telegram.me/joeyinnes"
     weight = 5
+  [[menu.main]]
+    name = "Resume"
+    url = "/resume"
+    weight = 6
