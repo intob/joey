@@ -27,7 +27,7 @@ h3 {
 
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   margin: 0;
   background: linear-gradient(-0.0625turn, var(--dark-1), var(--dark-2));
   color: #f0f0f0f0;
@@ -53,7 +53,7 @@ header > .banner {
   justify-content: space-between;
   gap: 5px;
   width: 100%;
-  font-size: .8em;
+  font-size: .8rem;
 }
 
 nav {
@@ -61,6 +61,7 @@ nav {
   gap: 5px;
   flex-wrap: wrap;
   padding: 0 5px;
+  font-size: 1.2rem;
 }
 
 nav a {
@@ -87,6 +88,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-size: .8rem;
 }
 
 article {
