@@ -49,3 +49,6 @@ type V interface {
 Types that implement this interface can be rotated automatically by the application. The staged rotation including rollback is abstracted into a separate package.
 
 Developers are happy because they can easily rotate their app's secrets, whether DB password, elliptic curve key or shared secret.
+
+## arpload
+**Unfinished** safe large file uploader for Arweave network. Written in Go using `everFinance/goar`.
