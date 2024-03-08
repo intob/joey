@@ -108,7 +108,7 @@ footer {
 
 /* Everything else */
 
-article pre > code {
+article pre {
   max-width: 100%;
   overflow-x: scroll;
 }
