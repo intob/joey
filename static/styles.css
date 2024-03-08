@@ -110,6 +110,7 @@ footer {
 
 article pre > code {
   max-width: 100%;
+  overflow-x: scroll;
 }
 
 article img {
