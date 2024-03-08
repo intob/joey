@@ -102,11 +102,15 @@ section,
 main > article > header,
 footer {
   max-width: 580px;
-  padding: 0 5px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
 /* Everything else */
+
+article pre > code {
+  max-width: 100%;
+}
 
 article img {
   max-width: 100%;
