@@ -17,6 +17,8 @@ I focus on maximising my rate of learning, and I'm beyond happy with this strate
 ## logd
 Real-time logging (tail & query) for virtually unlimited logs. A map of in-memory ring buffers. Built on UDP & homegrown (simple) stateless & ephemeral HMAC. Go std lib + Protobuf. Image is built from scratch (Linux kernel + app executable).
 
+I'm about to move this app into a private network. During this move, I will opensource it. I need to add a config file besides current env vars.
+
 ## Sshworm
 I have been playing with distributing program execution across a large and changing trusted network using `/etc/hosts` traversal over SSH.
 
@@ -52,3 +54,4 @@ Developers are happy because they can easily rotate their app's secrets, whether
 
 ## arpload
 **Unfinished** safe large file uploader for Arweave network. Written in Go using `everFinance/goar`.
+[Repo](https://github.com/intob/arpload)
