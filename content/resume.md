@@ -4,7 +4,7 @@ description: "Highly-motivated, curious & honest senior software engineer."
 date: 2024-03-08
 img: "/img/art/crypto-swamp/"
 ---
-## From writing my first C programs at age 12. Building military avionics at GE Aviation Systems at age 19. Off-grid shack living in Chamonix. Now senior software engineer in Switzerland at 31.
+## From writing my first C programs at age 12. Building military avionics for GE Aviation Systems at age 19. Off-grid shack living in Chamonix. Now senior software engineer in Switzerland at 31.
 
 ![image](/img/self/madeira/nuns/2400.avif)
 
