@@ -108,9 +108,10 @@ footer {
 
 /* Everything else */
 
-article pre {
+article pre code {
   max-width: 100%;
   overflow-x: scroll;
+  font-size: .8rem;
 }
 
 article img {
