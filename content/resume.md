@@ -52,7 +52,9 @@ Types that implement this interface can be rotated automatically by the applicat
 
 Developers are happy because they can easily rotate their app's secrets, whether DB password, elliptic curve key or shared secret.
 
-## arpload
+## Arpload
 Safely upload large files to Arweave network. Written in Go using `everFinance/goar`.
+
+![image](/img/cs/arpload/1/2400.avif)
 
 Interrupted uploads will resume. See the [repo](https://github.com/intob/arpload), or read the [article](/cs/arpload).
