@@ -17,7 +17,7 @@ This protocol aims to ensure that at no point is the wallet's security compromis
 
 Start with a 2-of-3 multi-sig wallet.
 
-Let's label the keys as: `Key A`, `Key B` and `Key C`.
+Let's label the keys as: `Key_A, Key_B, Key_C`
 
 Ensure that each key is securely and independently stored.
 Define a regular rotation schedule (e.g. annually or biannually).
@@ -30,15 +30,15 @@ Sign a message or test transaction to ensure all keys are operational.
 
 ## Rotation process
 
-Step 1: Generate a new key. `Key D`
+Step 1: Generate a new key, `Key_D`
 
-Step 2: Create a new 2-of-3 multi-sig wallet using `Key B`, `Key C`, and `Key D` (assuming you're rotating out `Key A`).
+Step 2: Create a new 2-of-3 multi-sig wallet using `Key_B, Key_C, Key_D` (assuming you're rotating out `Key_A`).
 
-Step 3: Sign a test transaction with `Key B`, `Key C`, and `Key D`.
+Step 3: Sign a test transaction with `Key_B, Key_C, Key_D`.
 
 Step 4: Transfer the bitcoin from the old wallet to the new one.
 
-Step 5: Retire `Key A`. Ensure it is no longer used.
+Step 5: Retire `Key_A`. Ensure it is no longer used.
 
 ## Post-rotation
 
