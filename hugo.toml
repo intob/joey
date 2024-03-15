@@ -47,7 +47,4 @@ paginate = 10
     name = "Telegram"
     url = "https://telegram.me/joeyinnes"
     weight = 5
-  [[menu.main]]
-    name = "Projects"
-    url = "/projects"
-    weight = 6
+    
