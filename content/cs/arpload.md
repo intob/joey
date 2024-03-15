@@ -1,9 +1,9 @@
 ---
-title: "Safely upload large files to Arweave network with Arpload"
+title: "arpload"
 date: 2024-03-09
 categories: ["cs"]
-description: "I wanted to upload a 4k video to Arweave network... and failed at first."
-img: "/img/cs/arpload/1/"
+description: "I wanted to upload a 4k video to Arweave network... and failed at first. Safely upload large files to Arweave network with arpload."
+img: "/img/cs/arpload/2/"
 ---
 ## Arweave is a decentralized storage network that offers a unique approach to data storage.
 The network is designed to provide permanent information storage, where users pay a one-time fee to store data for at least 200 years, with the potential for it to last much longer, possibly forever. 
@@ -39,7 +39,8 @@ Finally, I concluded that I should write an application to do this. Thankfully, 
 Today, I finally got around to somewhat finishing it by implementing the functionality to resume an interrupted upload. It can now serve as an example, or maybe even help you to upload something.
 
 ## Demo
-Check the [transaction](https://viewblock.io/arweave/tx/aWX8JGOrnWgloaPJL-NCeIfZTBkvUFc3Q29q0U0q-wk). See the image:
-![image](https://arweave.net/aWX8JGOrnWgloaPJL-NCeIfZTBkvUFc3Q29q0U0q-wk)
+Tx: [TK60GE39cvuTh_DlLK5ZCnhcoOkN42YFQjsJfzwvrk4](https://viewblock.io/arweave/tx/TK60GE39cvuTh_DlLK5ZCnhcoOkN42YFQjsJfzwvrk4)
+![image](https://jsxligcn7vzpxe4h6dsszlszbj4fzihjbxrwmbkchmex6pbpvzha.arweave.net/TK60GE39cvuTh_DlLK5ZCnhcoOkN42YFQjsJfzwvrk4)
 
-## [View the repo](https://github.com/intob/arpload)
+## Repo
+https://github.com/intob/arpload

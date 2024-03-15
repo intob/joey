@@ -1,8 +1,8 @@
 ---
-title: "Bitcoin's hashrate and bitcoin's value"
+title: "What backs bitcoin?"
 date: 2024-01-06
 categories: ["cs"]
-description: "Bitcoin's value is in part tied to it's hashrate."
+description: "Bitcoin is backed by the hashrate."
 img: "/img/art/visualisation/"
 needToKnow: ["halving", "hashrate", "total-supply"]
 teaches: "value"
@@ -13,11 +13,10 @@ The halving process will continue until the maximum supply of 21 million bitcoin
 
 Due to the fixed supply, 1 bitcoin is worth 1/21 million of all that bitcoin is worth.
 
-# What is the worth of all earthly land, housing, rare earth minerals, and ancient obsidian spearheads?
+# What is the worth of all land, housing, spaceships, rare earth minerals, and ancient obsidian spearheads?
+## 21 million bitcoin.
 
-# 21 million bitcoin.
-
-Bitcoin's value is also tied to the hashrate. As hashrate increases, the energy required to mine blocks increases proportionally.
+Bitcoin's value is tied to the hashrate. As hashrate increases, the energy required to mine blocks increases proportionally.
 
 Bitcoin's hashrate depends on availability of energy to manufacture & power computers.
 
@@ -25,4 +24,4 @@ As we channel more energy, the energetic equivalent of 1 bitcoin will continue t
 
 It's a blazing fire of computing power. As long as someone is adding fuel, it will burn.
 
-# It's fire
+# 🔥 bitcoin is fire
