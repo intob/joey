@@ -84,13 +84,6 @@ header {
   width: 100%;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: .8rem;
-}
-
 article {
   display: flex;
   flex-direction: column;
@@ -99,8 +92,7 @@ article {
 }
 
 section,
-main > article > header,
-footer {
+main > article > header {
   max-width: 580px;
   padding: 0 10px;
   box-sizing: border-box;
