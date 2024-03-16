@@ -109,13 +109,14 @@ article pre code {
 
 article img {
   max-width: 100%;
-  background-color: #fff;
+  background-color: #000;
 }
 
 article.teaser {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  color: var(--lighten-4);
 }
 
 article.teaser h3 {
@@ -141,7 +142,7 @@ a,
   align-items: center;
   padding: 10px 15px;
   border: 1px solid var(--lighten-2);
-  border-radius: 10px;
+  color: var(--lighten-3);
   transition: all 300ms;
 }
 
