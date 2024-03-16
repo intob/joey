@@ -3,7 +3,8 @@
   --dark-2: hsl(194, 100%, 3%);
   --lighten-1: #ffffff05;
   --lighten-2: #ffffff20;
-  --lighten-3: #fffffff0;
+  --lighten-3: #ffffff88;
+  --lighten-4: #fffffff0;
 }
 
 /* Typography */
@@ -152,7 +153,13 @@ a,
   margin: 0 5px;
 }
 
+p a {
+  padding: 0 5px;
+  word-break: break-all;
+  color: var(--lighten-3);
+}
+
 a:hover,
 .addr:hover {
-  border-color: var(--lighten-3);
+  border-color: var(--lighten-4);
 }
