@@ -1,6 +1,6 @@
 ---
 title: "sshworm"
-description: "Distributed program execution using /etc/hosts traversal over SSH."
+description: "Distributed program execution by /etc/hosts traversal over SSH."
 date: 2024-03-15
 img: "/img/cs/sshworm/"
 ---
