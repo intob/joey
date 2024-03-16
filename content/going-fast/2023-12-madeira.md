@@ -1,7 +1,7 @@
 ---
 title: "First time in Madeira"
 date: 2023-12-19
-categories: ["Going fast"]
+categories: ["going-fast"]
 description: "Considering the Maritime alps, I looked further afield, to warmer climes. I almost went to Corsica..."
 img: "/img/life/madeira/sea/"
 ---

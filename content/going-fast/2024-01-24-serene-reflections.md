@@ -1,7 +1,7 @@
 ---
 title: "Serene reflections amidst torrential canyons"
 date: 2024-01-24
-categories: ["Going fast"]
+categories: ["going-fast"]
 description: "As I grow, I am discovering peace & ease... I am immensely thankful for the beings that are guiding me."
 img: "/img/life/engstligen/"
 videoTxId: "dvXCPe39LOJu_jWSRBf_8wKX3PtNCduQ3q-yOpZvKpw"

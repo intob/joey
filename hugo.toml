@@ -21,7 +21,7 @@ paginate = 12
   [params.categories]
     cs = "Computer Broscience"
     reflections = "Reflections"
-    going-fast = "Going fast"
+    going-fast = "Going Fast"
 
 [permalinks]
   categories = "/:slug/"
