@@ -2,7 +2,7 @@ baseURL = "https://joeyinnes.com"
 languageCode = "en-us"
 title = "Joey Innes"
 pluralizelisttitles = false
-paginate = 10
+paginate = 12
 
 [security]
   [security.funcs]

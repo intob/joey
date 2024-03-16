@@ -56,7 +56,7 @@ header > .banner {
   font-size: .8rem;
 }
 
-nav {
+nav, .pagination {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
