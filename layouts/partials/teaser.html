@@ -1,10 +1,17 @@
 <article class="teaser">
   {{ if .Params.img }}
-    <img src="{{ .Params.img }}400.avif" alt="teaser image"/>
+  <img src="{{ .Params.img }}400.avif" alt="teaser image"/>
   {{ end }}
   <section>
     <h3>{{ .Title }}</h3>
     <p>{{ .Description }}</p>
-    <small>{{ .Date.Format "2006-01-02" }}</small>
+    {{ if .Params.status }}
+    <small>{{ .Params.status }}</small>
+    {{ end }}
+    {{ if not .Date.IsZero }}
+    <small>
+      <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+    </small>
+    {{ end }}
   </section>
 </article>

@@ -1,11 +1,10 @@
 ---
-title: "What backs bitcoin?"
+title: "🔥 What backs bitcoin?"
 date: 2024-01-06
-categories: ["cs"]
 description: "Bitcoin is backed by the hashrate."
-img: "/img/art/visualisation/"
-needToKnow: ["halving", "hashrate", "total-supply"]
-teaches: "value"
+img: /img/art/visualisation/
+needToKnow: [halving, hashrate, fixed-supply]
+teaches: value
 ---
 Every 210,000 blocks (approximately every 4 years), there is a block-reward halving. From that moment,  miners receive half the reward of bitcoin for mining a block.
 

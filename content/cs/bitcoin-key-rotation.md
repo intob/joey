@@ -1,11 +1,10 @@
 ---
 title: "Bitcoin key rotation"
 date: 2024-01-20
-categories: ["cs"]
 description: "With a multi-sig bitcoin wallet, what is the safest way to rotate your keys?"
-img: "/img/art/cryptic-wall/"
-needToKnow: ["key", "wallet", "multi-sig"]
-teaches: "rotation"
+img: /img/art/cryptic-wall/
+needToKnow: [key, wallet, multi-sig]
+teaches: rotation
 ---
 Designing a "perfect" key rotation protocol for a 2-of-3 multi-sig Bitcoin wallet involves balancing security, redundancy, and operational practicality.
 

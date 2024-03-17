@@ -28,22 +28,34 @@ paginate = 12
 
 [menu]
   [[menu.main]]
+    name = "Computer Broscience"
+    url = "/cs"
+    weight = 1
+  [[menu.main]]
+    name = "Going Fast"
+    url = "/going-fast"
+    weight = 2
+  [[menu.main]]
+    name = "Reflections"
+    url = "/reflections"
+    weight = 3
+  [[menu.main]]
     name = "GitHub"
     url = "https://github.com/intob"
-    weight = 1
+    weight = 4
   [[menu.main]]
     name = "YouTube"
     url = "https://youtube.com/@joeyinnes"
-    weight = 2
+    weight = 5
   [[menu.main]]
     name = "Telegram"
     url = "https://telegram.me/joeyinnes"
-    weight = 3
+    weight = 6
   [[menu.main]]
     name = "Nostr"
     url = "/npub.txt"
-    weight = 4
+    weight = 7
   [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 5
+    weight = 8

@@ -1,8 +1,8 @@
 ---
-title: "Toolbox"
-description: "An IdP-integrated enterprise scale web-app with almost zero dependencies."
+title: Toolbox
+description: "An almost enterprise-scale web-app with almost zero dependencies."
 date: 2024-03-15
-img: "/img/cs/toolbox/status/"
+img: /img/cs/toolbox/status/
 ---
 Swissinfo needed a web-qpp for a bunch of new APIs. Some of them more featured than others, such as a multi-lingual video hosting service.
 

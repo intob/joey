@@ -1,8 +1,9 @@
 ---
-title: "clutch"
-description: "UNFINISHED A tiny & usable bitcoin wallet. Designed only for air-gapped multisig."
+title: clutch
+status: IN_DEVELOPMENT
+description: "A tiny & usable bitcoin wallet. Designed only for air-gapped multisig."
 date: 2024-03-15
-img: "/img/art/astronaut/"
+img: /img/art/astronaut/
 ---
 The goal of this project is to build a really good bitcoin wallet. This will take some time...
 

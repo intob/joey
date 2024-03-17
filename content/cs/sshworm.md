@@ -1,8 +1,9 @@
 ---
-title: "sshworm"
+title: sshworm
+status: UNFINISHED
 description: "Distributed program execution by /etc/hosts traversal over SSH."
 date: 2024-03-15
-img: "/img/cs/sshworm/"
+img: /img/cs/sshworm/
 ---
 I have been playing with distributing program execution across a large and changing trusted network using `/etc/hosts` traversal over SSH.
 

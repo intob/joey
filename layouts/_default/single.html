@@ -33,7 +33,12 @@
       <header>
         <h1>{{ .Title }}</h1>
         {{ if not .Date.IsZero }}
-        <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <small>
+          <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        </small>
+          {{ end }}
+        {{ if .Params.status }}
+        <small>{{ .Params.status }}</small>
         {{ end }}
       </header>
       <section>{{ .Content }}</section>

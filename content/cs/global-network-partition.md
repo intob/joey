@@ -1,9 +1,8 @@
 ---
 title: "Global network partitions: WEF simulates botnet attacks"
 date: 2024-01-26
-categories: ["cs"]
 description: "What would happen if countries closed their networks in response to a distributed attack?"
-img: "/img/art/network/1/"
+img: /img/art/network/1/
 ---
 As you may have seen in the last year, the WEF ran a simulation for a "cyber attack".
 
