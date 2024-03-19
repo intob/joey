@@ -9,3 +9,6 @@ Real-time logging (tail & query) for virtually unlimited logs. A map of in-memor
 I'm about to move this app into a private network. During this move, I will whitelabel & opensource it. I need to add a config loader.
 
 Hang tight! This one is cool.
+
+## Repo
+https://github.com/intob/logd
