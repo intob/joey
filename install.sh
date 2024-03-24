@@ -16,3 +16,5 @@ git --version
 go version
 tor --version
 hugo version
+
+
