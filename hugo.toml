@@ -16,7 +16,7 @@ paginate = 12
 
 [params]
   author = "Joey Innes"
-  description = "A record of reflections, going fast, and musings over our bitcoin, AI and other tech."
+  description = "A record of reflections, going fast, and musings over bitcoin, AI and other stuff."
 
   [params.categories]
     cs = "Computer Broscience"
@@ -49,13 +49,17 @@ paginate = 12
     weight = 5
   [[menu.main]]
     name = "Telegram"
-    url = "https://telegram.me/joeyinnes"
+    url = "https://t.me/intob61"
     weight = 6
+  [[menu.main]]
+    name = "Signal"
+    url = "https://signal.me/#eu/YVqkXnYWDQXE6ti905hdzKg--Bs-wPVXjJ3JA4jMRch8TQC4mDROZZxaNRFjCBTg"
+    weight = 7
   [[menu.main]]
     name = "Nostr"
     url = "/npub.txt"
-    weight = 7
+    weight = 8
   [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 8
+    weight = 9
