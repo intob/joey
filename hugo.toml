@@ -53,7 +53,7 @@ paginate = 12
     weight = 6
   [[menu.main]]
     name = "Signal"
-    url = "https://signal.me/#eu/YVqkXnYWDQXE6ti905hdzKg--Bs-wPVXjJ3JA4jMRch8TQC4mDROZZxaNRFjCBTg"
+    url = "https://signal.me/#eu/5Mrl2kI9a/e2/PFGtcqhqBEo9O70vOBS5rLg5Qv/nN1JQJ0LlI5HPrSO/mF/WokZ"
     weight = 7
   [[menu.main]]
     name = "Nostr"
