@@ -16,12 +16,12 @@ paginate = 12
 
 [params]
   author = "Joey Innes"
-  description = "A record of reflections, going fast, and musings over bitcoin, AI and other stuff."
+  description = "A record of reflections, going fast, and endeavours in computer broscience."
 
   [params.categories]
-    cs = "Computer Broscience"
     reflections = "Reflections"
     going-fast = "Going Fast"
+    cs = "Computer Broscience"
 
 [permalinks]
   categories = "/:slug/"
@@ -32,34 +32,26 @@ paginate = 12
     url = "/cs"
     weight = 1
   [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/intob"
+    weight = 2
+  [[menu.main]]
     name = "Going Fast"
     url = "/going-fast"
-    weight = 2
+    weight = 3
   [[menu.main]]
     name = "Reflections"
     url = "/reflections"
-    weight = 3
-  [[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/intob"
     weight = 4
-  [[menu.main]]
-    name = "YouTube"
-    url = "https://youtube.com/@joeyinnes"
-    weight = 5
   [[menu.main]]
     name = "Telegram"
     url = "https://t.me/intob61"
-    weight = 6
+    weight = 5
   [[menu.main]]
     name = "Signal"
     url = "https://signal.me/#eu/5Mrl2kI9a/e2/PFGtcqhqBEo9O70vOBS5rLg5Qv/nN1JQJ0LlI5HPrSO/mF/WokZ"
-    weight = 7
-  [[menu.main]]
-    name = "Nostr"
-    url = "/npub.txt"
-    weight = 8
+    weight = 6
   [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 9
+    weight = 7
