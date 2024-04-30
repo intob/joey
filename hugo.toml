@@ -1,4 +1,4 @@
-baseURL = "https://joeyinnes.com"
+baseURL = "https://inneslabs.uk"
 languageCode = "en-us"
 title = "Joey Innes"
 pluralizelisttitles = false
@@ -45,7 +45,7 @@ paginate = 12
     weight = 4
   [[menu.main]]
     name = "Telegram"
-    url = "https://t.me/intob61"
+    url = "https://t.me/intob21"
     weight = 5
   [[menu.main]]
     name = "Signal"
