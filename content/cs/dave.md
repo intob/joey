@@ -10,7 +10,7 @@ My focus is shifting away from flying down mountains, although I will always spe
 
 In the last 6 months, I've become drawn to pursue another childhood dream of mine... writing software that helps us to ensure an open, self-sovereign, and free society. I want to live in a world where everyone has the ability to read and write information to our internet freely.
 
-So... what are we doing? When I started this project around 5 weeks ago, I really had no idea, beyond designing a peer-to-peer network. Now my vision is finally becoming clear, and I am able to write about it.
+So... what are we doing? When I started this project around 5 weeks ago, I really had no idea, beyond designing a peer-to-peer network application. Now my vision is finally becoming clear, and I am able to write about it.
 
 I want to build a peer-to-peer cache. A decentralised key-value store that any device may write and read to and from. Simplicity, provable security, anonymity, resistance to censorship, efficiency, performance, and high availability are key aspects that I am aiming for.
 
