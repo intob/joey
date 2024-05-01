@@ -104,6 +104,7 @@ As this project is still in pre-alpha (5 weeks), I am not yet distributing binar
 Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
 
 Running without arguments automatically bootstraps to the embedded seed nodes.
+By default, the program listens on all network interfaces, and a random available listening port is allocated by the operating system.
 ```bash
 daved
 ```
@@ -118,9 +119,21 @@ Run with log output. Each PRUNE epochs (few seconds), with peer & dat count, and
 daved -v | grep /d/ph/prune
 ```
 
-Bootstrap only to 127.0.0.1:1969
+Listen on port 1618 across all network interfaces.
+```bash
+daved -l :1618
+daved -l [::]:1618
+```
+
+Start as a seed, without any bootstrap node (ignore embedded seed addresses).
+```bash
+daved -s
+```
+
+Bootstrap only to port on local machine.
 ```bash
 daved -b :1969
+daved -b 127.0.0.1:1969
 ```
 
 Bootstrap only to given IP address and port.
