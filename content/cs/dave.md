@@ -30,10 +30,10 @@ Why build this? Currently, we have multiple strong contenders for long-term dece
 
 Use-cases? Decentralised social media applications, serverless forms, quickly-consistent storage and communication layer for dApps.
 
-# World-native.
-
 ## Design
 The protocol is designed around a single message format, with an enumerated operation code that defines the desired action. There are 4 operation codes, as follows; GETPEER, PEER, DAT, GET.
+
+Each node operates in a cyclic mode, with the mininum period defined by constant EPOCH. Each other constant is a multiplier of the EPOCH constant. This design allows the protocol to be adjusted safely, and in a way that should preseve compatibility with a network running many different versions and variations.
 
 ### GETPEER & PEER Messages
 These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on network to discover peers, and to verify their availability.
