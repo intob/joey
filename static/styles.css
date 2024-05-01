@@ -107,7 +107,7 @@ article pre code {
   overflow-x: scroll;
   font-size: .8rem;
   white-space: pre-wrap;
-  word-break: break-word; 
+  word-break: break-all; 
 }
 
 article img {
