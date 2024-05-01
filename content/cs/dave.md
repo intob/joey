@@ -79,23 +79,66 @@ Thank you for reading about my research project. I value advice and ideas, if yo
 ## Repo
 https://github.com/intob/dave
 
-## Run a Node
+## Usage
 The repo is split up into modules. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may execute the protocol, such as a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
 
 Currently, my implementation overall is intentionally brief. It may panic rather than handle an error, as this allows me to detect and analyse any crashes, and keep the line-count minimal (currently around 480), allowing me to iterate faster.
 
-```bash
-daved # No arguments automatically bootstraps to the embedded seed nodes.
-daved -v # Verbose logging, you should use grep to filter logs:
-daved -v | grep /d/ph/prune # Will output a log each PRUNE epochs
-# (few seconds), with peer & dat count, and memory usage.
-daved -b :1969 # Bootstraps to only 127.0.0.1:1969 (local)
-daved -b 12.34.56.78:1234 # Bootstraps only to given IP address
-# (avoid davenet).
+As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. You need to build from source. Currently I'm running 3 bootstrap nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
 
+### Build from Source
+1. Install Git https://git-scm.com/
+2. Install Go https://go.dev/dl/
+3. `git clone https://github.com/intob/dave`
+4. `cd dave/daved`
+5. `go install`
+6. `daved`
+
+### Run as a Node
+Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
+
+Running without arguments automatically bootstraps to the embedded seed nodes.
+```bash
+daved
 ```
 
-As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. Currently I'm running 3 bootstrap nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
+Verbose logging. Use grep to filter logs.
+```bash
+daved -v
+```
+
+Run with log output. Each PRUNE epochs (few seconds), with peer & dat count, and memory usage is logged.
+```bash
+daved -v | grep /d/ph/prune
+```
+
+Bootstrap only to 127.0.0.1:1969
+```bash
+daved -b :1969
+```
+
+Bootstrap only to given IP address and port.
+```bash
+daved -b 12.34.56.78:1234
+```
+
+### Run with Commands
+Write hello_world to davenet with default difficulty of 3. Will probably take around 10 seconds on an 8 core low-power consumer laptop.
+```bash
+daved set hello_world
+```
+Write hello_world to davenet with minimum difficulty of 2.
+```bash
+daved -d 2 set hello_world
+```
+Get a DAT from the network, output as text, and exit immediately.
+```bash
+daved get 0000006f68ae2000290a1ba5cc4689b8bd48e6ac7d566c35954f82c235fb43bd
+```
+Set by reading a file.
+```bash
+daved setfile myfile.txt
+```
 
 ## References
 Thank you to those whose papers I've read, and those not yet.
