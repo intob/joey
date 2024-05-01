@@ -154,7 +154,7 @@ I suppose I ought to thank Adam Back for compiling this list of papers, some of 
 
 Thank you also to https://github.com/seiflotfy/cuckoofilter/ for the excellent cuckoo filter implementation, also used in the reference implementation of dave.
 
-In addition this protocol is built on Protocol Buffers, cheers G.
+In addition, this protocol is built on Protocol Buffers, cheers G.
 
 Sources:
 [/doc/cs/BoundedGossip.pdf](/doc/cs/BoundedGossip.pdf)
