@@ -27,6 +27,8 @@
     {{ else }}
       {{ if .Params.img }}
         {{ partial "hero.html" . }}
+      {{ else if .Params.imgsz }}
+        {{ partial "herosz.html" . }}
       {{ end }}
     {{ end }}
     <article>
