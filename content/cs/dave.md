@@ -38,9 +38,9 @@ Each node operates in a cyclic mode, with the mininum period defined by constant
 ### GETPEER & PEER Messages
 These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on network to discover peers, and to verify their availability.
 
-Each epoch, a node iterates over it's peer table. If it finds a peer which it has not heard from in the last SHARE epochs, and the peer has not been pinged within the last PING epochs, the node sends the peer a message with the GETPEER op-code. A protocol-following peer will reply with the PEER op-code, a message containting NPEER addresses for other peers. I often refer to these addresses as peer descriptors, as in future they may not necessarily be IP addresses. I would like the possibility to cleanly implement ultiple transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
+Each epoch, a node iterates over it's peer table. If it finds a peer which it has not heard from in the last SHARE epochs, and the peer has not been pinged within the last PING epochs, the node sends the peer a message with the GETPEER op-code. A protocol-following peer will reply with the PEER op-code, a message containting NPEER addresses for other peers. I often refer to these addresses as peer descriptors, as in future they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
 
-If a peer never responds with a PEER message, and the peer is not heard from in a protocol-following manner, the peer is dropped from node's the peer table. Peers are no-longer advertised much sooner than they are dropped from the peer table. This ensures that unresponsive peers are not added from latent gossip.
+If a peer never responds with a PEER message, and the peer is not heard from in a protocol-following manner, the peer is dropped from the peer table. Peers are no-longer advertised much sooner than they are dropped from the peer table. This ensures that unresponsive peers are not re-added from latent gossip.
 
 ### DAT Message
 A DAT message is a randomized "push" of data, including it's proof-of-work, the output of the cost function.
