@@ -27,7 +27,7 @@ for width in "${widths[@]}"; do
     output_file="${input_dir}/${width}.avif"
 
     # Resize the image, maintain aspect ratio, and convert to AVIF with high quality
-    ffmpeg -i "$input_file" -vf "scale=$width:-2" -compression_level 0 -pix_fmt yuv420p10le "$output_file"
+    ffmpeg -i "$input_file" -map_metadata -1 -vf "scale=$width:-2" -compression_level 0 -pix_fmt yuv420p10le "$output_file"
 
     echo "Conversion completed: '$output_file'"
 done
