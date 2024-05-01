@@ -133,7 +133,8 @@ daved -d 2 set hello_world
 ```
 Get a DAT from the network, output as text, and exit immediately.
 ```bash
-daved get 0000006f68ae2000290a1ba5cc4689b8bd48e6ac7d566c35954f82c235fb43bd
+daved get 0000006f68ae2000290a1ba5cc4\
+689b8bd48e6ac7d566c35954f82c235fb43bd
 ```
 Set by reading a file.
 ```bash
