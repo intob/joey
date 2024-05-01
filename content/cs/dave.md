@@ -96,3 +96,20 @@ daved -b 12.34.56.78:1234 # Bootstraps only to given IP address
 ```
 
 As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. Currently I'm running 3 bootstrap nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
+
+## References
+Thank you to those whose papers I've read, and those not yet.
+
+I suppose I ought to thank Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is built.
+
+Thank you also to https://github.com/seiflotfy/cuckoofilter/ for the excellent cuckoo filter implementation, also used in the reference implementation of dave.
+
+In addition this protocol is built on Protocol Buffers, cheers G.
+
+Sources:
+[/doc/cs/BoundedGossip.pdf](/doc/cs/BoundedGossip.pdf)
+[/doc/cs/FNV_Perf.pdf](/doc/cs/FNV_Perf.pdf)
+[/doc/cs/Gossip_Design.pdf](/doc/cs/Gossip_Design.pdf)
+[/doc/cs/Hoare78.pdf](/doc/cs/Hoare78.pdf)
+[/doc/cs/PromiseAndLimitationsOfGossip_2007.pdf](/doc/cs/PromiseAndLimitationsOfGossip_2007.pdf)
+
