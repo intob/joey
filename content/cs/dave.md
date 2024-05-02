@@ -53,11 +53,6 @@ Originally a self-healing mechanism for the network, this is now the only way to
 
 Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval, referred to as EPOCH.
 
-### GET Message
-A node participating in the network probably receives all dats relatively quickly, depending on chosen EPOCH and current network load. However, what if a user simply wants to retreive a specific dat that they have not yet seen? Use-case; a peer wishes to read from the network, and then leave without participating further. In BitTorrent, this type of node was affectionately known as a leech, because they draw bandwidth from the network, and do not contribute bandwidth back by re-seeding chunks.
-
-In the context of dave protocol, I see this slightly differently, as the goal of dave ultimately includes serving "leeches" efficiently, with each node incurring negligible cost over time. How can we manage this? Cryptographic proofs, and packet filtering efficient enough to make large-scale attacks infeasable.
-
 ### DAT Selection by Weight
 Each dat contains 4 fields; Value, Time, Nonce, Work. The value and time are chosen.
 
@@ -73,7 +68,7 @@ As the cryptographic proof contains the value, and time, neither may be modified
 
 ##### weight = difficulty * (1 / millisecondsSinceAdded)
 
-Dats with a stronger proof of work persist longer in the network, and on more nodes, than dats with less work. Also, all dats become lighter over time, and as such all dats will eventually be dropped as heavier dats are received.
+The weight tends to zero over time. Dats with a harder proof of work persist longer in the network.
 
 ## Roadmap
 In keeping with this document being written in retrospect of research conducted, I prefer not to speculate too much on the future of this project. I will continue.
@@ -99,6 +94,9 @@ As this project is still in pre-alpha (5 weeks), I am not yet distributing binar
 2. Install Go https://go.dev/dl/
 3. `go install github.com/intob/dave/daved@latest`
 4. `daved`
+5. `daved -v | grep /d/pr`
+
+Read the readme for full documentation.
 
 ### Run as a Node
 Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
@@ -161,13 +159,9 @@ daved setfile myfile.txt
 ```
 
 ## References
-Thank you to those whose papers I've read, and those not yet.
-
 I suppose I ought to thank Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is built.
 
-Thank you also to https://github.com/seiflotfy/cuckoofilter/ for the excellent cuckoo filter implementation, also used in the reference implementation of dave.
-
-In addition, this protocol is built on Protocol Buffers, cheers G.
+Thank you also to https://github.com/seiflotfy/cuckoofilter/ for the excellent cuckoo filter implementation, also used in godave.
 
 Sources:
 [/doc/cs/BoundedGossip.pdf](/doc/cs/BoundedGossip.pdf)
