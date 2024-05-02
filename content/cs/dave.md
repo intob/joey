@@ -18,7 +18,7 @@ Simplicity will come at the cost of pushing much application-specific complexity
 
 At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising probability of success of the dave protocol.
 
-How can we scope an unfinished idea? I don't have good answer at time of writing.
+How can we scope an unfinished idea? I don't a have good answer at time of writing.
 
 # dave - a peer-to-peer anonymised distributed hash table.
 
@@ -31,7 +31,7 @@ Why build this? Currently, we have multiple strong contenders for long-term dece
 Use-cases? Decentralised social media applications, serverless forms, quickly-consistent storage and communication layer for dApps.
 
 ## Design
-The protocol is designed around a single message format, with an enumerated operation code that defines the desired action. There are 4 operation codes, as follows; GETPEER, PEER, DAT, GET.
+The protocol is designed around a single message format, with an enumerated operation code that defines the desired action. There are 3 operation codes, as follows; GETPEER, PEER, DAT.
 
 Each node operates in a cyclic mode, with the mininum period defined by constant EPOCH. Each other constant is a multiplier of the EPOCH constant. This design allows the protocol to be adjusted safely, and in a way that should preseve compatibility with a network running many different versions and variations.
 
