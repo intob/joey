@@ -1,6 +1,6 @@
 ---
 title: clutch
-status: IN_DEVELOPMENT
+status: PARKED
 description: "A tiny & usable bitcoin wallet. Designed only for air-gapped multisig."
 date: 2024-03-15
 img: /img/art/astronaut/

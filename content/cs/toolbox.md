@@ -1,5 +1,6 @@
 ---
 title: Toolbox
+status: DONE
 description: "An almost enterprise-scale web-app with almost zero dependencies."
 date: 2024-03-15
 img: /img/cs/toolbox/status/

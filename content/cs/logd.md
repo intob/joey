@@ -1,6 +1,6 @@
 ---
 title: logd
-status: IN_DEVELOPMENT
+status: DONE
 description: "Finished soon. Real-time logging (tail & query) for virtually unlimited logs."
 date: 2024-03-15
 ---

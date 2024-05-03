@@ -1,6 +1,6 @@
 ---
 title: dave
-status: IN_PROGRESS
+status: IN_DEVELOPMENT
 date: 2024-05-01
 description: "Building my first peer-to-peer network application. An anonymized distributed hash table for use as a cache or KV store for dApps."
 imgsz: /img/cs/dave/3840.avif
