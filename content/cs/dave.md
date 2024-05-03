@@ -79,8 +79,10 @@ Last night, I removed the SET op-code, which originally behaved similarly to the
 
 Thank you for reading about my research project. I value advice and ideas, if you have any please reach me.
 
-## Repo
-https://github.com/intob/dave
+## Repositories
+Protocol implementation in Go   https://github.com/intob/godave
+Basic CLI                       https://github.com/intob/daved
+HTTP Gateway                    https://github.com/intob/garry
 
 ## Usage
 The repo is split up into modules. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may execute the protocol, such as a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
@@ -92,7 +94,7 @@ As this project is still in pre-alpha (5 weeks), I am not yet distributing binar
 ### Build from Source
 1. Install Git https://git-scm.com/
 2. Install Go https://go.dev/dl/
-3. `go install github.com/intob/dave/daved@latest`
+3. `go install github.com/intob/daved@latest`
 4. `daved`
 5. `daved -v | grep /d/pr`
 
