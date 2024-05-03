@@ -10,7 +10,7 @@ My focus is shifting away from flying down mountains, although I will always spe
 
 In the last 6 months, I've become drawn to pursue another childhood dream of mine... writing software that helps us to ensure an open, self-sovereign, and free society. I want to live in a world where everyone has the ability to read and write information to our internet freely.
 
-So... what are we doing? When I started this project around 5 weeks ago, I really had no idea, beyond designing a peer-to-peer network application. Now my vision is finally becoming clear, and I am able to write about it.
+So... what are we doing? When I started this project (first commit 2024-04-05), I really had no idea, beyond designing a peer-to-peer network application. Now my vision is finally becoming clear, and I am able to describe it.
 
 I want to build a peer-to-peer cache. A decentralised key-value store that any device may write and read to and from. Simplicity, provable security, anonymity, resistance to censorship, efficiency, performance, and high availability are key aspects that I am aiming for.
 
@@ -38,7 +38,7 @@ Each node operates in a cyclic mode, with the mininum period defined by constant
 ### GETPEER & PEER Messages
 These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on network to discover peers, and to verify their availability.
 
-Each epoch, a node iterates over it's peer table. If it finds a peer which it has not heard from in the last SHARE epochs, and the peer has not been pinged within the last PING epochs, the node sends the peer a message with the GETPEER op-code. A protocol-following peer will reply with the PEER op-code, a message containting NPEER addresses for other peers. I often refer to these addresses as peer descriptors, as in future they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
+For every SHARE epoch, a node iterates over it's peer table. If it finds a peer which it has not heard from in the last SHARE epoch, and the peer has not been pinged within the last PING epoch, the node sends the peer a message with the GETPEER op-code. A protocol-following peer will reply with the PEER op-code, a message containting NPEER addresses for other peers. I often refer to these addresses as peer descriptors, as in future they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
 
 If a peer never responds with a PEER message, and the peer is not heard from in a protocol-following manner, the peer is dropped from the peer table. Peers are no-longer advertised much sooner than they are dropped from the peer table. This ensures that unresponsive peers are not re-added from latent gossip.
 
@@ -53,21 +53,21 @@ Originally a self-healing mechanism for the network, this is now the only way to
 
 Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval.
 
-### DAT Selection by Weight
+### DAT Selection by Mass
 
 #### Proof-of-work
-A salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zeros. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zeros is referred to as the "difficulty" throughout the remainder of this document.
+A salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bytes. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zero bytes is referred to as the "difficulty" throughout the remainder of this document. I actually compute a salty hash from an initial hash of value and time, because this performs better than a single hash for large values. This incentivises efficient use of dats. 
 
-#### Weight Calculation
+#### Mass Calculation
 As each machine has limited resources, we need a mechanism by which the software can select which dats should be stored, at the expense of others being dropped. In a peer-to-peer application without any central coordination or authority, each node must be able to decide which dats to keep on it's own.
 
 So how can we give priority to some dats over others?
 
-As the cryptographic proof contains the value, and time, neither may be modified without invalidating the proof. As such, we can use the time, and the difficulty in the calculaton of a score, referred to here as weight.
+As the cryptographic proof contains the value, and time, neither may be modified without invalidating the proof. As such, we can use the time, and the difficulty in the calculaton of a score, referred to here as mass.
 
-##### weight = difficulty * (1 / millisecondsSinceAdded)
+##### mass = difficulty * (1 / millisecondsSinceAdded)
 
-The weight tends to zero over time. Dats with a harder proof of work persist longer in the network.
+The mass tends to zero over time. Dats with a harder proof of work persist longer in the network. In addition, difficulty scales exponentially (each added zero byte increases the difficulty by 256 times.
 
 ## 🌱
 Thank you for reading. I value advice and ideas, if you have any please reach me.
