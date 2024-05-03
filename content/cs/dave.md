@@ -80,9 +80,11 @@ Last night, I removed the SET op-code, which originally behaved similarly to the
 Thank you for reading about my research project. I value advice and ideas, if you have any please reach me.
 
 ## Repositories
-Protocol implementation in Go   https://github.com/intob/godave
-Basic CLI                       https://github.com/intob/daved
-HTTP Gateway                    https://github.com/intob/garry
+Protocol implementation in Go: https://github.com/intob/godave
+
+Basic CLI: https://github.com/intob/daved
+
+HTTP Gateway: https://github.com/intob/garry
 
 ## Usage
 The repo is split up into modules. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may execute the protocol, such as a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
