@@ -80,14 +80,16 @@ Last night, I removed the SET op-code, which originally behaved similarly to the
 Thank you for reading about my research project. I value advice and ideas, if you have any please reach me.
 
 ## Repositories
+The project is split up into modules, each with their own repository. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may join the network. Third, garry is a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
+
 Protocol implementation in Go: https://github.com/intob/godave
 
 Basic CLI: https://github.com/intob/daved
 
-HTTP Gateway: https://github.com/intob/garry
+HTTP gateway: https://github.com/intob/garry
 
-## Usage
-The repo is split up into modules. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may execute the protocol, such as a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
+Helper functions: https://github.com/intob/dapi
+
 
 Currently, my implementation overall is intentionally brief. It may panic rather than handle an error, as this allows me to detect and analyse any crashes, and keep the line-count minimal (currently around 480), allowing me to iterate faster.
 
