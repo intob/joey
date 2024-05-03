@@ -76,7 +76,7 @@ Thank you for reading. I value advice and ideas, if you have any please reach me
 A web-browser unfortunately cannot yet communicate with the dave network directly, so we need HTTP gateways. There is one running at https://garry.inneslabs.uk/. You can also run your own gateway locally, which is more secure. To do that, just clone https://github.com/intob/garry/ and run with `go run . -b $BOOTSTRAP_IP`.
 
 ## Repositories
-The project is split up into modules, each with their own repository. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may join the network. Third, garry is a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
+The project is split up into modules, each with their own repository. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, as any other application that may join the network. Third, garry is a HTTP gateway. Finally, dapi is a library with helper functions used in daved and garry, but also useful for other applications.
 
 Protocol implementation in Go: https://github.com/intob/godave
 
@@ -87,22 +87,25 @@ HTTP gateway: https://github.com/intob/garry
 Helper functions: https://github.com/intob/dapi
 
 
-Currently, my implementation overall is intentionally brief. It may panic rather than handle an error, as this allows me to detect and analyse any crashes, and keep the line-count minimal (currently around 480), allowing me to iterate faster.
+Currently, my implementation overall is intentionally brief. It may panic rather than handle an error, as this would allow me to detect and analyse a crash, and keep the line-count minimal (currently around 460 incl. license), allowing me to iterate faster.
 
 I'm running 3 seed nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
 
 ## Get daved
 As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. You need to build from source.
-
-### Run go install
-You can install daved, the CLI using `go installgithub.com/intob/daved@latest`.
 1. Install Git https://git-scm.com/
 2. Install Go https://go.dev/dl/
+
+### Run go install
 3. `go install github.com/intob/daved@latest`
 4. `daved`
 5. `daved -v | grep /d/pr`
 
 ### Clone Repository
+Alternatively, you can clone the repository.
+3. `git clone https://github.com/intob/daved && cd daved`
+4. `go run .`
+5. `go run . -v | grep /d/pr`
 
 ### Run as a Node
 Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
