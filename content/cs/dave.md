@@ -22,18 +22,18 @@ How can we scope an unfinished idea? I don't a have good answer at time of writi
 
 # dave - a peer-to-peer anonymised distributed hash table.
 
-I'm designing a protocol for efficiently distributing information in a decentralised and censorship-resistant way, without the need of a native token or value transaction.
+I'm designing a protocol for efficiently distributing information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
 
 I am aware that such projects have been attempted, and failed. I am also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
 
 Why build this? Currently, we have multiple strong contenders for long-term decentralised storage. Projects such as IPFS, Sia, Arweave, Filecoin, Storj. To my knowledge, we do not yet have a single solution for a decentralised database, cache or KV store.
 
-Use-cases? Decentralised social media applications, serverless forms, quickly-consistent storage and communication layer for dApps.
+Use-cases? Decentralised social media applications, serverless forms, quickly-consistent communication layer for dApps.
 
 ## Design
 The protocol is designed around a single message format, with an enumerated operation code that defines the desired action. There are 3 operation codes, as follows; GETPEER, PEER, DAT.
 
-Each node operates in a cyclic mode, with the mininum period defined by constant EPOCH. Each other constant is a multiplier of the EPOCH constant. This design allows the protocol to be adjusted safely, and in a way that should preseve compatibility with a network running many different versions and variations.
+Each node operates in a cyclic mode, with the mininum period defined by constant EPOCH. Excluding MTU & NPEER, each other constant is a period-multiplier of the epoch. This design allows the protocol to be adjusted safely, and in a way that could preseve interoperability with a network of nodes running different variations, for different bandwidth ideals & constraints.
 
 ### GETPEER & PEER Messages
 These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on network to discover peers, and to verify their availability.
@@ -43,24 +43,23 @@ Each epoch, a node iterates over it's peer table. If it finds a peer which it ha
 If a peer never responds with a PEER message, and the peer is not heard from in a protocol-following manner, the peer is dropped from the peer table. Peers are no-longer advertised much sooner than they are dropped from the peer table. This ensures that unresponsive peers are not re-added from latent gossip.
 
 ### DAT Message
-A DAT message is a randomized "push" of data, including it's proof-of-work, the output of the cost function.
+A DAT message is a packet of data containing a Value, Time, Salt, and Work. Salt and Work are outputs of the cost function, into which Value and Time are passed.
 
-Every EPOCH, each node sends one randomly selected dat to FANOUT randomly selected peers.
+Every EPOCH, each node sends one randomly selected dat to one randomly selected peer.
 
-This ensures that information propagates and re-propagates through the network reliably, until it is eventually no-longer stored by any node. I will describe the selection algorithm later.
+This ensures that information propagates and re-propagates through the network reliably, until it is eventually no-longer stored by any node. I describe the selection algorithm later.
 
-Originally a self-healing mechanism for the network, this is now the only way to add data to the network. This provides a good level of anonymity for original senders, because it is virtually impossible to discern the origin of a dat, even with a broad view of the network traffic.
+Originally a self-healing mechanism for the network, this is now the only way to add data to the network. This provides a good level of anonymity for original senders, because it is virtually impossible to discern the origin of a dat, even with a broad view of network traffic.
 
-Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval, referred to as EPOCH.
+Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval.
 
 ### DAT Selection by Weight
-Each dat contains 4 fields; Value, Time, Nonce, Work. The value and time are chosen.
 
 #### Proof-of-work
-A nonce is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zeros. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zeros is referred to as the "difficulty" throughout the remainder of this document.
+A salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zeros. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zeros is referred to as the "difficulty" throughout the remainder of this document.
 
 #### Weight Calculation
-As each machine has limited resources, we need a mechanism by which the software can select which dats should be stored, at the expense of some being dropped. In a peer-to-peer application without any central coordination or authority, each node must be able to decide which dats to keep on it's own.
+As each machine has limited resources, we need a mechanism by which the software can select which dats should be stored, at the expense of others being dropped. In a peer-to-peer application without any central coordination or authority, each node must be able to decide which dats to keep on it's own.
 
 So how can we give priority to some dats over others?
 
@@ -70,14 +69,11 @@ As the cryptographic proof contains the value, and time, neither may be modified
 
 The weight tends to zero over time. Dats with a harder proof of work persist longer in the network.
 
-## Roadmap
-In keeping with this document being written in retrospect of research conducted, I prefer not to speculate too much on the future of this project. I will continue.
+## 🌱
+Thank you for reading. I value advice and ideas, if you have any please reach me.
 
-I will reveal one insight had this morning.
-
-Last night, I removed the SET op-code, which originally behaved similarly to the GET op-code, fanning out by propagation from one peer to two other peers until the DISTANCE limit is reached for each branch. My reasoning is based on my wish to ensure anonymity for users writing to the network. This small change (taking just a few minutes), both simplified the protocol and also solves anonymity for writing, without onion routing or mixnets. The GET message still reveals a node's interest in a certain dat. In privacy-focussed applications, this is already solved by waiting for the dat by random propagation. We can do better...
-
-Thank you for reading about my research project. I value advice and ideas, if you have any please reach me.
+## Try Garry
+A web-browser unfortunately cannot yet communicate with the dave network directly, so we need HTTP gateways. There is one running at https://garry.inneslabs.uk/. You can also run your own gateway locally, which is more secure. To do that, just clone https://github.com/intob/garry/ and run with `go run . -b $BOOTSTRAP_IP`.
 
 ## Repositories
 The project is split up into modules, each with their own repository. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, just like any other application that may join the network. Third, garry is a HTTP gateway. Finally, dapi is a library with helper functions used in daved, but also useful for other applications.
@@ -93,16 +89,20 @@ Helper functions: https://github.com/intob/dapi
 
 Currently, my implementation overall is intentionally brief. It may panic rather than handle an error, as this allows me to detect and analyse any crashes, and keep the line-count minimal (currently around 480), allowing me to iterate faster.
 
-As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. You need to build from source. Currently I'm running 3 bootstrap nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
+I'm running 3 seed nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
 
-### Build from Source
+## Get daved
+As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. You need to build from source.
+
+### Run go install
+You can install daved, the CLI using `go installgithub.com/intob/daved@latest`.
 1. Install Git https://git-scm.com/
 2. Install Go https://go.dev/dl/
 3. `go install github.com/intob/daved@latest`
 4. `daved`
 5. `daved -v | grep /d/pr`
 
-Read the readme for full documentation.
+### Clone Repository
 
 ### Run as a Node
 Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
