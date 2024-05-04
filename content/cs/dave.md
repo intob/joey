@@ -167,7 +167,7 @@ daved -v
 
 Run with log output. Each PRUNE epochs (few seconds), with peer & dat count, and memory usage is logged.
 ```bash
-daved -v | grep /d/ph/prune
+daved -v | grep /d/pr
 ```
 
 Listen on port 1618 across all network interfaces.
