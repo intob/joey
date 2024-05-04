@@ -78,11 +78,23 @@ As the cryptographic proof contains the value, and time, neither may be modified
 The mass tends to zero over time. Dats with a harder proof of work persist longer in the network. In addition, difficulty scales exponentially (each added zero byte increases the difficulty by 256 times.
 
 ### Peer Trust Mechanism
-A resilient peer-to-peer protocol depends on a trust system that incentivises fair play. Each time a packet is received containing a DAT not already stored, the peer's trust value is incremented by the mass of the DAT.
+A decentralised network depends on a trust system that incentivises fair play. It's much more challenging than operating in a private network, as most web applications do today. So why do it? It allows us to build more powerful software that cannot be controlled by any single entity.
+
+The goal of the trust mechanism is to ensure that energy is not lost to malicious or protocol-deviating peers.
+
+#### Earning Trust
+Each time a packet is received containing a DAT **not already stored**, the remote peer's trust value is incremented by the mass of the DAT.
 
 If a peer is dropped, and then re-joins the network, they will begin with a trust score of zero.
 
 Trust scores are not gossiped, as this implies additional attack surface and complexity.
+
+#### Use of Trust
+The trust score is weighed in to the random peer selection. A random threshold between the maximum trust score and zero is chosen. A peer with a trust score greater than the random threshold is selected at random.
+
+Therefore, peers with a higher trust score are more likely to be selected for gossip messages. This in turn increases the chance for the peer to learn of new DATs earlier, reinforcing the pattern.
+
+In essence, the longer a peer (ip-port) remains in an other's peer table, the higher the trust score will likely be, and therefore the more bandwidth allocated to that peer.
 
 ## 🌱
 Thank you for reading. I value advice and ideas, if you have any please reach me.
