@@ -61,6 +61,11 @@ This provides a good level of anonymity for original senders, because it is virt
 
 Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval.
 
+### GET Message
+A GET message is a packet with op-code GET, containing a Work hash. If the remote has the dat, the remote should reply with a DAT message containing it. A node may request the same DAT from many peers simultaneously. This is up to the application to optimise.
+
+Each PULL EPOCH, a node sends a random GET message to a random peer. This ensures that all DATs are requested with GET messages, further improving anonymity.
+
 ### DAT Selection by Mass
 
 #### Proof-of-work
