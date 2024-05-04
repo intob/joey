@@ -33,7 +33,7 @@ Use-cases? Decentralised social media applications, serverless forms, quickly-co
 ## Design
 The protocol is designed around a single message format with an enumerated operation code. There are 4 operation codes, as follows; GETPEER, PEER, DAT, GET.
 
-Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. With each cycle, a count is incremented. There are several constants defined for vaious sub-cycles. These values are tuned but must be prime numbers, such that no sub-cycle will coincide with an other.
+Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. With each cycle, a count is incremented. There are several constants defined for various sub-cycles. These values are tuned but must be prime numbers, such that no sub-cycle will coincide with an other.
 
 This design allows the protocol to be adjusted safely, and in a way that could preseve interoperability with a network of nodes running variations for different bandwidth ideals & constraints.
 
