@@ -96,6 +96,18 @@ Therefore, peers with a higher trust score are more likely to be selected for go
 
 In essence, the longer a peer (ip-port) remains in an other's peer table, the higher the trust score will likely be, and therefore the more bandwidth allocated to that peer.
 
+### Packet Filter
+Protocol-deviating packets may be sent from malicious or misconfigurred nodes. A packet filter is cruicial for efficiently dropping garbage packets.
+
+#### How do we efficiently assert whether or not we have seen a packet before?
+Asserting with 100% certainty is very computationally expensive, but asserting with a very high degree of probability is significatly cheaper, and advances in this field have led to efficient filters.
+
+I use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it provides fast constant-time lookups with low false-positive rate for the memory required. The size of the filter is configurable, with a capacity of 1M requiring around 1MB of memory.
+
+What do we insert into the filter? We take the remote IP, port, and message op-code. If this combination has been inserted into the filter before, we drop the packet.
+
+The filter is reset every EPOCH.
+
 ## 🌱
 Thank you for reading. I value advice and ideas, if you have any please reach me.
 
