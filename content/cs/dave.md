@@ -31,32 +31,40 @@ Why build this? Currently, we have multiple strong contenders for long-term dece
 Use-cases? Decentralised social media applications, serverless forms, quickly-consistent communication layer for dApps.
 
 ## Design
-The protocol is designed around a single message format, with an enumerated operation code that defines the desired action. There are 3 operation codes, as follows; GETPEER, PEER, DAT.
+The protocol is designed around a single message format with an enumerated operation code. There are 4 operation codes, as follows; GETPEER, PEER, DAT, GET.
 
-Each node operates in a cyclic mode, with the mininum period defined by constant EPOCH. Excluding MTU & NPEER, each other constant is a period-multiplier of the epoch. This design allows the protocol to be adjusted safely, and in a way that could preseve interoperability with a network of nodes running different variations, for different bandwidth ideals & constraints.
+Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. With each cycle, a count is incremented. There are several constants defined for vaious sub-cycles. These values are tuned but must be prime numbers, such that no sub-cycle will coincide with an other.
+
+This design allows the protocol to be adjusted safely, and in a way that could preseve interoperability with a network of nodes running variations for different bandwidth ideals & constraints.
 
 ### GETPEER & PEER Messages
-These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on network to discover peers, and to verify their availability.
+These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on the network to discover peers, and to verify their availability.
 
-For every SHARE epoch, a node iterates over it's peer table. If it finds a peer which it has not heard from in the last SHARE epoch, and the peer has not been pinged within the last PING epoch, the node sends the peer a message with the GETPEER op-code. A protocol-following peer will reply with the PEER op-code, a message containting NPEER addresses for other peers. I often refer to these addresses as peer descriptors, as in future they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
+For every OPEN EPOCH, iterate over the peer table. If a peer is found that has not been seen in the last OPEN EPOCH, and has not been pinged within the last PING EPOCH, send to the peer a message with op-code GETPEER.
 
-If a peer never responds with a PEER message, and the peer is not heard from in a protocol-following manner, the peer is dropped from the peer table. Peers are no-longer advertised much sooner than they are dropped from the peer table. This ensures that unresponsive peers are not re-added from latent gossip.
+A protocol-following peer will reply with op-code PEER, a message containting NPEER addresses for other peers.
+
+I often refer to these addresses as peer descriptors, as in future, they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
+
+If a peer does not respond with any valid message, after DROP * EPOCH has elapsed, the peer is deleted from the peer table.
+
+Unresponsive peers are no-longer advertised after OPEN * EPOCH has elapsed without message, so as to ensure that unresponsive peers are not re-added from latent gossip.
 
 ### DAT Message
 A DAT message is a packet of data containing a Value, Time, Salt, and Work. Salt and Work are outputs of the cost function, into which Value and Time are passed.
 
-Every EPOCH, each node sends one randomly selected dat to one randomly selected peer.
+Every SEED EPOCH, each node sends one randomly selected dat to one randomly selected peer.
 
 This ensures that information propagates and re-propagates through the network reliably, until it is eventually no-longer stored by any node. I describe the selection algorithm later.
 
-Originally a self-healing mechanism for the network, this is now the only way to add data to the network. This provides a good level of anonymity for original senders, because it is virtually impossible to discern the origin of a dat, even with a broad view of network traffic.
+This provides a good level of anonymity for original senders, because it is virtually impossible to discern the origin of a dat, even with a broad view of network traffic.
 
 Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval.
 
 ### DAT Selection by Mass
 
 #### Proof-of-work
-A salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bytes. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zero bytes is referred to as the "difficulty" throughout the remainder of this document. I actually compute a salty hash from an initial hash of value and time, because this performs better than a single hash for large values. This incentivises efficient use of dats. 
+A Salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bytes. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zero bytes is referred to as the "difficulty" throughout the remainder of this document. I actually compute a salty hash from an initial hash of value and time, because this performs better than a single hash for large values. This incentivises efficient use of dats. 
 
 #### Mass Calculation
 As each machine has limited resources, we need a mechanism by which the software can select which dats should be stored, at the expense of others being dropped. In a peer-to-peer application without any central coordination or authority, each node must be able to decide which dats to keep on it's own.
@@ -68,6 +76,13 @@ As the cryptographic proof contains the value, and time, neither may be modified
 ##### mass = difficulty * (1 / millisecondsSinceAdded)
 
 The mass tends to zero over time. Dats with a harder proof of work persist longer in the network. In addition, difficulty scales exponentially (each added zero byte increases the difficulty by 256 times.
+
+### Peer Trust Mechanism
+A resilient peer-to-peer protocol depends on a trust system that incentivises fair play. Each time a packet is received containing a DAT not already stored, the peer's trust value is incremented by the mass of the DAT.
+
+If a peer is dropped, and then re-joins the network, they will begin with a trust score of zero.
+
+Trust scores are not gossiped, as this implies additional attack surface and complexity.
 
 ## 🌱
 Thank you for reading. I value advice and ideas, if you have any please reach me.
