@@ -177,8 +177,8 @@ Write "hello_dave" to the network with default difficulty of 2. This will probab
 #### daved -d 3 set hello_world
 Write hello_world to the network with difficulty of 3. This is 256 times harder than difficulty 2.
 
+#### daved get 0000006f68ae2000290a1ba5cc4689b8bd48e6ac7d566c35954f82c235fb43bd
 Get a dat from the network, output as text, and exit immediately.
-daved get 0000006f68ae2000290a1ba5cc4689b8bd48e6ac7d566c35954f82c235fb43bd
 
 #### daved setf myfile.txt
 Write a very small file (<= ~1400B) to the network. Abstractions that allow efficient large file storage will come. I guess someome much smarter than I will figure it out with Merkle trees and stuff. Come on you great minds!
