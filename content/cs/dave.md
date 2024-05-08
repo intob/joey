@@ -2,40 +2,36 @@
 title: dave
 status: IN_DEVELOPMENT
 date: 2024-05-01
-description: "An anonymised distributed hash table, for use as a cache or KV store for dApps."
+description: "Anonymised continually distributed hash table. Dave eternally rains packets of information."
 img: /img/art/rain/
 ---
 
-My focus is shifting away from flying down mountains, although I will always spend much of my time outdoors, when possible.
+My focus is shifting away from flying, although I will continue to keep my mind open to the possibility.
 
-In the last 6 months, I've become drawn to pursue another childhood dream of mine... writing software that helps us to ensure an open, self-sovereign, and free society. I want to live in a world where everyone has the ability to read and write information to our internet freely.
+In the last 6 months, I've become drawn to pursue another childhood dream of mine... I want to live in a world where everyone has the ability to read and write information on our internet freely.
 
-So... what are we doing? When I started this project (first commit 2024-04-05), I really had no idea, beyond designing a peer-to-peer network application. Now my vision is finally becoming clear, and I am able to describe it.
+So... what are we doing? When I started this project (first commit 2024-04-05), I really had no idea, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I am able to describe it.
 
-I want to build a peer-to-peer cache. A decentralised key-value store that any device may write and read to and from. Simplicity, provable security, anonymity, resistance to censorship, efficiency, performance, and high availability are key aspects that I am aiming for.
+I'm writing a peer-to-peer application that allows anyone, or any device, to read and write information without a key or any kind of transaction. The writer pays in CPU cycles and electricity, the reader pays in network participation.
 
-Simplicity will come at the cost of pushing much application-specific complexity up the stack. We must be free to re-imagine a broken game, if it turns out to be broken...
+Simplicity, anonymity, efficiency, performance, and high availability are key aspects that I am aiming for. New values are available instantly, with sub-second lookup time with current network parameters. Old values have a significantly faster lookup time, because more nodes will likely have the data.
 
-At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising probability of success of the dave protocol.
-
-How can we scope an unfinished idea? I don't a have good answer at time of writing.
-
-# dave - a peer-to-peer anonymised distributed hash table.
-
-I'm designing a protocol for efficiently distributing information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
+Simplicity will come at the cost of pushing much application-specific complexity up the stack. We must be free to re-imagine a broken game, if it turns out to be broken... At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising probability of success of the dave protocol.
 
 I am aware that such projects have been attempted, and failed. I am also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
 
-Why build this? Currently, we have multiple strong contenders for long-term decentralised storage. Projects such as IPFS, Sia, Arweave, Filecoin, Storj. To my knowledge, we do not yet have a single solution for a decentralised database, cache or KV store.
+# dave - anonymised continually distributed hash table.
 
-Use-cases? Decentralised social media applications, serverless forms, quickly-consistent communication layer for dApps.
+Dave is a protocol for efficiently disseminating information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
+
+Use-cases: Decentralised near-real-time social media applications, serverless forms, communication layer for any decentralised application.
 
 ## Design
 The protocol is designed around a single message format with an enumerated operation code. There are 4 operation codes, as follows; GETPEER, PEER, DAT, GET.
 
-Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. With each cycle, a count is incremented. There are several constants defined for various sub-cycles. These values are tuned but must be prime numbers, such that no sub-cycle will coincide with an other.
+Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. There are several period multipliers, defined as constants. These values are tuned, but should be prime numbers such that no sub-cycle will coincide with an other.
 
-This design allows the protocol to be adjusted safely, and in a way that could preseve interoperability with a network of nodes running variations for different bandwidth ideals & constraints.
+This allows the program to send a uniform stream of packets, reducing packet loss and maximising efficiency. This allows the protocol to be adjusted safely, and in a way that could preserve interoperability with a network running variations for different bandwidth ideals & constraints.
 
 ### GETPEER & PEER Messages
 These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on the network to discover peers, and to verify their availability.
@@ -44,11 +40,11 @@ For every OPEN EPOCH, iterate over the peer table. If a peer is found that has n
 
 A protocol-following peer will reply with op-code PEER, a message containting NPEER addresses for other peers.
 
-I often refer to these addresses as peer descriptors, as in future, they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. Know that in my current implementation, I have not yet cleaned up the protobuf specification to support this.
+I often refer to these addresses as peer descriptors, as in future, they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports.
 
-If a peer does not respond with any valid message, after DROP * EPOCH has elapsed, the peer is deleted from the peer table.
+Know that I have not yet cleaned up the protobuf specification to support this, I prefer to focus on other aspects for now.
 
-Unresponsive peers are no-longer advertised after OPEN * EPOCH has elapsed without message, so as to ensure that unresponsive peers are not re-added from latent gossip.
+If a peer does not respond with any valid message, after DROP * EPOCH has elapsed, the peer is deleted from the peer table. Unresponsive peers are no-longer advertised after OPEN * EPOCH has elapsed without message, so as to ensure that unresponsive peers are not re-added from latent gossip.
 
 ### DAT Message
 A DAT message is a packet of data containing a Value, Time, Salt, and Work. Salt and Work are outputs of the cost function, into which Value and Time are passed.
@@ -107,17 +103,19 @@ Protocol-deviating packets may be sent from malicious or misconfigurred nodes. A
 #### How do we efficiently assert whether or not we have seen a packet before?
 Asserting with 100% certainty is very computationally expensive, but asserting with a very high degree of probability is significatly cheaper, and advances in this field have led to efficient filters.
 
-I use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it provides fast constant-time lookups with low false-positive rate for the memory required. The size of the filter is configurable, with a capacity of 1M requiring around 1MB of memory.
+I use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it provides fast constant-time lookups with low false-positive rate for the memory footprint.
 
-What do we insert into the filter? We take the remote IP, port, and message op-code. If this combination has been inserted into the filter before, we drop the packet.
+What do we insert into the filter? We take the remote IP, 4-bit hash of port, and message op-code. If this combination has been inserted into the filter before, we drop the packet.
 
 The filter is reset every EPOCH.
 
-## 🌱
+## 🌱 Let's Plant Knowledge
 Thank you for reading. I value advice and ideas, if you have any please reach me.
 
-## Try Garry
-A web-browser unfortunately cannot yet communicate with the dave network directly, so we need HTTP gateways. There is one running at https://garry.inneslabs.uk/. You can also run your own gateway locally, which is more secure. To do that, just clone https://github.com/intob/garry/ and run with `go run . -b $BOOTSTRAP_IP`.
+## Garry
+A web-browser unfortunately cannot yet communicate with a UDP socket directly. so we need to communicate with a gateway. There is one running at https://garry.inneslabs.uk/. You can also run your own gateway locally, which is more secure, and will perform significantly better.
+
+You may clone https://github.com/intob/garry/ and run with `go run . -b $BOOTSTRAP_IP`.
 
 ## Repositories
 The project is split up into modules, each with their own repository. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, as any other application that may join the network. Third, garry is a HTTP gateway. Finally, dapi is a library with helper functions used in daved and garry, but also useful for other applications.
@@ -130,13 +128,10 @@ HTTP gateway: https://github.com/intob/garry
 
 Helper functions: https://github.com/intob/dapi
 
-
-Currently, my implementation overall is intentionally brief. It may panic rather than handle an error, as this would allow me to detect and analyse a crash, and keep the line-count minimal (currently around 460 incl. license), allowing me to iterate faster.
-
-I'm running 3 seed nodes on tiny arm64 VMs, running Debain 12, thanks systemd. I use scripts to control groups of machines as I need. This simple setup gives me full control, and visibility of logs by grepping dave's logs using the linux journal. I use a simple path prefix /fn/procedure/action that allows me to efficiently grep logs without need for typing quotes around the query (I like to feel good).
+I'm running 3 edge (bootstrap) nodes, plus one garry on tiny arm64 VMs running Debain 12, thanks systemd. I use scripts to control groups of additional machines as I need. This simple setup gives me full control, and visibility of logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query (I like to feel good).
 
 ## Get daved
-As this project is still in pre-alpha (5 weeks), I am not yet distributing binaries. You need to build from source.
+As this project is still in pre-alpha (less than 12 weeks), we're not yet distributing binaries. You need to build from source.
 1. Install Git https://git-scm.com/
 2. Install Go https://go.dev/dl/
 
@@ -212,11 +207,14 @@ daved setfile myfile.txt
 ```
 
 ## References
-I suppose I ought to thank Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is built.
+Thank you to Jean-Philippe Aumasson, for the excellent Blake2 hash function. Thanks also to the other researchers, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein
 
-Thank you also to https://github.com/seiflotfy/cuckoofilter/ for the excellent cuckoo filter implementation, also used in godave.
+I suppose I ought to thank Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is designed.
+
+Thank you also to https://github.com/panmari/cuckoofilter/ for the 16-bit variation of excellent cuckoo filter implementation from https://github.com/seiflotfy/cuckoofilter/.
 
 Sources:
+[/doc/cs/blake2-rfc7693.pdf](/doc/cs/blake2-rfc7693.pdf)
 [/doc/cs/BoundedGossip.pdf](/doc/cs/BoundedGossip.pdf)
 [/doc/cs/FNV_Perf.pdf](/doc/cs/FNV_Perf.pdf)
 [/doc/cs/Gossip_Design.pdf](/doc/cs/Gossip_Design.pdf)
