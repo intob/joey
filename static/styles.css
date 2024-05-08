@@ -5,6 +5,10 @@
   --lighten-2: #ffffff20;
   --lighten-3: #ffffff88;
   --lighten-4: #fffffff0;
+  --gold: #EDAE49;
+  --blue: #084B83;
+  --red: #DB2B39;
+  --green: #4DAA57;
 }
 
 /* Typography */
@@ -160,7 +164,7 @@ a,
 p a {
   padding: 0 5px;
   word-break: break-all;
-  color: var(--lighten-3);
+  color: var(--gold);
 }
 
 a:hover,
