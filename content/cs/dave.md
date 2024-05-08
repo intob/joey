@@ -10,11 +10,11 @@ My focus is shifting away from flying, although I will continue to keep my mind 
 
 In the last 6 months, I've become drawn to pursue another childhood dream of mine... I want to live in a world where everyone has the ability to read and write information on our internet freely.
 
-So... what are we doing? When I started this project (first commit 2024-04-05), I really had no idea, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I am able to describe it.
+So... what are we doing? When I started this project (first commit 2024-04-05), I didn't know exactly, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I am able to describe it.
 
-I'm writing a peer-to-peer application that allows anyone, or any device, to read and write information without a key or any kind of transaction. The writer pays in CPU cycles and electricity, the reader pays in network participation.
+I'm writing a peer-to-peer application that allows anyone, or any device, to read and write information without a key or value transaction of any kind. The writer pays in CPU cycles and electricity, while the reader pays in network participation.
 
-Simplicity, anonymity, efficiency, performance, and high availability are key aspects that I am aiming for. New values are available instantly, with sub-second lookup time with current network parameters. Old values have a significantly faster lookup time, because more nodes will likely have the data.
+Simplicity, anonymity, efficiency, performance, and high availability are key aspects that I am aiming for.
 
 Simplicity will come at the cost of pushing much application-specific complexity up the stack. We must be free to re-imagine a broken game, if it turns out to be broken... At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising probability of success of the dave protocol.
 
@@ -22,7 +22,9 @@ I am aware that such projects have been attempted, and failed. I am also aware t
 
 # dave - anonymised continually distributed hash table.
 
-Dave is a protocol for efficiently disseminating information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
+Dave is a protocol for continuously disseminating information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
+
+New values are available instantly, with sub-second lookup time, with current parameters. Old values have a significantly faster lookup time, because more nodes will likely have the data. Most likely, the response time is equal to or even much better than average netowrk ping.
 
 Use-cases: Decentralised near-real-time social media applications, serverless forms, communication layer for any decentralised application.
 
@@ -65,7 +67,13 @@ Each PULL EPOCH, a node sends a random GET message to a random peer. This ensure
 ### DAT Selection by Mass
 
 #### Proof-of-work
-A Salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bytes. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining. The number of leading zero bytes is referred to as the "difficulty" throughout the remainder of this document. I actually compute a salty hash from an initial hash of value and time, because this performs better than a single hash for large values. This incentivises efficient use of dats. 
+A Salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bytes. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining.
+
+The number of leading zero bytes is referred to as the "difficulty" throughout the remainder of this document.
+
+We compute a salty hash from an initial hash of value and time, because this performs better than a single hash for large values, incentivising efficient use of dats.
+
+##### work = blake2b(salt, blake2b(value, time))
 
 #### Mass Calculation
 As each machine has limited resources, we need a mechanism by which the software can select which dats should be stored, at the expense of others being dropped. In a peer-to-peer application without any central coordination or authority, each node must be able to decide which dats to keep on it's own.
@@ -103,11 +111,11 @@ Protocol-deviating packets may be sent from malicious or misconfigurred nodes. A
 #### How do we efficiently assert whether or not we have seen a packet before?
 Asserting with 100% certainty is very computationally expensive, but asserting with a very high degree of probability is significatly cheaper, and advances in this field have led to efficient filters.
 
-I use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it provides fast constant-time lookups with low false-positive rate for the memory footprint.
+We use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it provides fast constant-time lookups with low false-positive rate for the memory footprint.
 
-What do we insert into the filter? We take the remote IP, 4-bit hash of port, and message op-code. If this combination has been inserted into the filter before, we drop the packet.
+##### fnv64a(op, hash4(remote_port), remote_ip)
 
-The filter is reset every EPOCH.
+What do we insert into the filter? We take the remote IP, 4-bit hash of port, and message op-code. If this combination has been inserted into the filter before, we drop the packet. The filter is reset every EPOCH.
 
 ## 🌱 Let's Plant Knowledge
 Thank you for reading. I value advice and ideas, if you have any please reach me.
