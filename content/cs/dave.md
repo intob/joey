@@ -117,6 +117,8 @@ We use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it prov
 
 What do we insert into the filter? We take the remote IP, 4-bit hash of port, and message op-code. If this combination has been inserted into the filter before, we drop the packet. The filter is reset every EPOCH.
 
+Internally, IP addresses are always mapped to IPv6 to avoid confusion.
+
 ## We are one. Anyone can build with dave.
 Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be part of this idea. 🌱
 
@@ -135,15 +137,9 @@ You can also run your own gateway locally, which will perform significantly bett
 This is parked while I focus on a more important task. https://github.com/intob/dapi/
 
 ## State of Operations
-I'm running just 3 edge (bootstrap) nodes, plus one garry on tiny arm64 VMs running Debain 12, thanks systemd. I use scripts & programs to control groups of additional machines as I need.
+I'm running just 3 edge (bootstrap) nodes, plus one garry on tiny arm64 VMs running Debain 12, thanks systemd. I use scripts & programs to control groups of additional machines as we need. I view logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query (I like to feel good).
 
-Visibility of logs is done by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query (I like to feel good).
-
-### daved -v | grep /d/pr
-### daved - 
-
-## Let's Plant Knowledge
-Thank you for reading. I value advice and ideas, if you have any please reach me.
+Thank you for reading. I value advice and ideas, if you have any, please do reach me.
 
 ## Get daved
 As this project is still in pre-alpha (less than 8 weeks old), we're not yet distributing binaries. You need to build from source.
@@ -152,70 +148,45 @@ As this project is still in pre-alpha (less than 8 weeks old), we're not yet dis
 ### 3. Run: go install github.com/intob/daved@latest
 This downloads the source, and builds the binary. ;)
 
-### Run as a Node
-Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
+### Run as Node
+Executing with no command (just flags) puts the program in it's default mode of operation, participating in the network.
 
-Running without arguments automatically bootstraps to the embedded seed nodes.
-By default, the program listens on all network interfaces, and a random available listening port is allocated by the operating system.
-```bash
-daved
-```
+#### daved
+Running without flags automatically bootstraps to the embedded edge node addresses. By default, the program listens on all network interfaces, port 1618.
 
+#### daved -v
 Verbose logging. Use grep to filter logs.
-```bash
-daved -v
-```
 
-Run with log output. Each PRUNE epochs (few seconds), with peer & dat count, and memory usage is logged.
-```bash
-daved -v | grep /d/pr
-```
+#### daved -l :2024
+Listen to all network interfaces, on port 2024. Same as daved -l [::]:2024
 
-Listen on port 1618 across all network interfaces.
-```bash
-daved -l :1618
-daved -l [::]:1618
-```
+#### daved -e
+Start as an edge, ignoring embedded bootstrap addresses.
 
-Start as a seed, without any bootstrap node (ignore embedded seed addresses).
-```bash
-daved -s
-```
-
+#### daved -b :1969
 Bootstrap only to port on local machine.
-```bash
-daved -b :1969
-daved -b 127.0.0.1:1969
-```
 
+#### daved -b 12.34.56.78:1234
 Bootstrap only to given IP address and port.
-```bash
-daved -b 12.34.56.78:1234
-```
 
-### Run with Commands
-Write hello_world to davenet with default difficulty of 3. Will probably take around 10 seconds on an 8 core low-power consumer laptop.
-```bash
-daved set hello_world
-```
-Write hello_world to davenet with minimum difficulty of 2.
-```bash
-daved -d 2 set hello_world
-```
+### Commands
+#### daved set hello_dave
+Write "hello_dave" to the network with default difficulty of 2. This will probably take just a few seconds on a low-power consumer laptop or phone.
+
+
+#### daved -d 3 set hello_world
+Write hello_world to the network with difficulty of 3. This is 256 times harder than difficulty 2.
+
 Get a dat from the network, output as text, and exit immediately.
-```bash
-daved get 0000006f68ae2000290a1ba5cc4\
-689b8bd48e6ac7d566c35954f82c235fb43bd
-```
-Set by reading a file.
-```bash
-daved setfile myfile.txt
-```
+daved get 0000006f68ae2000290a1ba5cc4689b8bd48e6ac7d566c35954f82c235fb43bd
+
+#### daved setf myfile.txt
+Write a very small file (<= ~1400B) to the network. Abstractions that allow efficient large file storage will come. I guess someome much smarter than I will figure it out with Merkle trees and stuff. Come on you great minds!
 
 ## References
-Thank you to Jean-Philippe Aumasson, for the excellent Blake2 hash function. Thanks also to the other researchers, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein
+Thank you to Jean-Philippe Aumasson, for the Blake2 hash function. Thanks also to the other researchers who helped him, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein
 
-I suppose I ought to thank Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is designed.
+Thank you to Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is designed.
 
 Thank you also to https://github.com/panmari/cuckoofilter/ for the 16-bit variation of excellent cuckoo filter implementation from https://github.com/seiflotfy/cuckoofilter/.
 
