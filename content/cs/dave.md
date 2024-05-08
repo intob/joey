@@ -117,42 +117,40 @@ We use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it prov
 
 What do we insert into the filter? We take the remote IP, 4-bit hash of port, and message op-code. If this combination has been inserted into the filter before, we drop the packet. The filter is reset every EPOCH.
 
-## 🌱 Let's Plant Knowledge
+## We are one. Anyone can build with dave.
+Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be part of this idea. 🌱
+
+### godave is the protocol implementation in library form, written in Go.
+Protocol https://github.com/intob/godave/
+
+### daved is a program that executes the protocol, as any other application that may join the network.
+A tiny cli https://github.com/intob/daved/
+
+### garry is a HTTP gateway.
+Anything can work with dave. https://github.com/intob/garry/
+There is a baby (t4g.nano) one at https://garry.inneslabs.uk/
+You can also run your own gateway locally, which will perform significantly better.
+
+### dapi is a library with abstractions that helps uploading large files.
+This is parked while I focus on a more important task. https://github.com/intob/dapi/
+
+## State of Operations
+I'm running just 3 edge (bootstrap) nodes, plus one garry on tiny arm64 VMs running Debain 12, thanks systemd. I use scripts & programs to control groups of additional machines as I need.
+
+Visibility of logs is done by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query (I like to feel good).
+
+### daved -v | grep /d/pr
+### daved - 
+
+## Let's Plant Knowledge
 Thank you for reading. I value advice and ideas, if you have any please reach me.
 
-## Garry
-A web-browser unfortunately cannot yet communicate with a UDP socket directly. so we need to communicate with a gateway. There is one running at https://garry.inneslabs.uk/. You can also run your own gateway locally, which is more secure, and will perform significantly better.
-
-You may clone https://github.com/intob/garry/ and run with `go run . -b $BOOTSTRAP_IP`.
-
-## Repositories
-The project is split up into modules, each with their own repository. First, godave is the protocol implementation in library form, written in Go. Second, daved is a program that executes the protocol, as any other application that may join the network. Third, garry is a HTTP gateway. Finally, dapi is a library with helper functions used in daved and garry, but also useful for other applications.
-
-Protocol implementation in Go: https://github.com/intob/godave
-
-Basic CLI: https://github.com/intob/daved
-
-HTTP gateway: https://github.com/intob/garry
-
-Helper functions: https://github.com/intob/dapi
-
-I'm running 3 edge (bootstrap) nodes, plus one garry on tiny arm64 VMs running Debain 12, thanks systemd. I use scripts to control groups of additional machines as I need. This simple setup gives me full control, and visibility of logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query (I like to feel good).
-
 ## Get daved
-As this project is still in pre-alpha (less than 12 weeks), we're not yet distributing binaries. You need to build from source.
-1. Install Git https://git-scm.com/
-2. Install Go https://go.dev/dl/
-
-### Run go install
-3. `go install github.com/intob/daved@latest`
-4. `daved`
-5. `daved -v | grep /d/pr`
-
-### Clone Repository
-Alternatively, you can clone the repository.
-3. `git clone https://github.com/intob/daved && cd daved`
-4. `go run .`
-5. `go run . -v | grep /d/pr`
+As this project is still in pre-alpha (less than 8 weeks old), we're not yet distributing binaries. You need to build from source.
+### 1. Install Git https://git-scm.com/
+### 2. Install Go https://go.dev/dl/
+### 3. Run: go install github.com/intob/daved@latest
+This downloads the source, and builds the binary. ;)
 
 ### Run as a Node
 Executing the program without set, setfile or get commands puts the program in it's default mode of operation, participating in the network.
