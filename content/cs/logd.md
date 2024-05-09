@@ -1,8 +1,7 @@
 ---
 title: logd
-status: DONE
 description: "Finished soon. Real-time logging (tail & query) for virtually unlimited logs."
-date_created: 2024-03-15
+date: 2024-03-15
 ---
 Real-time logging (tail & query) for virtually unlimited logs. A map of in-memory ring buffers. Built on UDP & homegrown ephemeral HMAC. Go std lib + Protobuf. Image is built from scratch (Linux kernel + app executable).
 

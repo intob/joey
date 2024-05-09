@@ -1,7 +1,7 @@
 ---
 title: arpload
-date_created: 2024-03-09
 description: "I wanted to upload a 4k video to Arweave network... and failed at first. Safely upload large files to Arweave network with arpload."
+date: 2024-03-09
 img: /img/cs/arpload/2/
 ---
 ## Arweave is a decentralized storage network that offers a unique approach to data storage.

@@ -1,7 +1,7 @@
 ---
 title: "Don't be dreamed, be the dreamer"
-date_created: 2024-01-21
 description: "The earth is a seed, flying with the wind of the universe."
+date: 2024-01-21
 img: /img/art/earth-seed/
 ---
 The world's money is inflating into nothing, as water evaporates from stones heated by the sun.
