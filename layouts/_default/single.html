@@ -31,7 +31,7 @@
     <article>
       <header>
         <h1>{{ .Title }}</h1>
-        {{ if not .DateCreated.IsZero }}
+        {{ if not .Date_created.IsZero }}
         <small>
           <time datetime="{{ .Date_created.Format " 2006-01-02" }}">{{ .Date_created.Format "2006-01-02" }}</time>
         </small>
