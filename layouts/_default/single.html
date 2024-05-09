@@ -33,7 +33,7 @@
         <h1>{{ .Title }}</h1>
         {{ if not .DateCreated.IsZero }}
         <small>
-          <time datetime="{{ .DateCreated.Format " 2006-01-02" }}">{{ .DateCreated.Format "2006-01-02" }}</time>
+          <time datetime="{{ .Date_created.Format " 2006-01-02" }}">{{ .Date_created.Format "2006-01-02" }}</time>
         </small>
           {{ end }}
         {{ if .Params.status }}
