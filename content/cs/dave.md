@@ -23,7 +23,7 @@ I am aware that such projects have been attempted, and failed. I am also aware t
 
 Dave is a protocol for continuously disseminating information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
 
-New values are available instantly, with sub-second lookup time, with current parameters. Old values have a significantly faster lookup time, because more nodes will likely have the data. Most likely, the response time is equal to or even much better than average netowrk ping.
+New values are available instantly, with sub-second lookup time, with current parameters. Old values have a significantly faster lookup time, because more nodes will likely have the data. Most likely, the response time is equal to or even much better than average network ping.
 
 Use-cases: Decentralised near-real-time social media applications, serverless forms, communication layer for any decentralised application.
 
