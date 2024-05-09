@@ -2,7 +2,7 @@
 title: ec2tree
 status: UNFINISHED
 description: "A program that creates a tree of EC2 instances."
-date: 2024-03-15
+date_created: 2024-03-15
 img: /img/art/crypto-swamp/
 ---
 A little program that creates a tree of EC2 instances, with SSH keys installed on child nodes.

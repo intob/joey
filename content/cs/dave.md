@@ -1,7 +1,6 @@
 ---
 title: dave
-status: IN_DEVELOPMENT
-date: 2024-05-01
+date_created: 2024-05-01
 description: "Anonymised continually distributed hash table. Dave eternally rains packets of information."
 img: /img/art/rain/
 ---

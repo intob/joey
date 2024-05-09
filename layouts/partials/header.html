@@ -7,7 +7,7 @@
       my.onion
     {{- end -}}
   </div>
-  <a href="https://github.com/intob/joeyinnes/commits/main/" ref="nofollow" class="addr">
+  <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">
     {{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
     {{- if $commitHash -}}
       commit {{ $commitHash }}

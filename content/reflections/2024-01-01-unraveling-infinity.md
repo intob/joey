@@ -1,6 +1,6 @@
 ---
 title: "Unraveling Infinity"
-date: 2024-01-01
+date_created: 2024-01-01
 description: "With so much to explore, how may we begin?"
 img: /img/art/linked-list/
 ---

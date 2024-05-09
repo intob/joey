@@ -1,6 +1,6 @@
 ---
 title: "First time in Madeira"
-date: 2023-12-19
+date_created: 2023-12-19
 description: "Considering the Maritime alps, I looked further afield, to warmer climes. I almost went to Corsica..."
 img: /img/life/madeira/sea/
 ---

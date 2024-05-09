@@ -5,13 +5,10 @@
   {{ if .Params.img }}
     {{ $imgUrl := .Params.img | absURL }}
     <meta name="og:image" content="{{ $imgUrl }}" />
-    <meta name="twitter:image" content="{{ $imgUrl }}">
     {{ end }}
   <meta name="description" content="{{ .Description }}" />
   <meta name="og:title" content="{{ .Title }}" />
   <meta name="og:description" content="{{ .Description }}" />
-  <meta name="twitter:title" content="{{ .Title }}" />
-  <meta name="twitter:description" content="{{ .Description }}" />
   {{ partial "head.html" . }}
   <style>
     h1 {
@@ -34,9 +31,9 @@
     <article>
       <header>
         <h1>{{ .Title }}</h1>
-        {{ if not .Date.IsZero }}
+        {{ if not .DateCreated.IsZero }}
         <small>
-          <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          <time datetime="{{ .DateCreated.Format " 2006-01-02" }}">{{ .DateCreated.Format "2006-01-02" }}</time>
         </small>
           {{ end }}
         {{ if .Params.status }}

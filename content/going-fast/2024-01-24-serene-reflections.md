@@ -1,6 +1,6 @@
 ---
 title: "Serene reflections amidst torrential canyons"
-date: 2024-01-24
+date_created: 2024-01-24
 description: "As I grow, I am discovering peace & ease... I am immensely thankful for the guidance."
 img: /img/life/engstligen/
 videoTxId: dvXCPe39LOJu_jWSRBf_8wKX3PtNCduQ3q-yOpZvKpw

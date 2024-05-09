@@ -1,7 +1,6 @@
 ---
 title: arpload
-status: DONE
-date: 2024-03-09
+date_created: 2024-03-09
 description: "I wanted to upload a 4k video to Arweave network... and failed at first. Safely upload large files to Arweave network with arpload."
 img: /img/cs/arpload/2/
 ---
