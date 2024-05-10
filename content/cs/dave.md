@@ -118,8 +118,8 @@ What do we insert into the filter? We take the remote IP, 4-bit hash of port, an
 
 Internally, IP addresses are always mapped to IPv6 to avoid confusion.
 
-## We are one. Anyone can build with dave.
-Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be part of this idea. 🌱
+## Some Repositories 
+Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be part of this idea.
 
 ### godave is the protocol implementation in library form, written in Go.
 Protocol https://github.com/intob/godave/
@@ -129,19 +129,13 @@ A tiny cli https://github.com/intob/daved/
 
 ### garry is a HTTP gateway.
 Anything can work with dave. https://github.com/intob/garry/
-There is a baby (t4g.nano) one at https://garry.inneslabs.uk/
-You can also run your own gateway locally, which will perform significantly better.
-
-### dapi is a library with abstractions that helps uploading large files.
-This is parked while I focus on a more important task. https://github.com/intob/dapi/
 
 ## State of Operations
-I'm running just 3 edge (bootstrap) nodes, plus one garry on tiny arm64 VMs running Debain 12, thanks systemd. I use scripts & programs to control groups of additional machines as we need. I view logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query (I like to feel good).
+I'm no-longer running edge (bootstrap) nodes myself. I was using AWS, with a bunch of t4g.nano arm64 VMs running Debain 12. Thanks systemd. I used scripts & programs to control groups of additional machines as we needed. I view logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query.
 
-Thank you for reading. I value advice and ideas, if you have any, please do reach me.
+Thank you for reading. I value advice and ideas, if you have any, please do reach me. 🌱
 
 ## Get daved
-As this project is still in pre-alpha (less than 8 weeks old), we're not yet distributing binaries. You need to build from source.
 ### 1. Install Git https://git-scm.com/
 ### 2. Install Go https://go.dev/dl/
 ### 3. Run: go install github.com/intob/daved@latest
@@ -183,17 +177,9 @@ Get a dat from the network, output as text, and exit immediately.
 Write a very small file (<= ~1400B) to the network. Abstractions that allow efficient large file storage will come. I guess someome much smarter than I will figure it out with Merkle trees and stuff. Come on you great minds!
 
 ## References
-Thank you to Jean-Philippe Aumasson, for the Blake2 hash function. Thanks also to the other researchers who helped him, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein
+Thank you to Jean-Philippe Aumasson, for the Blake2 hash function. Thanks also to the other researchers who helped him, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein.
 
 Thank you to Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is designed.
 
 Thank you also to https://github.com/panmari/cuckoofilter/ for the 16-bit variation of excellent cuckoo filter implementation from https://github.com/seiflotfy/cuckoofilter/.
-
-Sources:
-[/doc/cs/blake2-rfc7693.pdf](/doc/cs/blake2-rfc7693.pdf)
-[/doc/cs/BoundedGossip.pdf](/doc/cs/BoundedGossip.pdf)
-[/doc/cs/FNV_Perf.pdf](/doc/cs/FNV_Perf.pdf)
-[/doc/cs/Gossip_Design.pdf](/doc/cs/Gossip_Design.pdf)
-[/doc/cs/Hoare78.pdf](/doc/cs/Hoare78.pdf)
-[/doc/cs/PromiseAndLimitationsOfGossip_2007.pdf](/doc/cs/PromiseAndLimitationsOfGossip_2007.pdf)
 
