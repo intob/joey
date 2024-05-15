@@ -1,19 +1,18 @@
 
-{{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
-{{- if $commitHash -}}
-  <div class="banner">
-    <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">commit {{ $commitHash }}</a>
-  </div>
-{{- end -}}
 <nav>
-  <a href="/" class="home">{{ .Site.Title }}</a>
-  {{ $categories := $.Site.Taxonomies.categories }}
-  {{ range $categoryName, $category := $categories }}
-    {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
-    <a href="{{ .Page.Permalink }}">{{ $title }}</a>
-  {{ end }}
-
-  {{ range .Site.Menus.main }}
-  <a href="{{ .URL }}">{{ .Name }}</a>
-  {{ end }}
+    <a href="/" class="home">{{ .Site.Title }}</a>
+    {{ $categories := $.Site.Taxonomies.categories }}
+    {{ range $categoryName, $category := $categories }}
+        {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
+        <a href="{{ .Page.Permalink }}">{{ $title }}</a>
+    {{ end }}
+    {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
+    {{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
+    {{- if $commitHash -}}
+        <div class="banner">
+            <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">commit {{ $commitHash }}</a>
+        </div>
+    {{- end -}}
 </nav>
