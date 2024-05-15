@@ -6,7 +6,7 @@
   </div>
 {{- end -}}
 <nav>
-  <a href="/" class="home"><img src="/img/self/madeira/nuns/18x18.webp" width="18" height="18" style="border-radius: 50%" alt="icon">{{ .Site.Title }}</a>
+  <a href="/" class="home">{{ .Site.Title }}</a>
   {{ $categories := $.Site.Taxonomies.categories }}
   {{ range $categoryName, $category := $categories }}
     {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
