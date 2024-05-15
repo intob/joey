@@ -1,13 +1,11 @@
 ---
-title: dave
-description: "Anonymised continually distributed hash table. Dave eternally rains packets of information."
+title: Dave
+description: "Anonymised continually distributed hash table. Dave rains packets of information."
 date: 2024-05-01
 img: /img/art/rain/
 ---
 
-My focus is shifting away from flying, although I will continue to keep my mind open to the possibility.
-
-In the last 6 months, I've become drawn to pursue another childhood dream of mine... I want to live in a world where everyone has the ability to read and write information on our internet freely.
+My focus is shifting away from flying, to computer science. I've not yet dedicated all of my energy to computer science for a sustained period, and I'm exceedingly curious to see where it leads me.
 
 So... what are we doing? When I started this project (first commit 2024-04-05), I didn't know exactly, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I am able to describe it.
 
@@ -37,7 +35,7 @@ This allows the program to send a uniform stream of packets, reducing packet los
 ### GETPEER & PEER Messages
 These are the first two op-codes that I defined, and initially the only operations that the network performed. These two messages allow nodes on the network to discover peers, and to verify their availability.
 
-For every OPEN EPOCH, iterate over the peer table. If a peer is found that has not been seen in the last OPEN EPOCH, and has not been pinged within the last PING EPOCH, send to the peer a message with op-code GETPEER.
+For every PING EPOCH, iterate over the peer table. If a peer is found that has not been seen in the last PING EPOCH, and has not been pinged within the last PING EPOCH, send to the peer a message with op-code GETPEER.
 
 A protocol-following peer will reply with op-code PEER, a message containting NPEER addresses for other peers.
 
@@ -131,21 +129,16 @@ A tiny cli https://github.com/intob/daved/
 Anything can work with dave. https://github.com/intob/garry/
 
 ## State of Operations
-I'm no-longer running edge (bootstrap) nodes myself. I was using AWS, with a bunch of t4g.nano arm64 VMs running Debain 12. Thanks systemd. I used scripts & programs to control groups of additional machines as we needed. I view logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query.
+I'm no-longer running public edge (bootstrap) nodes myself. I was using AWS, with a bunch of t4g.nano arm64 VMs running Debain 12. Thanks systemd. I used scripts & programs to control groups of additional machines as we needed. I view logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query.
 
 Thank you for reading. I value advice and ideas, if you have any, please do reach me. 🌱
 
-## Get daved
-### 1. Install Git https://git-scm.com/
-### 2. Install Go https://go.dev/dl/
-### 3. Run: go install github.com/intob/daved@latest
-This downloads the source, and builds the binary. ;)
 
 ### Run as Node
 Executing with no command (just flags) puts the program in it's default mode of operation, participating in the network.
 
 #### daved
-Running without flags automatically bootstraps to the embedded edge node addresses. By default, the program listens on all network interfaces, port 1618.
+By default, the program listens on all network interfaces, port 1618.
 
 #### daved -v
 Verbose logging. Use grep to filter logs.
@@ -153,24 +146,20 @@ Verbose logging. Use grep to filter logs.
 #### daved -l :2024
 Listen to all network interfaces, on port 2024. Same as daved -l [::]:2024
 
-#### daved -e
-Start as an edge, ignoring embedded bootstrap addresses.
+#### daved -e :1969
+Bootstrap to peer at port on local machine.
 
-#### daved -b :1969
-Bootstrap only to port on local machine.
-
-#### daved -b 12.34.56.78:1234
-Bootstrap only to given IP address and port.
+#### daved -e 12.34.56.78:1234
+Bootstrap to peer at given address and port.
 
 ### Commands
 #### daved set hello_dave
 Write "hello_dave" to the network with default difficulty of 2. This will probably take just a few seconds on a low-power consumer laptop or phone.
 
-
 #### daved -d 3 set hello_world
 Write hello_world to the network with difficulty of 3. This is 256 times harder than difficulty 2.
 
-#### daved get 0000006f68ae2000290a1ba5cc4689b8bd48e6ac7d566c35954f82c235fb43bd
+#### daved get <HASH>
 Get a dat from the network, output as text, and exit immediately.
 
 #### daved setf myfile.txt
@@ -182,4 +171,3 @@ Thank you to Jean-Philippe Aumasson, for the Blake2 hash function. Thanks also t
 Thank you to Adam Back for compiling this list of papers, some of which I read: http://www.hashcash.org/papers/, and of course for his hashcash cost-function, on which this protocol is designed.
 
 Thank you also to https://github.com/panmari/cuckoofilter/ for the 16-bit variation of excellent cuckoo filter implementation from https://github.com/seiflotfy/cuckoofilter/.
-

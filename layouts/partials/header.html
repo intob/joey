@@ -1,19 +1,10 @@
-<div class="banner">
-  <div class="addr">
-    {{- $hostname := getenv "HIDDEN_SERVICE_HOSTNAME" -}}
-    {{- if $hostname -}}
-      http://{{ $hostname }}
-    {{- else -}}
-      my.onion
-    {{- end -}}
+
+{{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
+{{- if $commitHash -}}
+  <div class="banner">
+    <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">commit {{ $commitHash }}</a>
   </div>
-  <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">
-    {{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
-    {{- if $commitHash -}}
-      commit {{ $commitHash }}
-    {{- end -}}
-  </a>
-</div>
+{{- end -}}
 <nav>
   <a href="/" class="home"><img src="/img/self/madeira/nuns/18x18.webp" width="18" height="18" style="border-radius: 50%" alt="icon">{{ .Site.Title }}</a>
   {{ $categories := $.Site.Taxonomies.categories }}
