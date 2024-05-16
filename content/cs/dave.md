@@ -7,15 +7,15 @@ img: /img/art/rain/
 
 My focus is shifting away from flying, to computer science. I've not yet dedicated all of my energy to computer science for a sustained period, and I'm exceedingly curious to see where it leads me.
 
-So... what are we doing? When I started this project (first commit 2024-04-05), I didn't know exactly, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I am able to describe it.
+So... what are we doing? When I started this project (first commit 2024-04-05), I didn't know exactly, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I'm able to describe it.
 
 I'm writing a peer-to-peer application that allows anyone, or any device, to read and write information without a key or value transaction of any kind. The writer pays in CPU cycles and electricity, while the reader pays in network participation.
 
-Simplicity, anonymity, efficiency, performance, and high availability are key aspects that I am aiming for.
+Simplicity, anonymity, efficiency, performance, and high availability are key aspects that I'm aiming for.
 
 Simplicity will come at the cost of pushing much application-specific complexity up the stack. We must be free to re-imagine a broken game, if it turns out to be broken... At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising probability of success of the dave protocol.
 
-I am aware that such projects have been attempted, and failed. I am also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
+I'm aware that such projects have been attempted, and failed. I'm also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
 
 # Dave - anonymised continuously distributed hash table.
 
