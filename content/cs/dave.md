@@ -28,7 +28,7 @@ Use-cases: Decentralised near-real-time social media applications, serverless fo
 ## Design
 The protocol is designed around a single message format with an enumerated operation code. There are 4 operation codes, as follows; GETPEER, PEER, DAT, GET.
 
-Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. There are several period multipliers, defined as constants. These values are tuned, but should be prime numbers such that no sub-cycle will coincide with an other.
+Execution is of a cyclic mode, with the mininum period defined by constant EPOCH. There are several period multipliers, defined as constants. These values are tuned, but should be prime numbers such that no sub-cycle will coincide with another.
 
 This allows the program to send a uniform stream of packets, reducing packet loss and maximising efficiency. This allows the protocol to be adjusted safely, and in a way that could preserve interoperability with a network running variations for different bandwidth ideals & constraints.
 
