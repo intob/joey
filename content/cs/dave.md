@@ -130,8 +130,7 @@ Anything can work with dave. https://github.com/intob/garry/
 ## State of Operations
 I'm no-longer running public edge (bootstrap) nodes myself. I was using AWS, with a bunch of t4g.nano arm64 VMs running Debain 12. Thanks systemd. I used scripts & programs to control groups of additional machines as we needed. I view logs by grepping the linux system journal. Logs begin with a short path prefix /fn/proc/action, allowing us to efficiently grep logs without need for typing quotes around the query.
 
-Thank you for reading. I value advice and ideas, if you have any, please do reach me. 🌱
-
+Thank you for reading. I value advice and ideas, if you have any, please do reach me.
 
 ### Run as Node
 Executing with no command (just flags) puts the program in it's default mode of operation, participating in the network.
@@ -153,10 +152,10 @@ Bootstrap to peer at given address and port.
 
 ### Commands
 #### daved set hello_dave
-Write "hello_dave" to the network with default difficulty of 2. This will probably take just a few seconds on a low-power consumer laptop or phone.
+Write "hello_dave" to the network with default difficulty of 32. This will probably take just a few seconds on a low-power consumer laptop or phone.
 
-#### daved -d 3 set hello_world
-Write hello_world to the network with difficulty of 3. This is 256 times harder than difficulty 2.
+#### daved -d 16 set hello_world
+Write hello_world to the network with difficulty of 16.
 
 #### daved get <HASH>
 Get a dat from the network, output as text, and exit immediately.
