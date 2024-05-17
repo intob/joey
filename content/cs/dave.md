@@ -1,6 +1,6 @@
 ---
 title: Dave
-description: "Anonymised continually-distributed hash table."
+description: "Anonymised continuously-distributed hash table."
 date: 2024-05-01
 ---
 
