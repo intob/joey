@@ -1,6 +1,6 @@
 ---
 title: logd
-description: "Real-time logging (tail & query) for virtually unlimited logs."
+description: "Real-time logging (tail & query) over UDP, with ring buffers."
 date: 2024-03-15
 ---
 Started ~2023-12

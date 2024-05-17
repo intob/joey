@@ -2,7 +2,6 @@
 title: Dave
 description: "Anonymised continually distributed hash table. Dave rains packets of information."
 date: 2024-05-01
-img: /img/art/rain/
 ---
 
 My focus is shifting away from flying, to computer science. I've not yet dedicated all of my energy to computer science for a sustained period, and I'm exceedingly curious to see where it leads me.

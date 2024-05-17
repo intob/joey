@@ -2,7 +2,6 @@
 title: arpload
 description: "I wanted to upload a 4k video to Arweave network... and failed at first. Safely upload large files to Arweave network with arpload."
 date: 2024-03-09
-img: /img/cs/arpload/2/
 ---
 ## Arweave is a decentralized storage network that offers a unique approach to data storage.
 The network is designed to provide permanent information storage, where users pay a one-time fee to store data for at least 200 years, with the potential for it to last much longer, possibly forever. 

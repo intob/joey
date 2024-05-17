@@ -1,9 +1,7 @@
 ---
-title: sshworm
-description: "Distributed program execution by /etc/hosts traversal over SSH."
+title: Distributed program execution via /etc/hosts traversal over SSH
 date: 2024-03-15
-img: /img/cs/sshworm/
 ---
 I have been playing with distributing program execution across a large and changing trusted network using `/etc/hosts` traversal over SSH.
 
-It's easy to run commands on an unlimited number of machines. Commands propagate according to the relationships between machines. The POC was written in a morning, although this is still an unfinished but promising idea. SSH is actually not ideal for this because it's so slow, silly TCP...
+Commands propagate according to the relationships between machines, defined by /etc/hosts entries. The POC was written in a morning, although SSH is not ideal for this because it's so slow, silly TCP... I've since found much more efficient and performant means of distributing commands and binaries.
