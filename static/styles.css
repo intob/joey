@@ -166,3 +166,9 @@ small {
   background-color: var(--lighten-2);
   padding: 5px;
 }
+
+pre {
+  background-color: transparent !important;
+  overflow-x: scroll !important;
+  max-width: 100% !important;
+}
