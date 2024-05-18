@@ -131,74 +131,74 @@ The simple lookup and de Bruijn sequence are the clear winners, regardless of by
 
 ## 16 bytes, 4 leading zero bytes
 ```
-Benchmark_1-12    	53595952	        22.68 ns/op
-Benchmark_2-12    	54691712	        22.68 ns/op
-Benchmark_3-12    	76803686	        15.74 ns/op
-Benchmark_4-12    	421736720	         2.861 ns/op
-Benchmark_5-12    	423180349	         2.864 ns/op
+Benchmark_1-12    	53595952        22.68 ns/op
+Benchmark_2-12    	54691712        22.68 ns/op
+Benchmark_3-12    	76803686        15.74 ns/op
+Benchmark_4-12    	421736720       2.861 ns/op
+Benchmark_5-12    	423180349       2.864 ns/op
 ```
 
 ## 32 bytes, 2 leading zero bytes
 ```
-Benchmark_1-12    	80881609	        14.65 ns/op
-Benchmark_2-12    	86697114	        13.87 ns/op
-Benchmark_3-12    	100000000	        11.22 ns/op
-Benchmark_4-12    	577513431	         2.087 ns/op
-Benchmark_5-12    	570226458	         2.076 ns/op
+Benchmark_1-12    	80881609        14.65 ns/op
+Benchmark_2-12    	86697114        13.87 ns/op
+Benchmark_3-12    	100000000       11.22 ns/op
+Benchmark_4-12    	577513431       2.087 ns/op
+Benchmark_5-12    	570226458       2.076 ns/op
 ```
 
 ## 32 bytes, 4 leading zero bytes
 ```
-Benchmark_1-12    	49990105	        23.07 ns/op
-Benchmark_2-12    	54375429	        21.99 ns/op
-Benchmark_3-12    	76524105	        15.73 ns/op
-Benchmark_4-12    	413261740	         2.862 ns/op
-Benchmark_5-12    	403608087	         2.912 ns/op
+Benchmark_1-12    	49990105        23.07 ns/op
+Benchmark_2-12    	54375429        21.99 ns/op
+Benchmark_3-12    	76524105        15.73 ns/op
+Benchmark_4-12    	413261740       2.862 ns/op
+Benchmark_5-12    	403608087       2.912 ns/op
 ```
 
 ## 32 bytes, 8 leading zero bytes
 ```
-Benchmark_1-12    	34218296	        35.23 ns/op
-Benchmark_2-12    	35122378	        34.62 ns/op
-Benchmark_3-12    	62954121	        19.30 ns/op
-Benchmark_4-12    	315074923	         3.810 ns/op
-Benchmark_5-12    	315627609	         3.805 ns/op
+Benchmark_1-12    	34218296        35.23 ns/op
+Benchmark_2-12    	35122378        34.62 ns/op
+Benchmark_3-12    	62954121        19.30 ns/op
+Benchmark_4-12    	315074923       3.810 ns/op
+Benchmark_5-12    	315627609       3.805 ns/op
 ```
 
 ## 64 bytes, 4 leading zero bytes
 ```
-Benchmark_1-12    	50546887	        23.29 ns/op
-Benchmark_2-12    	51958827	        22.18 ns/op
-Benchmark_3-12    	73563591	        15.65 ns/op
-Benchmark_4-12    	401217024	         3.052 ns/op
-Benchmark_5-12    	386922139	         3.040 ns/op
+Benchmark_1-12    	50546887        23.29 ns/op
+Benchmark_2-12    	51958827        22.18 ns/op
+Benchmark_3-12    	73563591        15.65 ns/op
+Benchmark_4-12    	401217024       3.052 ns/op
+Benchmark_5-12    	386922139       3.040 ns/op
 ```
 
 ## 128 bytes, 4 leading zero bytes
 ```
-Benchmark_1-12    	53089023	        22.98 ns/op
-Benchmark_2-12    	53183925	        22.37 ns/op
-Benchmark_3-12    	74646594	        16.12 ns/op
-Benchmark_4-12    	142048627	         8.512 ns/op
-Benchmark_5-12    	142594008	         8.442 ns/op
+Benchmark_1-12    	53089023        22.98 ns/op
+Benchmark_2-12    	53183925        22.37 ns/op
+Benchmark_3-12    	74646594        16.12 ns/op
+Benchmark_4-12    	142048627       8.512 ns/op
+Benchmark_5-12    	142594008       8.442 ns/op
 ```
 
 ## 256 bytes, 4 leading zero bytes
 ```
-Benchmark_1-12    	51616419	        23.62 ns/op
-Benchmark_2-12    	53396121	        22.98 ns/op
-Benchmark_3-12    	57543146	        18.51 ns/op
-Benchmark_4-12    	100000000	        10.83 ns/op
-Benchmark_5-12    	100000000	        10.89 ns/op
+Benchmark_1-12    	51616419        23.62 ns/op
+Benchmark_2-12    	53396121        22.98 ns/op
+Benchmark_3-12    	57543146        18.51 ns/op
+Benchmark_4-12    	100000000       10.83 ns/op
+Benchmark_5-12    	100000000       10.89 ns/op
 ```
 
 ## 256 bytes, 64 leading zero bytes
 ```
-Benchmark_1-12    	 5252018	       231.0 ns/op
-Benchmark_2-12    	 5165072	       231.0 ns/op
-Benchmark_3-12    	12656263	        97.03 ns/op
-Benchmark_4-12    	57885492	        20.43 ns/op
-Benchmark_5-12    	58068614	        20.46 ns/op
+Benchmark_1-12    	5252018         231.0 ns/op
+Benchmark_2-12    	5165072         231.0 ns/op
+Benchmark_3-12    	12656263        97.03 ns/op
+Benchmark_4-12    	57885492        20.43 ns/op
+Benchmark_5-12    	58068614        20.46 ns/op
 ```
 
 # Repository
