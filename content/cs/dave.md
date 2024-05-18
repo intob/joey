@@ -1,26 +1,25 @@
 ---
 title: Dave
-description: "Anonymised continuously-distributed hash table."
+description: Anonymised distributed hash table.
 date: 2024-05-01
 ---
-
 My focus is shifting away from flying, to computer science. I've not yet dedicated all of my energy to computer science for a sustained period, and I'm exceedingly curious to see where it leads me.
 
 So... what are we doing? When I started this project (first commit 2024-04-05), I didn't know exactly, beyond designing a peer-to-peer network application that disseminates information. Now my vision is finally becoming clear, and I'm able to describe it.
 
-I'm writing a peer-to-peer application that allows anyone, or any device, to read and write information without a key or value transaction of any kind. The writer pays in CPU cycles and electricity, while the reader pays in network participation.
+I'm writing a peer-to-peer application that allows anyone, or any device, to read and write information without a key, token, or value transaction of any kind. A writer pays in CPU cycles and electricity, while a reader pays in network participation.
 
 Simplicity, anonymity, efficiency, performance, and high availability are key aspects that I'm aiming for.
 
-Simplicity will come at the cost of pushing much application-specific complexity up the stack. We must be free to re-imagine a broken game, if it turns out to be broken... At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising probability of success of the dave protocol.
+Simplicity will come at the cost of pushing much application-specific complexity up the stack. We must be free to re-imagine a broken game, if it turns out to be broken... At this time, I feel that this approach ensures a modular and upgradeable stack of protocols, while maximising the probability of success of the dave protocol.
 
-I'm aware that such projects have been attempted, and failed. I'm also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
+I'm aware that such projects have been attempted and failed. I'm also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
 
-# Dave - anonymised continuously distributed hash table.
+# Dave - anonymised distributed hash table.
 
-Dave is a protocol for continuously disseminating information in a decentralised, anonymous, and censorship-resistant way, without the need of a native token or value transaction.
+Dave is a protocol for continuously disseminating information in a decentralised, anonymous, and censorship-resistant manner, without the need of a native token or value transaction.
 
-New values are available instantly, with sub-second lookup time, with current parameters. Old values have a significantly faster lookup time, because more nodes will likely have the data. Most likely, the response time is equal to or even much better than average network ping.
+New values are available instantly with sub-second lookup time. Old values have a significantly faster lookup time, because more nodes will likely have the data. Real-world speed depends on the bandwidth provisioned by the nodes. Most likely, the response time is better than average network ping.
 
 Use-cases: Decentralised near-real-time social media applications, serverless forms, communication layer for any decentralised application.
 
@@ -45,7 +44,7 @@ Know that I have not yet cleaned up the protobuf specification to support this, 
 If a peer does not respond with any valid message, after DROP * EPOCH has elapsed, the peer is deleted from the peer table. Unresponsive peers are no-longer advertised after OPEN * EPOCH has elapsed without message, so as to ensure that unresponsive peers are not re-added from latent gossip.
 
 ### DAT Message
-A DAT message is a packet of data containing a Value, Time, Salt, and Work. Salt and Work are outputs of the cost function, into which Value and Time are passed.
+A message with op-code DAT is a packet of data containing a Value, Time, Salt, and Work. Salt and Work are outputs of the cost function, into which Value and Time are passed.
 
 Every SEED EPOCH, each node sends one randomly selected dat to one randomly selected peer.
 
@@ -56,18 +55,18 @@ This provides a good level of anonymity for original senders, because it is virt
 Anonymity is achieved by ensuring no correlation between the timing of a dat being recieved for the first time, and it's eventual propagation to other nodes. This happens at random, but at a constant interval.
 
 ### GET Message
-A GET message is a packet with op-code GET, containing a Work hash. If the remote has the dat, the remote should reply with a DAT message containing it. A node may request the same DAT from many peers simultaneously. This is up to the application to optimise.
+A GET message is a packet with op-code GET, containing a Work hash. If the remote has the dat, the remote should reply with a message with op-code DAT, containing the data. A node may request the same dat from many peers simultaneously. This is up to the application to optimise, although the reference implementation should be pretty good.
 
-Each PULL EPOCH, a node sends a random GET message to a random peer. This ensures that all DATs are requested with GET messages, further improving anonymity.
+Each PULL EPOCH, a node sends a random GET message to a random peer. This ensures that all dats are requested with GET messages, further improving anonymity.
 
 ### DAT Selection by Mass
 
 #### Proof-of-work
-A Salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bytes. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining.
+A Salt is found, that when combined with the Value & Time fields using a hash function, the output begins with some desired number of leading zero bits. The number of leading zeros (or some other constraint) probablisticly accurately reflects the energetic cost equivalent of computing the proof. This is commonly known as proof-of-work, and is well known for it's use in Bitcoin mining.
 
-The number of leading zero bytes is referred to as the "difficulty" throughout the remainder of this document.
+The number of leading zero bits is referred to as the "difficulty" throughout the remainder of this document.
 
-We compute a salty hash from an initial hash of value and time, because this performs better than a single hash for large values, incentivising efficient use of dats.
+We compute a salty hash from an initial hash of value and time because this performs better than a single hash for large values, incentivising efficient use of dats.
 
 ##### work = blake2b(salt, blake2b(value, time))
 
@@ -88,7 +87,7 @@ A decentralised network depends on a trust system that incentivises fair play. I
 The goal of the trust mechanism is to ensure that energy is not lost to malicious or protocol-deviating peers.
 
 #### Earning Trust
-Each time a packet is received containing a DAT **not already stored**, the remote peer's trust value is incremented by the mass of the DAT.
+Each time a packet is received containing a dat **not already stored**, the remote peer's trust value is incremented by the mass of the dat.
 
 If a peer is dropped, and then re-joins the network, they will begin with a trust score of zero.
 
@@ -97,7 +96,7 @@ Trust scores are not gossiped, as this implies additional attack surface and com
 #### Use of Trust
 The trust score is weighed in to the random peer selection. A random threshold between the maximum trust score and zero is chosen. A peer with a trust score greater than the random threshold is selected at random.
 
-Therefore, peers with a higher trust score are more likely to be selected for gossip messages. This in turn increases the chance for the peer to learn of new DATs earlier, reinforcing the pattern.
+Therefore, peers with a higher trust score are more likely to be selected for gossip messages. This in turn increases the chance for the peer to learn of new dats earlier, reinforcing the pattern.
 
 In essence, the longer a peer (ip-port) remains in an other's peer table, the higher the trust score will likely be, and therefore the more bandwidth allocated to that peer.
 
@@ -114,6 +113,15 @@ We use a cuckoo filter. The cuckoo filter is ideal for this use-case, as it prov
 What do we insert into the filter? We take the remote IP, 4-bit hash of port, and message op-code. If this combination has been inserted into the filter before, we drop the packet. The filter is reset every EPOCH.
 
 Internally, IP addresses are always mapped to IPv6 to avoid confusion.
+
+## Storing Large Files
+As mentioned earlier, all application-specific complexity is pushed up the stack. Dave is purely a packet-sharing protocol, with no built-in features for storing large files. That said, I have considered the need for storing large files in the network.
+
+### Linked List
+The simplest approach to storing large files, and the earliest proof that I implemented, is a linked-list. Simply prepend or append the hash of the previous dat in next dat. This simple approach has the disadvantage that reading is slow because GETs cannot be made in parallel.
+
+### Merkle Tree
+An optimised approach is to write the large file as a sequence of dats, and concurrently build a merkle tree, where additional pointer dats are used to reference dats containing the file's content. The hash of the root of the tree may then be used as the reference to the file. A reader may then traverse the tree, collecting all of the dats in parallel, and re-assemble the file. Reads of this nature are significantly faster than the linked-list approach.
 
 ## Some Repositories 
 Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be part of this idea.
