@@ -1,5 +1,5 @@
 ---
-title: Comparing performance of de Bruijn sequence against a lookup table
+title: Comparing performance of a de Bruijn sequence against a simple lookup table
 description: "Precomputed de Bruijn sequences are cool, but are they faster than simple lookup tables?"
 date: 2024-05-17
 ---
@@ -26,6 +26,7 @@ func nzerobit_1(key []byte) int {
 Iterating over each byte in the given key, we use the bitwise AND operator `&` to check if the `i`-th bit of the byte is zero. The expression `1<<i` creates a bitmask with only the `i`-th bit set to 1, and the `&` operator performs a bitwise AND operation between the byte and the bitmask. If the result is zero, it means that the `i`-th bit is zero, and we increment the count. If the bit is set, we return the current value of count.
 
 ## 2. Right shift
+Instead of using `b&(1<<i) == 0`, we can use `(b>>i)&1 == 0`, avoiding the expensive left shift operation. This should yeild a small performance improvement.
 ```go
 func nzerobit_2(key []byte) int {
     var count int
@@ -41,9 +42,9 @@ func nzerobit_2(key []byte) int {
     return count
 }
 ```
-Instead of using `b&(1<<i) == 0`, we can use `(b>>i)&1 == 0`, avoiding the expensive left shift operation. This should yeild a small performance improvement.
 
 ## 3. Unroll loop
+Loops are expensive. Loop unrolling can help reduce overhead, and enable better instruction-level parallelism.
 ```go
 func nzerobit_3(key []byte) int {
     var count int
@@ -60,7 +61,6 @@ func nzerobit_3(key []byte) int {
     return count
 }
 ```
-Loops are expensive. Loop unrolling can help reduce loop overhead, and enable better instruction-level parallelism.
 
 ## 4. Simple lookup table
 We can create a lookup table storing the number of leading zero bits for every possible byte value.
@@ -201,5 +201,5 @@ Benchmark_4-12    	57885492	        20.43 ns/op
 Benchmark_5-12    	58068614	        20.46 ns/op
 ```
 
-# Repo
+# Repository
 https://github.com/intob/zerobitperf
