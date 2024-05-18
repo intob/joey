@@ -10,36 +10,36 @@ While optimising the naive proof-of-work algorithm in my dave protocol implement
 ## 1. Naive approach
 ```go
 func nzerobit_1(key []byte) int {
-    var count int
+    var n int
     for _, b := range key {
         for i := 0; i < 8; i++ {
             if b&(1<<i) == 0 {
-                count++
+                n++
             } else {
-                return count
+                return n
             }
         }
     }
-    return count
+    return n
 }
 ```
-Iterating over each byte in the given key, we use the bitwise AND operator `&` to check if the `i`-th bit of the byte is zero. The expression `1<<i` creates a bitmask with only the `i`-th bit set to 1, and the `&` operator performs a bitwise AND operation between the byte and the bitmask. If the result is zero, it means that the `i`-th bit is zero, and we increment the count. If the bit is set, we return the current value of count.
+Iterating over each byte in the given key, we use the bitwise AND operator `&` to check if the `i`-th bit of the byte is zero. The expression `1<<i` creates a bitmask with only the `i`-th bit set to 1, and the `&` operator performs a bitwise AND operation between the byte and the bitmask. If the result is zero, it means that the `i`-th bit is zero, and we increment `n`. If the bit is set, we return the current value of `n`.
 
 ## 2. Right shift
 Instead of using `b&(1<<i) == 0`, we can use `(b>>i)&1 == 0`, avoiding the expensive left shift operation. This should yeild a small performance improvement.
 ```go
 func nzerobit_2(key []byte) int {
-    var count int
+    var n int
     for _, b := range key {
         for i := 0; i < 8; i++ {
             if (b>>i)&1 == 0 {
-                count++
+                n++
             } else {
-                return count
+                return n
             }
         }
     }
-    return count
+    return n
 }
 ```
 
@@ -47,18 +47,18 @@ func nzerobit_2(key []byte) int {
 Loops are expensive. Loop unrolling can help reduce overhead, and enable better instruction-level parallelism.
 ```go
 func nzerobit_3(key []byte) int {
-    var count int
+    var n int
     for _, b := range key {
-        if (b>>0)&1 == 0 { count++ } else { return count }
-        if (b>>1)&1 == 0 { count++ } else { return count }
-        if (b>>2)&1 == 0 { count++ } else { return count }
-        if (b>>3)&1 == 0 { count++ } else { return count }
-        if (b>>4)&1 == 0 { count++ } else { return count }
-        if (b>>5)&1 == 0 { count++ } else { return count }
-        if (b>>6)&1 == 0 { count++ } else { return count }
-        if (b>>7)&1 == 0 { count++ } else { return count }
+        if (b>>0)&1 == 0 { n++ } else { return n }
+        if (b>>1)&1 == 0 { n++ } else { return n }
+        if (b>>2)&1 == 0 { n++ } else { return n }
+        if (b>>3)&1 == 0 { n++ } else { return n }
+        if (b>>4)&1 == 0 { n++ } else { return n }
+        if (b>>5)&1 == 0 { n++ } else { return n }
+        if (b>>6)&1 == 0 { n++ } else { return n }
+        if (b>>7)&1 == 0 { n++ } else { return n }
     }
-    return count
+    return n
 }
 ```
 
@@ -85,14 +85,14 @@ var zeros = [256]int{
 }
 
 func nzerobit_4(key []byte) int {
-    var count int
+    var n int
     for _, b := range key {
-        count += zeros[b]
+        n += zeros[b]
         if b != 0 {
-            return count
+            return n
         }
     }
-    return count
+    return n
 }
 ```
 While simple, this approach can be significantly faster for small input sizes. As my use case is counting the number of leading zero bits in a 256 bit hash, this method could yeild great results.
