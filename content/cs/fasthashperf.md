@@ -1,5 +1,5 @@
 ---
-title: Comparing the performance of non-cryptographic hash functions FNV with Murmur3
+title: Comparing the performance of non-cryptographic hash functions
 description: "I benchmarked some fast hash functions in Go..."
 date: 2024-05-19
 ---
