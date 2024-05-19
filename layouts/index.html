@@ -30,9 +30,11 @@
       </section>
       <section>
         <h2>Latest 10</h2>
-        {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
-            <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
-        {{ end }}
+        <div class="flex">
+          {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
+              <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
+          {{ end }}
+        </div>
       </section>
     </article>
   </main>
