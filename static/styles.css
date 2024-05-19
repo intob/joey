@@ -62,12 +62,12 @@ article.teaser {
   flex-direction: row;
   gap: 10px;
   color: var(--lighten-4);
-  max-width: 400px;
+  max-width: 580px;
   word-break: keep-all;
 }
 
 article.teaser h3 {
-  margin-top: 0;
+  margin-top: 10px;
 }
 
 article.teaser img {
