@@ -47,7 +47,7 @@ ok      github.com/intob/fasthashperf   34.274s
 # Findings
 
 ## FNV vs FNVa
-There seems to be litle difference when comparing the performance of FNV and FNVa for byte slices, although FNVa seems to have the edge for 64-bit arithmetic.
+There seems to be little difference when comparing the performance of FNV and FNVa for byte slices, although FNVa seems to have the edge for 64-bit arithmetic.
 
 ## Murmur3 vs FNV(a)
 Murmur3 is significantly faster than FNV(a) for all input lengths over 16 bytes, with the difference becoming more pronounced with increased input length. For input lengths of 16 bytes or less, FNV(a) seems to be slightly faster.
