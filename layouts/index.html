@@ -11,32 +11,30 @@
 <body>
   <header>{{ partial "header.html" . }}</header>
   <main>
-    <article>
-      <picture>
-        <source type="image/avif" 
-                srcset="/img/life/torrent-creusaz/800.avif 800w,
-                        /img/life/torrent-creusaz/1600.avif 1600w,
-                        /img/life/torrent-creusaz/2400.avif 2400w,
-                        /img/life/torrent-creusaz/2912.avif 2912w,
-                        /img/life/torrent-creusaz/3840.avif 3840w"
-                sizes="100vw">
-        <img src="/img/life/torrent-creusaz/400.avif"
-            width="3840" height="2160"
-            style="width: 100vw; height: auto"
-            alt="rebirth">
-      </picture>
-      <section>
-        <p>Simplicity is underrated. I see an elegant beauty & power in the nature of self-reference. I like p2p network applications that empower individuals with human rights. I'm a specialist of distributed systems.</p>
-      </section>
-      <section>
-        <h2>Latest 10</h2>
-        <div class="flex">
-          {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
-              <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
-          {{ end }}
-        </div>
-      </section>
-    </article>
+    <picture>
+      <source type="image/avif" 
+              srcset="/img/life/torrent-creusaz/800.avif 800w,
+                      /img/life/torrent-creusaz/1600.avif 1600w,
+                      /img/life/torrent-creusaz/2400.avif 2400w,
+                      /img/life/torrent-creusaz/2912.avif 2912w,
+                      /img/life/torrent-creusaz/3840.avif 3840w"
+              sizes="100vw">
+      <img src="/img/life/torrent-creusaz/400.avif"
+          width="3840" height="2160"
+          style="width: 100vw; height: auto"
+          alt="rebirth">
+    </picture>
+    <section>
+      <p>Simplicity is underrated. I see an elegant beauty & power in the nature of self-reference. I like p2p network applications that empower individuals with human rights. I'm a specialist of distributed systems.</p>
+    </section>
+    <section>
+      <h2>Latest 10</h2>
+      <div class="flex">
+        {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
+            <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
+        {{ end }}
+      </div>
+    </section>
   </main>
 </body>
 </html>

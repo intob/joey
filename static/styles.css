@@ -63,6 +63,7 @@ article.teaser {
   gap: 10px;
   color: var(--lighten-4);
   max-width: 400px;
+  word-break: keep-all;
 }
 
 article.teaser h3 {
@@ -91,7 +92,7 @@ a {
   transition: border-color 127ms;
 }
 
-p a {
+main a {
   padding: 0 5px;
   word-break: break-all;
   color: var(--gold);
