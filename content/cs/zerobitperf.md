@@ -1,5 +1,5 @@
 ---
-title: Comparing performance of a de Bruijn sequence against a simple lookup table
+title: Comparing the performance of a de Bruijn sequence against a simple lookup table
 description: "Precomputed de Bruijn sequences are cool, but are they faster than simple lookup tables?"
 date: 2024-05-17
 ---
