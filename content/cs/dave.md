@@ -158,10 +158,10 @@ Bootstrap to peer at given address and port.
 
 ### Commands
 #### daved set hello_dave
-Write "hello_dave" to the network with default difficulty of 32. This will probably take just a few seconds on a low-power consumer laptop or phone.
+Write "hello_dave" to the network with default difficulty of 16. This will probably take just a few seconds on a low-power consumer laptop or phone.
 
-#### daved -d 16 set hello_world
-Write hello_world to the network with difficulty of 16.
+#### daved -d 32 set hello_world
+Write hello_world to the network with difficulty of 32.
 
 #### daved get <HASH>
 Get a dat from the network, output as text, and exit immediately.
