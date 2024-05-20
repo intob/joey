@@ -5,7 +5,7 @@ date: 2024-05-19
 ---
 In order to speed up a UDP packet filter, I benchmarked some fast hash functions to find the fastest. I compared two implementations of Murmur3, and FNV from the Go standard library.
 
-Before getting to it, I was particularly surprised by how much faster the uint64 variants were than their byte slice counterparts. This goes to show how much we can benefit from 64-bit registers in modern CPUs by avoiding byte slices where possible.
+Before getting to it, I was particularly surprised by how much faster the uint64 variants were than their byte slice counterparts. This goes to show how much we can benefit from 64-bit registers in modern CPUs, by avoiding byte slices where possible.
 
 As I did not want to spend a whole evening benchmarking, I limited this study to 64-bit hashes. If in future I encounter a use-case to compare other bit widths, I'll extend the repository and update this article.
 
