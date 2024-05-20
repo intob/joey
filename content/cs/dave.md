@@ -35,11 +35,9 @@ These are the first two op-codes that I defined, and initially the only operatio
 
 For every PING EPOCH, iterate over the peer table. If a peer is found that has not been seen in the last PING EPOCH, and has not been pinged within the last PING EPOCH, send to the peer a message with op-code GETPEER.
 
-A protocol-following peer will reply with op-code PEER, a message containting NPEER addresses for other peers.
+A protocol-following peer will reply with op-code PEER, a message containing NPEER addresses for other peers.
 
-I often refer to these addresses as peer descriptors, as in future, they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports.
-
-Know that I have not yet cleaned up the protobuf specification to support this, I prefer to focus on other aspects for now.
+I often refer to these addresses as peer descriptors, as in future, they may not necessarily be IP addresses. I would like the possibility to cleanly implement interoperable transports. This would allow nodes to serve as bridges. As software-defined radio is a field of interest to me, I imagine that the dave protocol could used to create alternative low-energy networks that could bridge our existing infrastructure built on IP. Imagine a free and open internet that does not require an internet service provider, or any knowledge of it's users. Know that I have not yet adjusted the protobuf specification to support this, as I prefer to focus on a building working proof over UDP for now.
 
 If a peer does not respond with any valid message, after DROP * EPOCH has elapsed, the peer is deleted from the peer table. Unresponsive peers are no-longer advertised after OPEN * EPOCH has elapsed without message, so as to ensure that unresponsive peers are not re-added from latent gossip.
 
