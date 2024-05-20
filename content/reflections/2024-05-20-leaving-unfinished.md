@@ -4,7 +4,7 @@ date: 2024-05-20
 ---
 As I browse old works from venerable computer scientists, I often encounter brilliant yet unfinished projects.
 
-This led me to reflect on my own habbit of leaving personal projects unfinished. I see merit in occasionally parking ideas indeffinitely. That is, if the real goal of any personal project is not to output a peice of work, but to learn skills necessary for a future project, it follows that we must let it go once we see a bridge to the next phase of learning.
+This led me to reflect on my own habbit of leaving personal projects unfinished. I see merit in occasionally parking ideas indefinitely. That is, if the real goal of any personal project is not to output a peice of work, but to learn skills necessary for a future project, it follows that we must let it go once we see a bridge to the next phase of learning.
 
 For the sake of my employability, I must note that I understand the critical importance of finishing tasks and outputting fully tested software in the context of business. However, we must remain honest with ourselves amd others about the utility of old ideas when superior ideas are conceived. We must balance our propensity for learning with business requirements and the need to deliver quality products.
 
