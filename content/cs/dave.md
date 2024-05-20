@@ -15,7 +15,7 @@ Simplicity will come at the cost of pushing much application-specific complexity
 
 I'm aware that such projects have been attempted and failed. I'm also aware that such a challenging project may not be an ideal start for a budding p2p network researcher. With that in mind, I do need a worthy challenge and vision to hold my interest.
 
-# Dave - anonymised distributed hash table.
+# Dave - anonymised distributed hash table
 
 Dave is a protocol for continuously disseminating information in a decentralised, anonymous, and censorship-resistant manner, without the need of a native token or value transaction.
 
