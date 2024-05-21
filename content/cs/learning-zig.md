@@ -97,4 +97,4 @@ I've recently been captivated by Zig, and I'm sincerely enjoying learning a new 
 
 When I discovered Zig only a couple of months ago, I was blown away by it's safety and simplicity. Actually, Zig is what re-ignited my interest in systems programming, and opened my mind to the possibilities of interacting more closely with hardware in a more intuitive and powerful way than I had experienced with C.
 
-Learning Zig is taking me back to my early teens, when I learned C. I relish this time as a total beginner, as for me this possibly the most fun and fequently-rewarding stage of learning. It's effortless to be forgiving of ourselves in the early stages of learning. Frustration and need for discipline only begin to creep in once we have expectations and needs beyond our skills.
+Learning Zig is taking me back to my early teens, when I learned C. I relish this time as a total beginner, as for me this is possibly the most fun and fequently-rewarding stage of learning. It's effortless to be forgiving of ourselves in the early stages of learning. Frustration and need for discipline only begin to creep in once we have expectations and needs beyond our skills.
