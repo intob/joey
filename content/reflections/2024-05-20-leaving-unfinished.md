@@ -1,5 +1,5 @@
 ---
-title: Leaving projects unfinished is critical for maximising rate of learning
+title: Leaving projects unfinished is cruicial for maximising rate of learning
 description: Read me out...
 date: 2024-05-20
 ---
