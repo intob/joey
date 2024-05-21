@@ -1,6 +1,6 @@
 
 <nav>
-    <a href="/" class="home">{{ .Site.Title }}</a>
+    <a href="/" class="home">~</a>
     {{ range $categoryName, $category := $.Site.Taxonomies.categories }}
         {{ $title := index $.Site.Params.categories $categoryName | default $categoryName }}
         <a href="{{ .Page.Permalink }}">{{ $title }}</a>
