@@ -50,7 +50,7 @@ func rdpkt(c *net.UDPConn, h hash.Hash, f *ckoo.Filter, bpool, mpool *sync.Pool,
 		return nil
 	}
 	h.Reset()
-	op := make([]byte, 8)
+	op := make([]byte, 4)
 	binary.LittleEndian.PutUint32(op, uint32(m.Op.Number()))
 	h.Write(op)
 	h.Write([]byte{hash4(raddr.Port())})
