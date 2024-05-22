@@ -85,7 +85,78 @@ argument should be pointer-like to avoid allocations (SA6002)go-staticcheck
 ```
 The linter thinks that buf is a value because it's not explicitly given as a pointer, when in fact a slice is just a reference to a subset of an array. This hidden indirection is what makes Go's slices so easy & powerful, and yet so difficult to use efficiently.
 
-Nevertheless, I persevered. Now godave is quite a performant library, and still around 660 (long) lines. Considering what it does, I find that pretty cool. I've truly enjoyed writing it. I must give credit where it's due; it was trivial to implement dave in Go. I feel that the language makes programming fun and light-hearted.
+One other gripe that I have with Go is gofmt. While Pikey [suggests](https://youtu.be/PAAkCSZUG1c?si=N4vBUS9vyy-RbgkE&t=522) that "Gofmt's style is no one's favourite, yet gofmt is everyone's favourite"; I find that to be only half correct.
+
+For instance, take the following snippet from [zerobitperf](/cs/zerobitperf):
+```go
+func nzerobit(key []byte) int {
+    var n int
+    for _, b := range key {
+        if (b>>0)&1 == 0 { n++ } else { return n }
+        if (b>>1)&1 == 0 { n++ } else { return n }
+        if (b>>2)&1 == 0 { n++ } else { return n }
+        if (b>>3)&1 == 0 { n++ } else { return n }
+        if (b>>4)&1 == 0 { n++ } else { return n }
+        if (b>>5)&1 == 0 { n++ } else { return n }
+        if (b>>6)&1 == 0 { n++ } else { return n }
+        if (b>>7)&1 == 0 { n++ } else { return n }
+    }
+    return n
+}
+```
+
+The above is an unrolled loop. Let's see what gofmt does with it...
+```go
+func nzerobit_3(key []byte) int {
+	var n int
+	for _, b := range key {
+		if (b>>0)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>1)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>2)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>3)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>4)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>5)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>6)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+		if (b>>7)&1 == 0 {
+			n++
+		} else {
+			return n
+		}
+	}
+	return n
+}
+```
+Is the former not more readable? Now, you might argue that if you're bit twiddling and unrolling loops, then you've already left the bounds of Go's ideals. However, I could show you many such examples where the condensed form is more readable than gofmt's expanded form.
+
+Nevertheless, I persevered with Go. Now godave is quite a performant library, and still only 660 (long) lines. Considering what it does, I find that pretty cool. I've truly enjoyed writing it. I must give credit where it's due; it was trivial to implement dave in Go. I feel that the language makes programming fun and light-hearted.
 
 In my opinion, go routines and channels are by an imperial mile the best aspects of Go. They're well-designed, usable, and performant. Many other features, such as generics, taste like salt. However, due to it's simplicity, I feel that choosing Go as a first programming language would be a solid choice. I will continue to use Go where time to implement trumps performance and stability.
 
