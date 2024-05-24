@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CV - Joey Innes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Joey Innes">
+  <meta name="theme-color" content="#000">
+  <link rel="icon" href="../img/self/300_round.webp">
+  <style>
+    :root {
+      --dark-1: hsl(154, 100%, 1%);
+      --dark-2: hsl(194, 100%, 3%);
+      --lighten-1: #ffffff05;
+      --lighten-2: #ffffff20;
+      --lighten-3: #ffffff88;
+      --lighten-4: #fffffff0;
+      --gold: #EDAE49;
+      --blue: #084B83;
+      --red: #DB2B39;
+      --green: #4DAA57;
+    }
+
+    html {
+      background: linear-gradient(-0.0625turn, var(--dark-1), var(--dark-2));
+      color: #f0f0f0f0;
+      min-height: 100vh;
+    }
+
+    body {
+      max-width: 600px;
+      padding: 0 10px;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--lighten-2);
+      transition: border-color 127ms;
+      padding: 0 5px;
+      word-break: break-all;
+      color: var(--gold);
+    }
+
+    a:hover { border-color: var(--lighten-3) }
+  </style>
+</head>
+<body>
+<h1>Joey Innes, Software Engineer</h1>
+
+<h2>Knowledge</h2>
+
+<ul>
+  <li>Linux</li>
+  <li>Bash</li>
+  <li>Basic tooling such as vim, git, ssh & scp</li>
+  <li>IP, private networking on WireGuard</li>
+  <li>DNS</li>
+  <li>TLS</li>
+  <li>Efficient file reading & writing; for example seeking backwards & writing forwards to concurrently read & write large datasets</li>
+  <li>Concurrency patterns, applied in Go</li>
+  <li>Protobuf</li>
+  <li>Web stuff: HTTP, CORS, WebSocket, WebCrypto, etc.</li>
+  <li>Applied cryptography</li>
+  <li>IdP standards: SAML, OIDC and OAuth</li>
+  <li>Broad knowledge of AWS, familiarity with Google Cloud & Azure</li>
+  <li>Terraform</li>
+</ul>
+
+<h2>Programming Languages</h2>
+
+<p>I'm strongest in Go, with some years of experience writing code that runs at scale. I'm actively learning Zig, and I'm deeply enjoying the process.
+  I'm familiar with C and Rust (book completed).</p>
+
+<h2>Present</h2>
+
+<p>I've recently been working on an anonymised proof-of-work based distributed hash table, with an innovative trust mechanism.
+  A writer pays in CPU cycles, while a reader pays in network participation.
+  It's a relatively simple protocol, yet performant and with many possible applications.
+  If you're interested, check it out: <a href="https://inneslabs.uk/cs/dave/">dave</a>.</p>
+<p>I also have a side-project. I'm in the initial phase of a project to build a decentralised CDN for non-profits. I'm collaborating with schools and home-owners to make use of untapped bandwidth.</p>
+
+<h2>Past</h2>
+
+<h3>2018 - 2024: Senior Software Engineer, swissinfo.ch</h3>
+<p>After 2 years, and following the departure of the operations team and the most senior developer, I was given more responsibility than I would've ever expected.
+  This was also the initial phase of a multi-million Swiss Franc project to migrate a monolithic CMS and millions of content items to a cloud-based service architecture.
+  I was also the only developer on the team able to write languages other than Java.</p>
+<p>I delivered thousands of lines of Terraform that defined the new infrastructure, including Postgres DBs, CDN distributions, S3 configs, IAM policies, Secrets, integrations with Azure, logging, search clusters, you name it.</p>
+<p>Due to the company's (questionable) decision to use AWS products **whenever** possible, I wrote many Lambda functions in Go to connect these products using the AWS SDK.</p>
+<p>My biggest task was to build a web application to augment the company's chosen CMS, Wordpress.
+  It's called Toolbox, and called almost all of our APIs, giving journalists a snappy user experience like nothing I've seen before.
+  It was buildless plain JS, and with the only dependency being Google's Lit framework.
+  The whole app was around 3000 lines plus the library, totalling around 100KB in size.
+  Nope, it wasn't even minified, so we could even debug it easily without source maps.
+<p>By this point, I'd also garnered enough trust that I was able to spend an occasional few days refactoring without my boss wondering what I was doing.
+  This resulted in the product staying as clean as on day one. GG.</p>
+<p>That sounds so good, why did you leave? I'm happy to finish the story during our call. ;)</p>
+
+<h3>2014 - 2017: Ski Bum, Blazing Fast</h3>
+<p>I lived in an off-grid shack in the forest, in Chamonix, France.
+  I worked as a freelance Web Developer. My main client was Trek & Mountain Magazine.
+  My focus during this time was skiing and flying.</p>
+
+<h3>2011 - 2014: Higher Engineering Apprentice, General Electric Aviation Systems</h3>
+<p>My journey as a professional engineer began at age 18.
+  I completed a challenging and highly-competitive 3 year Higher Engineering Apprenticeship.
+  This is where I learned many engineering principles that continue to serve me well.</p>
+
+<h3>Childhood</h3>
+<p>My uncle gave my mum a computer to help with her business.
+  I was around 8 years of age. At around age 12, I discovered programming with VB.NET.</p>
+<p>At age 14, I began with C. I remember writing Conway's Game of Life 3 or 4 times, making it faster & cleaner.
+  I had hundreds of projects.
+  I was using stuff like Microsoft Live's free ASP.NET web hosting, then PHP, writing to files with MD5 sums for filenames.
+  I just figured it out somehow, as a kid does.</p>
+<p>Once, I made a password manager, and gave it to a friend to test, he also gave it to a friend.
+  I recieved a C# For Dummies book, kindly ordered from my own Amazon account.
+  I haven't made a password manager since, actually!</p>
+
+<h2>Contact</h2>
+
+<a href=">mailto:joey@inneslabs.uk">joey@inneslabs.uk</a>
+<a href="tel:+447481019717">+447481019717</a>
+
+</body>
+</html>
