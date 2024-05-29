@@ -200,7 +200,7 @@ daved -e 12.34.56.78:1234 # bootstrap to peer at address
 ```bash
 daved set hello_dave # write hello_dave to the network with default difficulty of 16 bits
 daved -d 32 set hello_world # write hello_world to the network with difficulty of 32 bits
-daved get <HASH> # get the dat with the given work hash from the network
+daved get $HASH # get the dat with the given work hash from the network
 daved setf myfile.txt # write a very small file to the network
 ```
 
