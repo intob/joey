@@ -158,6 +158,7 @@ Unfortunately, if an attacker has more bandwidth than any given node, the node c
 #### Cuckoo Filter
 The best we can do is deal with garbage packets as efficiently as possible. This ensures that the bottleneck is a node's bandwidth, and not our crappy code. This also means that if any authentic packets are received during the attack, we're more likely to process them. As described earlier, a Cuckoo filter provides constant-time lookups with a small memory footprint for the given probability of false-positives. The filter allows us to assert with high probability if we have seen a packet before. The filter is reset at a constant interval. Any packet seen twice since the filter reset is dropped. This is the first line of defence, ensuring mimimum possible computation of garbage packets.
 
+I chose a 16-bit fingerprint as opposed to an 8-bit fingerprint to reduce the rate of false-positives from ~3% to ~0.01%. As each dat is very valuable, we don't want to drop packets in error. Dropping packets in error would have knock-on effects, such as reducing our efficiency of earning trust with other peers.
 
 ## Storing Large Files
 As mentioned earlier, all application-specific complexity is pushed up the stack. Dave is purely a packet-sharing protocol, with no built-in features for storing large files. That said, I have considered the need for storing large files in the network.
