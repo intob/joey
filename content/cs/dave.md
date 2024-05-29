@@ -125,6 +125,40 @@ if newest != nil && npeer > 0 && nepoch%(max(PUSH, PUSH/npeer)) == 0 {
 ```
 Excuse my dense code. This is how I crammed the protocol into around 640 lines. After some time, you get used to it. I've found that keeping line count low helped my productivity, and ensured that the protocol remained a minimum viable representation of the idea. There is something satisfying about knowing that you could only remove a line by one-lining the error checks, which I tend not to do because I find that that really does hurt readability.
 
+## Resilience to Attack
+
+### Sybil Attack
+A Sybil attack is one where an attacker creates many peers that join the network. Failing to consider this would result in the network losing energy to these numerous byzantine nodes that are inexpensive to spawn.
+
+The protocol defends against Sybil attack in various simple ways.
+
+#### 16 Port Limit Per IP Using 4-bit Hash
+The first measure is in the packet filter; each IP address is limited to 16 ports because the port number is passed into a 4-bit multiply-then-shift hash function. In future, we could improve this by limiting each IP address to 1 port by omitting the port from the filter key. I would then add a flag for local testing, which would simply include the port number in the fitler key. This would also be more efficient because we don't need to do any computation on the remote port number. I suppose this needs additional consideration, because there are circumstances where running multiple daves on one IP could be nice, although simplicity and security clearly trump that.
+
+#### Dat Delay 
+A node must wait some time before receiving dats. They must participate in the gossip of peers without receiving any dats, until the defined period has elapsed. They will then start to receive dats very slowly, based on the PROBE constant.
+
+#### Trust
+A node normally selects only trusted peers to receive dats, but occasionally an untrusted peer is probed. Over time, a node is able to build trust with peers, therefore receiving dats more frequently. As a peer earns trust, they are more likely to be selected, thereby having more bandwidth allocated to them.
+
+### Eclipse Attack
+An Eclipse attack is one where an attacker attempts to poison the peer tables of peers that it discovers on the network. This poisoning may be either byzantine nodes controlled by the attacker, or simply bogus peer descriptors.
+
+### NPEER Limit
+We only accept PEER messages containing up to NPEER peer descriptors. I recommend that this value is either 2 or 3. I err on the side of caution with 2, because there is little benefit to speeding up the peer discovery in this way. It would be more secure to ask for peers more often.
+
+Funny! While writing this (2024-05-29), I just discovered a vulnerability to eclipse attack. A byzantine peer may send many PEER messages, limited only by the packet filter. This makes address poisoning trivial. I will resolve this using a boolean flag on the peer. The flag will be set when sending a GETPEER message, and unset when receiving a PEER message. This way, we only add peers when we are expecting them.
+
+
+### Denial of Service
+This attack is the simplest to orchestrate, and yet one of the hardest to deal with. A denial of service attack is one where an attacker sends packets that induce the maximum amount of computation on the remote. HTTP servers are commonly the recipients of such attacks, which is why we use CDNs where possible to shield our origin servers. This is obviously not possible for stateful APIs and databases. That's why we put databases in private networks, and employ efficient filtering of API requests, often using an IP-based rate limiter. Obviously we can't run our peer-to-peer application in a private network unless we only want to use it in a datacenter.
+
+Unfortunately, if an attacker has more bandwidth than any given node, the node can simply be denied service by exausting their bandwidth. If the attacker has more bandwidth than the entire network combined, the whole network is denied service. So if you advocate for a given peer-to-peer network, the best way that you can support the network is by giving your bandwidth. Run a node.
+
+#### Cuckoo Filter
+The best we can do is deal with garbage packets as efficiently as possible. This ensures that the bottleneck is a node's bandwidth, and not our crappy code. This also means that if any authentic packets are received during the attack, we're more likely to process them. As described earlier, a Cuckoo filter provides constant-time lookups with a small memory footprint for the given probability of false-positives. The filter allows us to assert with high probability if we have seen a packet before. The filter is reset at a constant interval. Any packet seen twice since the filter reset is dropped. This is the first line of defence, ensuring mimimum possible computation of garbage packets.
+
+
 ## Storing Large Files
 As mentioned earlier, all application-specific complexity is pushed up the stack. Dave is purely a packet-sharing protocol, with no built-in features for storing large files. That said, I have considered the need for storing large files in the network.
 
@@ -153,34 +187,22 @@ Thank you for reading. I value advice and ideas, if you have any, please do reac
 
 ### Run as Node
 Executing with no command (just flags) puts the program in it's default mode of operation, participating in the network.
-
-#### daved
-By default, the program listens on all network interfaces, port 1618.
-
-#### daved -v
-Verbose logging. Use grep to filter logs.
-
-#### daved -l :2024
-Listen to all network interfaces, on port 2024. Same as daved -l [::]:2024
-
-#### daved -e :1969
-Bootstrap to peer at port on local machine.
-
-#### daved -e 12.34.56.78:1234
-Bootstrap to peer at given address and port.
+```bash
+daved # listen on all network interfaces, port 1618
+daved -v # verbose logging, use grep to filter logs
+daved -v | grep /d/pr # verbose logging, with only the daemon's prune procedure logs output
+daved -l :2024 # listen on all network interfaces, port 2024. Same as -l [::]:2024
+daved -e :1969 # bootstrap to peer on local machine, port 1969
+daved -e 12.34.56.78:1234 # bootstrap to peer at address
+```
 
 ### Commands
-#### daved set hello_dave
-Write "hello_dave" to the network with default difficulty of 16. This will probably take just a few seconds on a low-power consumer laptop or phone.
-
-#### daved -d 32 set hello_world
-Write hello_world to the network with difficulty of 32.
-
-#### daved get <HASH>
-Get a dat from the network, output as text, and exit immediately.
-
-#### daved setf myfile.txt
-Write a very small file (<= ~1400B) to the network. Abstractions that allow efficient large file storage will come.
+```bash
+daved set hello_dave # write hello_dave to the network with default difficulty of 16 bits
+daved -d 32 set hello_world # write hello_world to the network with difficulty of 32 bits
+daved get <HASH> # get the dat with the given work hash from the network
+daved setf myfile.txt # write a very small file to the network
+```
 
 ## References
 Thank you to Jean-Philippe Aumasson, for the Blake2 hash function. Thanks also to the other researchers who helped him, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein.
