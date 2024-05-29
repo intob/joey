@@ -99,7 +99,7 @@ Therefore, peers with a higher trust score are more likely to be selected for go
 In essence, the longer a peer (ip-port) remains in an other's peer table, the higher the trust score will likely be, and therefore the more bandwidth allocated to that peer.
 
 ### Packet Filter
-Protocol-deviating packets may be sent from malicious or misconfigurred nodes. A packet filter is cruicial for efficiently dropping garbage packets.
+Protocol-deviating packets may be sent from malicious or misconfigured nodes. A packet filter is cruicial for efficiently dropping garbage packets.
 
 #### How do we efficiently assert whether or not we have seen a packet before?
 Asserting with 100% certainty is very computationally expensive, but asserting with a very high degree of probability is significatly cheaper, and advances in this field have led to efficient filters.
@@ -112,6 +112,19 @@ What do we insert into the filter? We take the remote IP, 4-bit hash of port, an
 
 Internally, IP addresses are always mapped to IPv6 to avoid confusion.
 
+Note: I'm going to switch to Murmur3, following a some benchmarks that I did: /cs/fasthashperf/.
+
+## Scaling
+Aside from EPOCH being used to control the frequency of operations and also bandwidth consumed, the number of known peers is also used to modify the intervals where appropriate. For example, the following snippet sends the newest dat to a random peer (excluding bootstrap nodes), but as more peers become known, the more often this is done. I suppose we need to consider bounds for this behaviour to prevent packet loss.
+```go
+if newest != nil && npeer > 0 && nepoch%(max(PUSH, PUSH/npeer)) == 0 {
+    for _, rp := range rndpeers(prs, nil, 1, func(p *peer, l *peer) bool { return !p.edge && available(p, epoch) && dotrust(p, l)}) {
+        pktout <- &pkt{&dave.M{Op: dave.Op_DAT, V: newest.V, T: Ttb(newest.Ti), S: newest.S, W: newest.W}, addrfrom(rp.pd)}
+    }
+}
+```
+Excuse my dense code. This is how I crammed the protocol into around 640 lines. After some time, you get used to it. I've found that keeping line count low helped my productivity, and ensured that the protocol remained a minimum viable representation of the idea. There is something satisfying about knowing that you could only remove a line by one-lining the error checks, which I tend not to do because I find that that really does hurt readability.
+
 ## Storing Large Files
 As mentioned earlier, all application-specific complexity is pushed up the stack. Dave is purely a packet-sharing protocol, with no built-in features for storing large files. That said, I have considered the need for storing large files in the network.
 
@@ -122,7 +135,7 @@ The simplest approach to storing large files, and the earliest proof that I impl
 An optimised approach is to write the large file as a sequence of dats, and concurrently build a merkle tree, where additional pointer dats are used to reference dats containing the file's content. The hash of the root of the tree may then be used as the reference to the file. A reader may then traverse the tree, collecting all of the dats in parallel, and re-assemble the file. Reads of this nature are significantly faster than the linked-list approach.
 
 ## Some Repositories 
-Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be part of this idea.
+Oh boy, is there a lot for us to build... I could never do even a small fraction of it alone. I would love for you to be a part of this idea.
 
 ### godave is the protocol implementation in library form, written in Go.
 Protocol https://github.com/intob/godave/
@@ -167,7 +180,7 @@ Write hello_world to the network with difficulty of 32.
 Get a dat from the network, output as text, and exit immediately.
 
 #### daved setf myfile.txt
-Write a very small file (<= ~1400B) to the network. Abstractions that allow efficient large file storage will come. I guess someome much smarter than I will figure it out with Merkle trees and stuff. Come on you great minds!
+Write a very small file (<= ~1400B) to the network. Abstractions that allow efficient large file storage will come.
 
 ## References
 Thank you to Jean-Philippe Aumasson, for the Blake2 hash function. Thanks also to the other researchers who helped him, namely Samuel Neves, Zooko Wilcox-O'Hearn, and Christian Winnerlein.
