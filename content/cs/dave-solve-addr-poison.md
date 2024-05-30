@@ -179,16 +179,16 @@ case dave.Op_PEER: // STORE PEERS
 // ...
 ```
 
-## Solution 1 demo
+## Solution 1
 As you can see, any unexpected PEER messages are simply dropped.
 ![solution_demo](/img/cs/dave/vulnerability_1/solution/3840.avif)
 
-# Solution 2
 After I'd implemented the 'fix', I grabbed a cup of tea and moved to a different room. I was under the impression that my solution was pretty good.
 
 What followed was an entire evening and night of going down a rabbit hole. I tested, and I tweaked. The normal peers were operating just fine, but the edge (bootstrap) nodes were in a cycle of dropping and re-adding peers. I struggled to identify the cause. My solution was relatively simple, but had side effects that I needed to patch. This is where I should have shut my laptop and grabbed another cup of tea.
 
-Since I was a child, I've had a habbit of tweaking things out of scope of the current task. I also did that. The up-side is that now the peer map no longer uses a string key, but a uint64.
+# Notable unrelated improvements
+Since I was a child, I've had a habbit of tweaking things out of scope of the current task. I also did that. The up-side is that now the peer map no longer uses a string key, but a uint64 returned by a fingerprint function that takes the remote address.
 
 I also removed the 4-bit multiply-then-shift hash function that was used to limit the port space to 16 ports per IP. Now, each IP is limited to one port, unless a test flag is set. If the test flag is set, there is no limit of ports per IP. This is more efficient and less complex.
 
@@ -196,15 +196,29 @@ Oh, I almost forgot, following my recent [benchmarks of Murmur3 and FNV](/cs/fas
 
 I managed to shut my laptop and sleep at midnight, without a working solution. Well done Joey!
 
-This morning (2024-05-30), I quickly found a better solution and had it working in just a few minutes.
+The following day (2024-05-30), I made another significant improvement after arriving at the second solution documented below. The issue was that the algorithm was too biased toward trusting peers with high trust scores. This resulted in the trust scores diverging over time, with one peer becoming favoured over all others. Instead, I wanted trust scores to converge over time. To do this, I pass the trust score through an exponential function, resulting in a flattening of the distribution of trust scores. See below:
+```go
+// dotrust is the function called during random peer selection.
+// k is the peer to consider, legend is the most trusted peer.
+// Constants: PROBE = 8, TRUSTEXP = .375
+func dotrust(k *peer, legend *peer) bool {
+	if mrand.Intn(PROBE) == 1 {
+		return true
+	}
+	return mrand.Float64() < math.Pow(k.trust/legend.trust, TRUSTEXP)
+}
+```
 
-This solution required fewer changes, and no patches or side effects.
+# Solution 2
+I quickly found a better solution and had it working in just a few minutes. This solution required fewer changes, and no patches or side effects.
 
 Rather than a boolean property, we record the time when a PEER message is accepted. If another PEER message is received within PING epochs, drop it. This is superior to the boolean approach because we don't need to remember to set the flag when sending GETPEER messages. It's also more flexible and reliable.
 
 I find the solution good because it resolves the vulnerability by adding the missing bound on acceptable PEER messages without excessive rigidity or complexity.
 
 It's funny that I had not implemented this at first, as it's the same mechanism by which unresponsive peers are dropped. I remember that I'd had similar frustration while implementing stable peer membership at the beginning of the project.
+
+
 
 As it's easier and more informative to paste the entire library, rather than snippets, below is the state that I arrived at.
 
@@ -239,7 +253,7 @@ const (
 	FANOUT   = 2      // Number of peers randomly selected when selecting more than one.
 	PROBE    = 8      // Inverse of probability that an untrusted peer is randomly selected.
 	GETNPEER = 2      // Limit of peer descriptors in a PEER message.
-	TRUSTEXP = .3     // Exponent to apply to trust score to flatten distribution of peer selection.
+	TRUSTEXP = .375   // Exponent to apply to trust score to flatten distribution of peer selection.
 	DELAY    = 5039   // Epochs until new peers may be randomly selected.
 	PING     = 14197  // Epochs until silent peers are pinged with a GETPEER message.
 	DROP     = 131071 // Epochs until silent peers are dropped from the peer table.
