@@ -82,6 +82,7 @@ pre {
   background-color: transparent !important;
   overflow-x: scroll !important;
   max-width: 100% !important;
+  font-size: 12px !important;
   padding: 0 10px;
 }
 
