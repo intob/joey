@@ -78,7 +78,7 @@ main a {
 
 a:hover { border-color: var(--lighten-3) }
 
-pre {
+pre, code {
   background-color: transparent !important;
   overflow-x: scroll !important;
   max-width: 100% !important;
