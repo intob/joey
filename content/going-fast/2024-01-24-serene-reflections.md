@@ -1,5 +1,5 @@
 ---
-title: "Serene reflections amidst torrential canyons"
+title: Serene reflections amidst torrential canyons
 description: "As I grow, I am discovering peace & ease... I am immensely thankful for the guidance."
 date: 2024-01-24
 img: /img/life/engstligen/

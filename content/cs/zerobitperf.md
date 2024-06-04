@@ -1,6 +1,6 @@
 ---
 title: Comparing the performance of a de Bruijn sequence against a simple lookup table
-description: "Precomputed de Bruijn sequences are cool, but are they faster than simple lookup tables?"
+description: Precomputed de Bruijn sequences are cool, but are they faster than simple lookup tables?
 date: 2024-05-17
 ---
 While optimising the naive proof-of-work algorithm in my dave protocol implementation, I compared the efficiency of some methods of counting the number of leading zero bits in a byte slice.

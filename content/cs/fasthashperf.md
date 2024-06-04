@@ -1,6 +1,6 @@
 ---
 title: Comparing the performance of non-cryptographic hash functions
-description: "I benchmarked some fast hash functions in Go..."
+description: I benchmarked some fast hash functions in Go...
 date: 2024-05-19
 ---
 In order to speed up a UDP packet filter, I benchmarked some fast hash functions to find the fastest. I compared two implementations of Murmur3, and FNV from the Go standard library.

@@ -1,6 +1,6 @@
 ---
-title: "First time in Madeira"
-description: "Considering the Maritime alps, I looked further afield, to warmer climes. I almost went to Corsica..."
+title: First time in Madeira
+description: Considering the Maritime alps, I looked further afield, to warmer climes. I almost went to Corsica...
 date: 2023-12-19
 img: /img/life/madeira/sea/
 ---
