@@ -2,6 +2,7 @@
 title: Leaving projects unfinished is cruicial for maximising rate of learning
 description: Read me out...
 date: 2024-05-20
+status: draft
 ---
 As I browse old works from venerable computer scientists, I often encounter brilliant yet unfinished projects.
 
