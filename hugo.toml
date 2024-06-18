@@ -1,6 +1,6 @@
 baseURL = "https://inneslabs.uk"
 languageCode = "en-us"
-title = "Joey of Innes Labs"
+title = "Joey Innes"
 pluralizelisttitles = false
 paginate = 12
 
@@ -9,7 +9,6 @@ paginate = 12
     getenv = [
       "^HUGO_",
       "^CI$",
-      "HIDDEN_SERVICE_HOSTNAME",
       "COMMIT_HASH",
       "CF_PAGES_COMMIT_SHA"
     ]
@@ -28,30 +27,42 @@ paginate = 12
 
 [menu]
   [[menu.main]]
+    name = "Coaching"
+    url = "/coaching"
+    weight = 1
+  [[menu.main]]
     name = "Computer Broscience"
     url = "/cs"
-    weight = 1
+    weight = 2
  [[menu.main]]
     name = "Going Fast"
     url = "/going-fast"
-    weight = 2
+    weight = 3
   [[menu.main]]
     name = "Reflections"
     url = "/reflections"
-    weight = 3
+    weight = 4
+  [[menu.main]]
+    name = "YouTube"
+    url = "https://youtube.com/@joeyinnes"
+    weight = 5
   [[menu.main]]
     name = "GitHub"
     url = "https://github.com/intob"
-    weight = 4
+    weight = 6
+  [[menu.main]]
+    name = "WhatsApp"
+    url = "https://wa.me/qr/DK47BPY7RGOFD1"
+    weight = 7
   [[menu.main]]
     name = "Telegram"
     url = "https://t.me/intob21"
-    weight = 5
+    weight = 8
   [[menu.main]]
     name = "Signal"
     url = "https://signal.me/#eu/5Mrl2kI9a/e2/PFGtcqhqBEo9O70vOBS5rLg5Qv/nN1JQJ0LlI5HPrSO/mF/WokZ"
-    weight = 6
+    weight = 9
   [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 7
+    weight = 10
