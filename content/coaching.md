@@ -21,4 +21,4 @@ My flying certifications:
 - Paragliding License, Swiss - 2021
 
 Note:
-I am not a paragliding instructor, therefore I cannot take responsibility for your decisions while flying. I can only provide advice, feedback, and share my knowledge as an experienced pilot.
+I am not a paragliding instructor, and therefore I cannot take responsibility for your decisions while flying. I can only provide advice, feedback, and share my knowledge as an experienced pilot.
