@@ -12,7 +12,7 @@ Considering the Maritime alps, I looked further afield, to warmer climes. I almo
 
 After hearing of the Bitcoin conference and arranging wirh a couple of friends to go together, I saw photos & videos of this incredible island.
 
-My imagination ran wild as I explored 3d maps, marvelling at the topograpgy.
+My imagination ran wild as I explored 3D maps, marvelling at the topography.
 
 The island is inhabited by one of the friendliest populations I've ever seen.
 

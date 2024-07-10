@@ -30,13 +30,13 @@ paginate = 12
     name = "Coaching"
     url = "/coaching"
     weight = 1
-  [[menu.main]]
-    name = "Computer Broscience"
-    url = "/cs"
-    weight = 2
  [[menu.main]]
     name = "Going Fast"
     url = "/going-fast"
+    weight = 2
+  [[menu.main]]
+    name = "Computer Broscience"
+    url = "/cs"
     weight = 3
   [[menu.main]]
     name = "Reflections"
@@ -63,6 +63,10 @@ paginate = 12
     url = "https://signal.me/#eu/5Mrl2kI9a/e2/PFGtcqhqBEo9O70vOBS5rLg5Qv/nN1JQJ0LlI5HPrSO/mF/WokZ"
     weight = 9
   [[menu.main]]
+    name = "Email"
+    url = "/email.png"
+    weight = 10
+  [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 10
+    weight = 11
