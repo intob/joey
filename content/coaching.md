@@ -1,6 +1,7 @@
 ---
 title: Speedflying Coaching
 description: I can help you increase your safety margin, and then work with you to develop your piloting.
+img: /img/coaching/matt/
 ---
 I have been speedflying since 2014, and have accumulated many thousands of flights and hundreds of hours. I've made most, if not all, of the mistakes that a pilot can make. I've reformed and continue to develop my flying style. I've experimented and applied learnings from other mountain sports. My paragliding experience helps me to assess weather conditions.
 
