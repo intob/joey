@@ -27,8 +27,8 @@ paginate = 12
 
 [menu]
   [[menu.main]]
-    name = "Coaching"
-    url = "/coaching"
+    name = "Speedflying guiding & mentorship"
+    url = "https://learntospeedfly.com"
     weight = 1
  [[menu.main]]
     name = "Going Fast"
