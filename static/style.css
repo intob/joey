@@ -32,9 +32,10 @@ p, h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
-article img {
-  width: 96vw;
+.hero img, article img {
+  width: 100%;
   max-width: 3840px;
+  height: auto;
 }
 
 article.teaser {
