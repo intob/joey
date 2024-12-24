@@ -1,6 +1,6 @@
 ---
 title: First thoughts on Zig
-description: 
+description: I describe what I like about the Zig systems programming language, and what I don't like after a couple of weeks of tinkering.
 date: 2024-12-23
 ---
 I've done very litte systems programming. I wrote Conway's Game of Life in C as a teenager. I also did a bit of assembly at GE Aviation Systems. A few years ago, I completed the Rust programming book, but struggled with the language beyond that, and never grew to love it.

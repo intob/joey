@@ -16,7 +16,6 @@ html {
   background: linear-gradient(-0.0625turn, var(--dark-1), var(--dark-2));
   color: #f0f0f0f0;
   min-height: 100vh;
-  font-size: 12px;
 }
 
 body { margin: 0 }
@@ -82,8 +81,10 @@ a:hover { border-color: var(--lighten-3) }
 
 pre, code {
   background-color: transparent !important;
-  max-width: 100% !important;
-  padding: 0 10px;
+}
+
+.highlight {
+  margin: 10px;
 }
 
 .flex {
