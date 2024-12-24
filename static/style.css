@@ -69,11 +69,11 @@ a {
   border: 1px solid var(--lighten-2);
   color: var(--lighten-3);
   transition: border-color 127ms;
+  word-break: break-all;
 }
 
 main a {
   padding: 0 5px;
-  word-break: break-all;
   color: var(--gold);
 }
 
