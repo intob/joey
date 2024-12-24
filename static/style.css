@@ -93,6 +93,7 @@ pre, code {
 
 .highlight {
   margin: 10px;
+  overflow-x: auto;
 }
 
 .flex {
