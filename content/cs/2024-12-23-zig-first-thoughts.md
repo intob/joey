@@ -137,7 +137,7 @@ Possibly, I'm simply a better programmer these days, but I find it more likely t
 
 Zig is not a fancy language, it really does feel close to C. I feel that this inherently makes it easier to learn than Rust.
 
-Mostly writing Go recently, I expected that Zig's memory management would be a really big hurdle. While it has taken me a few days to become comfortable allocating memory on the heap, I was surprised how easy I found it. So far I've only had one memory leak, and the compiler made it trivial to locate.
+Mostly writing Go recently, I expected that Zig's memory management would be a really big hurdle. While it has taken me a few days to become comfortable allocating memory on the heap, I was surprised how easy I found it.
 
 I'm still not fully familiar with each of the standard library's allocators, and I mostly use the GeneralPurposeAllocator.
 
