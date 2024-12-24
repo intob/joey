@@ -32,6 +32,10 @@ p, h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
+h1 {
+  margin: 60px 0 0 0;
+}
+
 .hero img, article img {
   width: 100%;
   max-width: 3840px;
@@ -81,6 +85,10 @@ a:hover { border-color: var(--lighten-3) }
 
 pre, code {
   background-color: transparent !important;
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 .highlight {
