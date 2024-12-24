@@ -10,8 +10,6 @@
     {{ end }}
     {{- $commitHash := or (getenv "COMMIT_HASH") (getenv "CF_PAGES_COMMIT_SHA") -}}
     {{- if $commitHash -}}
-        <div class="banner">
-            <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">commit {{ $commitHash }}</a>
-        </div>
+        <a href="https://github.com/intob/joey/commits/main/" ref="nofollow" class="addr">commit {{ $commitHash }}</a>
     {{- end -}}
 </nav>
