@@ -134,7 +134,7 @@ The naive and much slower implementation would be as follows:
 ```zig
 pub fn indexOfPos(comptime T: type, slice []const T, start_index: usize, value T) ?usize
     if (start_index >= slice.len) return null;
-    var i: usize = 0;
+    var i: usize = start_index;
     while (i < slice.len) : (i += 1) {
         if (slice[i] == value) return i;
     }
