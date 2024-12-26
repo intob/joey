@@ -4,6 +4,7 @@
   {{ end }}
   <section>
     <h3>{{ .Title }}</h3>
+    <span class="meta">{{ .Date.Format "2006-01-02" }}</span>
     <p>{{ .Description }}</p>
   </section>
 </article>
