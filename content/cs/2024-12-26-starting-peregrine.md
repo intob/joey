@@ -7,9 +7,9 @@ If you're very familiar with Zig, then you'll know that the standard library HTT
 
 [Zap](https://github.com/zigzap/zap) is an alternative. Zap is built on the fantastic [Facil.io](https://facil.io) networking library written in C.
 
-Now, while there are plenty of fast HTTP servers, at time of writing, I couldn't find a production-ready high-performance HTTP server written purely in Zig.
+Now, while there are plenty of fast HTTP servers, at time of writing, I couldn't find a production-ready high-performance HTTP server written purely in Zig. There is [http.zig](https://github.com/karlseguin/http.zig), but according to Karl, the developer, it must sit behind a reverse-proxy because it's not resilient to DoS attack.
 
-As I need a real project to get deeper into the language, and having never written a HTTP server from scratch before, I felt that this would be a great opportunity to have fun learning about Zig, async IO, vectored IO, memory alignment, zero-alloc, zero-copy and a bunch of other systems stuff.
+As I need a real project to get deeper into the language, and having never written a HTTP server from scratch before, I felt that this would be a great opportunity to have fun learning about Zig, async IO, vectored IO, memory alignment, zero-alloc, zero-copy and a bunch of other systems stuff. I've also found that working with constraints (such as following a spec) is great for forcing one to find a solution, rather than skirting around an issue. Also, writing a library is a particularly good way to learn a language because it forces you to write reusable (and usable) software.
 
 [Peregrine - a bleeding fast HTTP server](https://github.com/intob/peregrine)
 
@@ -64,72 +64,9 @@ fn respond(self: *Worker, socket: posix.socket_t) !void {
 
 One optimisation you can see above is in the respond method. This is called after the user's on_request handler is called, providing that they did not hijack the response. More on that later. If the response has a body, vectored IO is used to write the headers and body in a single syscall, without needing to concatenate the buffers. If there is no body, the response is written by repeatedly writing to the socket until all bytes are written. Without a body, this is likely to be achieved in a single syscall.
 
-Making use of x86's SIMD and ARM's NEON capabilities allow us to speed up a variety of operations. One example that you will see often is chunking. This is where slices are processed in chunks, rather than operating on single bytes. This is important because operating on single bytes does not make good use of the cache. A good example of this is in Zig's stdlib: `std.mem.indexOfScalarPos`. See below:
-```zig
-pub fn indexOfScalarPos(comptime T: type, slice: []const T, start_index: usize, value: T) ?usize {
-    if (start_index >= slice.len) return null;
+Making use of x86's SIMD and ARM's NEON capabilities allow us to speed up a variety of operations. One example that you will see often is chunking. This is where slices are processed in chunks, rather than operating on single bytes. This is important because operating on single bytes does not make good use of the cache. A good example of this is in Zig's stdlib: `std.mem.indexOfScalarPos`.
 
-    var i: usize = start_index;
-    if (backend_supports_vectors and
-        !std.debug.inValgrind() and // https://github.com/ziglang/zig/issues/17717
-        !@inComptime() and
-        (@typeInfo(T) == .int or @typeInfo(T) == .float) and std.math.isPowerOfTwo(@bitSizeOf(T)))
-    {
-        if (std.simd.suggestVectorLength(T)) |block_len| {
-            // For Intel Nehalem (2009) and AMD Bulldozer (2012) or later, unaligned loads on aligned data result
-            // in the same execution as aligned loads. We ignore older arch's here and don't bother pre-aligning.
-            //
-            // Use `std.simd.suggestVectorLength(T)` to get the same alignment as used in this function
-            // however this usually isn't necessary unless your arch has a performance penalty due to this.
-            //
-            // This may differ for other arch's. Arm for example costs a cycle when loading across a cache
-            // line so explicit alignment prologues may be worth exploration.
-
-            // Unrolling here is ~10% improvement. We can then do one bounds check every 2 blocks
-            // instead of one which adds up.
-            const Block = @Vector(block_len, T);
-            if (i + 2 * block_len < slice.len) {
-                const mask: Block = @splat(value);
-                while (true) {
-                    inline for (0..2) |_| {
-                        const block: Block = slice[i..][0..block_len].*;
-                        const matches = block == mask;
-                        if (@reduce(.Or, matches)) {
-                            return i + std.simd.firstTrue(matches).?;
-                        }
-                        i += block_len;
-                    }
-                    if (i + 2 * block_len >= slice.len) break;
-                }
-            }
-
-            // {block_len, block_len / 2} check
-            inline for (0..2) |j| {
-                const block_x_len = block_len / (1 << j);
-                comptime if (block_x_len < 4) break;
-
-                const BlockX = @Vector(block_x_len, T);
-                if (i + block_x_len < slice.len) {
-                    const mask: BlockX = @splat(value);
-                    const block: BlockX = slice[i..][0..block_x_len].*;
-                    const matches = block == mask;
-                    if (@reduce(.Or, matches)) {
-                        return i + std.simd.firstTrue(matches).?;
-                    }
-                    i += block_x_len;
-                }
-            }
-        }
-    }
-
-    for (slice[i..], i..) |c, j| {
-        if (c == value) return j;
-    }
-    return null;
-}
-```
-This searches a slice for a specific value. Normally this would be a slice of bytes, and we'd be searching for a byte. If we were to search the slice byte-by-byte, the CPU would have to individually load each byte into a register for comparison. In the above example, you can see how a bit mask is used to efficiently test if the target byte is somewhere in the chunk.
-
+This searches a slice for a specific value. Normally this would be a slice of bytes, and we'd be searching for a byte. If we were to search the slice byte-by-byte, the CPU would have to individually load each byte into a register for comparison. In `std.mem.indexOfScalarPos`, you can see how a bit mask is used to efficiently test if the target byte is somewhere in the chunk.
 The naive and much slower implementation would be as follows:
 ```zig
 pub fn indexOfPos(comptime T: type, slice []const T, start_index: usize, value T) ?usize
