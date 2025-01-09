@@ -1,7 +1,7 @@
 ---
 title: "Elegance in Global Cooperation: Engineering Simplicity, Purity and Correctness"
 description: I draw parallels between engineering and social systems, suggesting that some fundamnetal engineering principles and concepts of game theory may be applied to improve the fairness and productivity of human cooperation at scale.
-date: 2024-01-09
+date: 2025-01-09
 ---
 Today, after reading a good chunk of Serious Cryptography, by J. P. Aumasson, I was lamenting over the likeness of computer science and society, and the way that game theory and complexity theory are interlinked. Reflecting on my day's study, and my view of the world in general, I found myself drawing many comparisons that seemed insightful.
 
