@@ -12,30 +12,30 @@ I'm currently diving quite deep into systems programming in Zig. While there are
 What I like most about the language is it's simplicity. Similar to Go in this regard, it didn't take me long to become comfortable with the syntax.
 
 
-## Error handling is not ideal
-One of the most obvious flaws with the language is it's error type. It's impossible to add context or details to errors.
+## Errors lack context
+One of the most obvious flaws with the language is it's error type. It's impossible to add context or details to errors. In contrast, an error in Go for example, is just a value. This allows you to add context as the error is passed up the call stack.
 
-In contrast, an error in Go for example, is just a value. This allows you to add context as the error is passed up the call stack.
+I'm not sure if Zig will offer a solution for this.
 
-I'm not sure if the Zig team will offer a solution for this.
-
+Despite this, errors in Zig are otherwise great, and very easy to handle or throw up the stack.
 
 ## Powerful build system
 Zig exposes a very powerful yet usable build API. Linking C libraries is quite effortless, and I'm a noob to this.
 
-While I'm not yet familiar with much of the build system, I have the feeling that it is probably the best build system that I've seen yet.
+While I'm not yet familiar with much of the build system, I have the feeling that it is probably the best build system that I've seen yet. For me, it was also the hardest part of Zig to beccome comfortable with. I'm still not really comfortable with it. In addition, as the language is so young and volatile, much of the 3rd party documentation for the build system is out of date.
 
+Fortunately, the API is very clean, and so it's not so difficult to figure things out on your own.
 
 ## Lack of interfaces
 Zig's philosophy is to provide low-level building blocks, rather than high-level abstractions. As such, the Zig team felt that interfaces are an unnecessary abstraction.
 
-While I understand this view, I feel that the lack of interfaces can make the language feel quite clunky. This became particularly apparent to me when I began using the standard library's filesystem types.
+While I understand this view, I feel that the language's lack of built-in support for interfaces can make interface implementations feel quite clunky. This became particularly apparent to me when I began using the standard library's filesystem types. I'm sure that this could be greatly improved as the language server matures.
 
-I am open to the possibility that I'm just not yet familiar with some of Zig's idioms. I know there are ways implement polymorhpic behaviour in Zig.
-
+## Expressive language
+I am often surprised by Zig because it tends to work exactly as you'd hope. This is particularly noticeable when implementing polymorphic types and platform-dependent behaviour. This makes writing cross-platform software remarkably easy. For me, Zig really shines in this regard.
 
 ## Generics are beautiful
-Thanks to Zig's expressive compile-time metaprogramming, generics are very easy to implement and perfectly type-safe.
+Thanks to Zig's expressive compile-time metaprogramming, generics are very easy to implement, and are perfectly type-safe.
 
 The following is a generic thread-safe message queue:
 ```zig
@@ -124,11 +124,12 @@ In Go, I very rarely found myself using generics. Generics in Go feel like an af
 Conversely, in Zig, I've used this comptime struct pattern many times to write reusable components.
 
 
-## Standard library is bare not entirely production-ready
-Some packages in the standard library are not production-ready. For example, the Blake3 implementation uses the reference rather than the optimised implementation.
+## Standard library is still rough around the edges
+Some packages in the standard library are not entirely production-ready. For example, the Blake3 implementation uses the reference rather than the optimised implementation.
 
-There are faster and more robust HTTP servers than the one in the standard library, namely [Zap](https://github.com/zigzap/zap) built on facil.io (written in C). I had considered writing a fast HTTP server purely in Zig, until I realised how extensive the HTTP spec is. Even more so with the newer versions of HTTP.
+There are faster and more robust HTTP servers than the one in the standard library, namely [Zap](https://github.com/zigzap/zap) built on facil.io (written in C).
 
+As Zig is still young, it seems only natural that the standard library is not yet polished. Obviously, the language should mature and stabilise before polishing the standard library can become a priority.
 
 ## Memory management made easy
 When I learned Rust (or tried to), I never became comfortable with it, and I was constantly fighting the compiler.
@@ -141,15 +142,14 @@ Mostly writing Go recently, I expected that Zig's memory management would be a r
 
 I'm still not fully familiar with each of the standard library's allocators, and I mostly use the GeneralPurposeAllocator.
 
-
 # Conclusion
 
 I'm only a couple of weeks into my journey with Zig.
 
-Would I use Zig for work? Probably not any time soon. The ecosystem is still to small. For example, there is still no official AWS SDK written in Zig. Despite this, I will continue building with Zig in my own time. 
+Would I use Zig for work? If the project would benefit from optimal performance and reliability, absolutely. For bits such as tooling for managing infrastructure or automated key rotation, where performance is not a concern, I'd likely opt for Go. At time of writing, Zig's ecosystem is still very small compared to Go's.
 
 My reason for beginning with Zig was to get into systems programming, and I'm really enjoying it. I remember faffing with header files in C as a teenager, and I know that building C projects can be a real pain. So far I'm quite happy with Zig, and I'm optimistic that a lot of the kinks will be ironed out as the language matures.
 
 There will never be a perfect language for everyone for all use-cases. As I've been learning Zig, I've come to appreciate how hard it is to design a language that is fit for decades of mission-critical software engineering. It's incredible how good C is, despite it's (lack of) build system. I've also come to realise how much of Go they got right. Writing concurrent software in Zig has left me with an appreciation for Go's channels. The only thing that I would change about Go is the verbose error handling.
 
-I feel that learning a new programming language allows us to open our minds to alternative paradigms. It teaches us how to design better software, and make better use of languages that we already know and love.
+I feel that learning a new programming language allows us to open our minds to alternative paradigms. Questioning what we already know is fundamental to making progress.
