@@ -27,7 +27,7 @@ body {
 nav {
     display: flex;
     flex-wrap: wrap;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 p,
@@ -58,7 +58,6 @@ article.teaser {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    color: var(--lighten-4);
     max-width: 580px;
     word-break: keep-all;
 }
@@ -84,19 +83,17 @@ a {
     display: inline-flex;
     align-items: center;
     padding: 10px 15px;
-    border: 1px solid var(--lighten-2);
     color: var(--lighten-3);
-    transition: border-color 127ms;
+    transition: color 200ms;
     word-break: break-all;
 }
 
 main a {
     padding: 0 5px;
-    color: var(--gold);
 }
 
 a:hover {
-    border-color: var(--lighten-3);
+    color: var(--lighten-4);
 }
 
 pre,
@@ -110,11 +107,6 @@ code {
 
 pre {
     font-size: 14px;
-}
-
-.highlight {
-    margin: 10px;
-    overflow-x: auto;
 }
 
 .flex {
