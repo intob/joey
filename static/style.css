@@ -3,7 +3,7 @@
     --dark-2: hsl(194, 100%, 3%);
     --lighten-1: #ffffff05;
     --lighten-2: #ffffff20;
-    --lighten-3: #ffffff88;
+    --lighten-3: #ffffffc0;
     --lighten-4: #fffffff0;
     --gold: #edae49;
     --blue: #084b83;
@@ -38,7 +38,7 @@ h4,
 h5,
 h6,
 .meta {
-    max-width: 580px;
+    max-width: 600px;
     padding: 0 10px;
     box-sizing: border-box;
 }
@@ -58,7 +58,7 @@ article.teaser {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    max-width: 580px;
+    max-width: 600px;
     word-break: keep-all;
 }
 
@@ -70,11 +70,6 @@ article.teaser img {
     width: 160px;
     height: 160px;
     object-fit: cover;
-}
-
-video {
-    width: 100vw;
-    max-width: 3840px;
 }
 
 a {

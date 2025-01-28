@@ -34,20 +34,13 @@
                 />
             </picture>
             <section>
-                <p>
-                    I'm fascinated by nature's self-similarity. I see an elegant
-                    beauty and power in self-reference. I'm a software engineer.
-                </p>
+                <p>I'm fascinated by nature's self-similarity. I see an elegant beauty and power in self-reference. I'm a software engineer.</p>
             </section>
             <section>
                 <h2>Latest 10</h2>
-                <div class="flex">
-                    {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
-                    <a href="{{ .RelPermalink }}"
-                        >{{ partial "teaser.html" . }}</a
-                    >
-                    {{ end }}
-                </div>
+                {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
+                <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
+                {{ end }}
             </section>
         </main>
     </body>
