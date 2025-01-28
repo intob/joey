@@ -19,7 +19,4 @@ I think that there is still a lot of cryptography for us to discover. Each advan
 
 Anyway... I'm looking for an opportunity to work (possibly unpaid) in systems and network programming. Please reach me if you know of anything.
 
-Below are links to my CV and a couple of references.
-[CV](/doc/joseph-innes-cv.pdf)
-[Reference - GE Aviation Systems](/doc/GE-reference.pdf)
-[Reference - SwissInfo](/doc/SwissInfo-reference.pdf)
+[My CV](https://standardresume.co/r/joey)
