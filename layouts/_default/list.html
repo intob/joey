@@ -4,10 +4,6 @@
 <head>
   <title>{{ $title }} - {{ .Site.Title }}</title>
   <style>
-    ul {
-      list-style: none;
-      padding: 0;
-    }
     h2 {
       margin: 0;
     }
@@ -22,7 +18,7 @@
         <h1>{{ $title }}</h1>
       </header>
       <section>
-        <ul>
+        <ul class="teaser-list">
           {{ range .Paginator.Pages }}
           <li>
             <a href="{{ .RelPermalink }}">

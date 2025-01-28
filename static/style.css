@@ -113,3 +113,8 @@ pre {
     font-size: 0.9rem;
     color: var(--lighten-3);
 }
+
+ul.teaser-list {
+    list-style: none;
+    padding: 0;
+}

@@ -38,9 +38,11 @@
             </section>
             <section>
                 <h2>Latest 10</h2>
+                <ul class="teaser-list">
                 {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
-                <a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a>
+                    <li><a href="{{ .RelPermalink }}">{{ partial "teaser.html" . }}</a></li>
                 {{ end }}
+                </ul>
             </section>
         </main>
     </body>
