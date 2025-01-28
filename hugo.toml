@@ -60,7 +60,7 @@ paginate = 12
     weight = 8
   [[menu.main]]
     name = "Email"
-    url = "/email.png"
+    url = "/email.jpg"
     weight = 9
   [[menu.main]]
     name = "PGP"
