@@ -47,22 +47,26 @@ paginate = 12
     url = "https://github.com/intob"
     weight = 5
   [[menu.main]]
+    name = "Speedflying Mentorship"
+    url = "https://learntospeedfly.com"
+    weight = 6
+  [[menu.main]]
     name = "WhatsApp"
     url = "https://wa.me/qr/DK47BPY7RGOFD1"
-    weight = 6
+    weight = 7
   [[menu.main]]
     name = "Telegram"
     url = "https://t.me/intob1"
-    weight = 7
+    weight = 8
   [[menu.main]]
     name = "Signal"
     url = "https://signal.me/#eu/Pf90i9BhjIlZ9-HA2jnWukewNC7MH02eTgT3dN1Qk6QMAvGdYt1PM5lN2RGCEx-6"
-    weight = 8
+    weight = 9
   [[menu.main]]
     name = "Email"
     url = "/email.jpg"
-    weight = 9
+    weight = 10
   [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 10
+    weight = 11
