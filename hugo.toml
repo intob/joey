@@ -51,22 +51,18 @@ paginate = 12
     url = "https://github.com/intob"
     weight = 6
   [[menu.main]]
-    name = "WhatsApp"
-    url = "https://wa.me/qr/DK47BPY7RGOFD1"
+    name = "Telegram"
+    url = "https://t.me/rmrf11"
     weight = 7
   [[menu.main]]
-    name = "Telegram"
-    url = "https://t.me/intob1"
-    weight = 8
-  [[menu.main]]
     name = "Signal"
-    url = "https://signal.me/#eu/Pf90i9BhjIlZ9-HA2jnWukewNC7MH02eTgT3dN1Qk6QMAvGdYt1PM5lN2RGCEx-6"
-    weight = 9
+    url = "https://signal.me/#eu/IrGiZuEgZz8NHtRNRYtsCygTzbImO8cKTSzkzf_7DywSOTYwMXRFk4pDA1IHmu7Q"
+    weight = 8
   [[menu.main]]
     name = "Email"
     url = "/email.jpg"
-    weight = 10
+    weight = 9
   [[menu.main]]
     name = "PGP"
     url = "/pgp.txt"
-    weight = 11
+    weight = 10
